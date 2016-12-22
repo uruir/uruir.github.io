@@ -52,22 +52,22 @@
 <meta property="og:url" content="http://www.turuir.cn/bolg/2013/12/12/Shell里的有趣命令/index.html">
 <meta property="og:site_name" content="uRuier's Blog">
 <meta property="og:description" content="shell不是黑白的生硬的，也有一些有趣的命令～">
-<meta property="og:image" content="http://www.turuir.cn/bolg/images/shell-fun-order/train.png">
-<meta property="og:image" content="http://www.turuir.cn/bolg/images/shell-fun-order/ls.png">
-<meta property="og:image" content="http://www.turuir.cn/bolg/images/shell-fun-order/fortune.png">
-<meta property="og:image" content="http://www.turuir.cn/bolg/images/shell-fun-order/cowsay.png">
-<meta property="og:image" content="http://www.turuir.cn/bolg/images/shell-fun-order/fortune-cowsay.png">
-<meta property="og:image" content="http://www.turuir.cn/bolg/images/shell-fun-order/cmatrix.png">
-<meta property="og:image" content="http://www.turuir.cn/bolg/images/shell-fun-order/figlet.png">
-<meta property="og:image" content="http://www.turuir.cn/bolg/images/shell-fun-order/toilet.png">
-<meta property="og:image" content="http://www.turuir.cn/bolg/images/shell-fun-order/toilet-color.png">
-<meta property="og:image" content="http://www.turuir.cn/bolg/images/shell-fun-order/oneko.png">
-<meta property="og:image" content="http://www.turuir.cn/bolg/images/shell-fun-order/markdownpad2.jpeg">
+<meta property="og:image" content="http://www.turuir.cn/bolg/blog/images/shell-fun-order/train.png">
+<meta property="og:image" content="http://www.turuir.cn/bolg/blog/images/shell-fun-order/ls.png">
+<meta property="og:image" content="http://www.turuir.cn/bolg/blog/images/shell-fun-order/fortune.png">
+<meta property="og:image" content="http://www.turuir.cn/bolg/blog/images/shell-fun-order/cowsay.png">
+<meta property="og:image" content="http://www.turuir.cn/bolg/blog/images/shell-fun-order/fortune-cowsay.png">
+<meta property="og:image" content="http://www.turuir.cn/bolg/blog/images/shell-fun-order/cmatrix.png">
+<meta property="og:image" content="http://www.turuir.cn/bolg/blog/images/shell-fun-order/figlet.png">
+<meta property="og:image" content="http://www.turuir.cn/bolg/blog/images/shell-fun-order/toilet.png">
+<meta property="og:image" content="http://www.turuir.cn/bolg/blog/images/shell-fun-order/toilet-color.png">
+<meta property="og:image" content="http://www.turuir.cn/bolg/blog/images/shell-fun-order/oneko.png">
+<meta property="og:image" content="http://www.turuir.cn/bolg/blog/images/shell-fun-order/markdownpad2.jpeg">
 <meta property="og:updated_time" content="2015-08-19T07:51:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell里几个有趣的命令">
 <meta name="twitter:description" content="shell不是黑白的生硬的，也有一些有趣的命令～">
-<meta name="twitter:image" content="http://www.turuir.cn/bolg/images/shell-fun-order/train.png">
+<meta name="twitter:image" content="http://www.turuir.cn/bolg/blog/images/shell-fun-order/train.png">
 
 
 
@@ -282,27 +282,27 @@
         <span itemprop="articleBody"><p></p><h2>shell里几个有趣的命令</h2><p></p>
 <h3 id="1-从shell右边出现一列火车往左行驶"><a href="#1-从shell右边出现一列火车往左行驶" class="headerlink" title="1 从shell右边出现一列火车往左行驶"></a>1 从shell右边出现一列火车往左行驶</h3><p>安装sl命令<br><figure class="highlight armasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="symbol">sudo</span> apt-<span class="meta">get</span> install <span class="built_in">sl</span>	#在ubuntu使用apt-<span class="meta">get</span>，RatHat使用yum</div></pre></td></tr></table></figure></p>
 <p>安装完后直接运行<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">sl</span></div></pre></td></tr></table></figure></p>
-<p>效果如下图：<br><img src="/images/shell-fun-order/train.png" class="train"></p>
+<p>效果如下图：<br><img src="/blog/images/shell-fun-order/train.png" class="train"></p>
 <p>哈哈哈，在shell下以前看的都是文本，突然来个动态黑白图画，很欢喜的样子，就当缓解视力，吼吼。</p>
 <p>当然，如果看到同事上厕所去了，搞个恶作剧，比如这样子：<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alias</span> <span class="keyword">ls</span>=sl</div></pre></td></tr></table></figure></p>
-<p>这样，本来同事是要这样子的：<br><img src="/images/shell-fun-order/ls.png" class="ls"></p>
+<p>这样，本来同事是要这样子的：<br><img src="/blog/images/shell-fun-order/ls.png" class="ls"></p>
 <p>但当看到一列火车跑过时，哈哈哈，欢喜ing。</p>
 <p>然后改回来<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alias</span> <span class="keyword">ls</span>=<span class="keyword">ls</span></div></pre></td></tr></table></figure></p>
 <p>想要<strong>卸载小火车</strong>也很容易：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="built_in">get</span> <span class="built_in">remove</span> <span class="keyword">sl</span></div></pre></td></tr></table></figure></p>
 <h3 id="2-显示一段有趣的话"><a href="#2-显示一段有趣的话" class="headerlink" title="2 显示一段有趣的话"></a>2 显示一段有趣的话</h3><p>安装<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="keyword">get</span> install fortune</div></pre></td></tr></table></figure></p>
-<p>运行情况如下：<br><img src="/images/shell-fun-order/fortune.png" class="fortune"></p>
+<p>运行情况如下：<br><img src="/blog/images/shell-fun-order/fortune.png" class="fortune"></p>
 <h3 id="3-奶牛在说话"><a href="#3-奶牛在说话" class="headerlink" title="3 奶牛在说话"></a>3 奶牛在说话</h3><p>安装<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="keyword">get</span> install cowsay</div></pre></td></tr></table></figure></p>
-<p>运行效果如下：<br><img src="/images/shell-fun-order/cowsay.png" class="fortune"></p>
-<p>配合fortune来使用：<br><img src="/images/shell-fun-order/fortune-cowsay.png" class="fortune-cowsay"></p>
+<p>运行效果如下：<br><img src="/blog/images/shell-fun-order/cowsay.png" class="fortune"></p>
+<p>配合fortune来使用：<br><img src="/blog/images/shell-fun-order/fortune-cowsay.png" class="fortune-cowsay"></p>
 <p>管道是个好东西！！！</p>
 <h3 id="4-最酷的是这个类黑客帝国片头画面的场景了"><a href="#4-最酷的是这个类黑客帝国片头画面的场景了" class="headerlink" title="4 最酷的是这个类黑客帝国片头画面的场景了"></a>4 最酷的是这个类黑客帝国片头画面的场景了</h3><p>如下所示安装：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="keyword">get</span> install cmatrix</div></pre></td></tr></table></figure></p>
 <p>直接键入命令运行：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">cmatrix</span></div></pre></td></tr></table></figure></p>
-<p>运行效果如下：<br><img src="/images/shell-fun-order/cmatrix.png" class="cmatrix"></p>
+<p>运行效果如下：<br><img src="/blog/images/shell-fun-order/cmatrix.png" class="cmatrix"></p>
 <p><strong>It’s cool.</strong></p>
 <h3 id="5-显示艺术字"><a href="#5-显示艺术字" class="headerlink" title="5 显示艺术字"></a>5 显示艺术字</h3><p>安装如下所示：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="keyword">get</span> install figlet toilet</div></pre></td></tr></table></figure></p>
-<p>运行效果：<br><img src="/images/shell-fun-order/figlet.png" class="figlet"><br><img src="/images/shell-fun-order/toilet.png" class="toilet"><br><img src="/images/shell-fun-order/toilet-color.png" class="toilet-color"></p>
+<p>运行效果：<br><img src="/blog/images/shell-fun-order/figlet.png" class="figlet"><br><img src="/blog/images/shell-fun-order/toilet.png" class="toilet"><br><img src="/blog/images/shell-fun-order/toilet-color.png" class="toilet-color"></p>
 <h3 id="6-喵星人"><a href="#6-喵星人" class="headerlink" title="6 喵星人"></a>6 喵星人</h3><p>安装：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-<span class="keyword">get</span> install oneko</div></pre></td></tr></table></figure></p>
-<p>运行：<br><img src="/images/shell-fun-order/oneko.png" class="oneko"></p>
+<p>运行：<br><img src="/blog/images/shell-fun-order/oneko.png" class="oneko"></p>
 <p>虽然这篇博文很简单，可写出来还是花了点时间。除了再过一遍这几个有趣的命令外，也学习了markdown的格式，本文就是通过<a href="http://markdownpad.com/download.html" target="_blank" rel="external">markdownpad 2</a>编辑出来的。markdown是一种文档格式，以.md为文件后缀，相比于微软的.doc和常用的.txt，它提供了通过简单的符号来设置标题、粗体、有序无序列表等而不是通过鼠标点击来设置内容项。</p>
 <p>如：<code>\# 标题</code>等价于html里的：一级标题<code>&lt;h1&gt;</code>，两个##表示二级标题，依此类推至######表示六级标题。<br>- 无序列表1<br>- 无序列表2<br>会显示成：</p>
 <ul>
@@ -311,7 +311,7 @@
 </ul>
 <p>等等诸多简便却不简单的书写规则。</p>
 <p>这可以使文章编写者将注意力更加集中于内容而不是点击鼠标上，小小博主入linux时间不长，除了在使用vi时感觉它比图形操作快之外，还不是特别感觉使用markdown比使用图形化软件方便。但这篇博文写下来，也是种不错的新感觉，值得尝试，并且由于它是GitHub和octopress推荐的文本文档格式，便可以长期使用下去。oh yeah，不知不觉屁股又一动不动一小时，碎了灬</p>
-<p>最后附上一张编辑图：<br><img src="/images/shell-fun-order/markdownpad2.jpeg" class="markdown"></p>
+<p>最后附上一张编辑图：<br><img src="/blog/images/shell-fun-order/markdownpad2.jpeg" class="markdown"></p>
 <p><strong>PS:</strong></p>
 <p>本文使用快捷键<strong>alt+prtsc截图</strong></p>
 <p><strong>清理屏幕</strong>内容使用：<strong>clear</strong></p>
