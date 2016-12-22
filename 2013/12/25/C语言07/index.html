@@ -1,0 +1,743 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="C语言,指针," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="指针，C系的精华啊！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言－第七章－指针">
+<meta property="og:url" content="http://www.turuir.cn/2013/12/25/C语言07/index.html">
+<meta property="og:site_name" content="uRuier's Blog">
+<meta property="og:description" content="指针，C系的精华啊！">
+<meta property="og:updated_time" content="2015-08-19T08:06:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C语言－第七章－指针">
+<meta name="twitter:description" content="指针，C系的精华啊！">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> C语言－第七章－指针 | uRuier's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">uRuier's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">涂睿的博客</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                C语言－第七章－指针
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2013-12-25T15:34:04+08:00" content="2013-12-25">
+              2013-12-25
+            </time>
+          </span>
+          <span class="post-time">
+            | 修改于
+            <time itemprop="dateCreated" datetime="2015-08-19T16:06:18+08:00" content="2015-08-19">
+              2015-08-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/语言/" itemprop="url" rel="index">
+                    <span itemprop="name">语言</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/12/25/C语言07/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/12/25/C语言07/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h3 id="1-指针"><a href="#1-指针" class="headerlink" title="1 指针"></a>1 指针</h3><p>声明一个指向int类型变量的指针：  </p>
+<pre><code>int *pointer = NULL;  
+</code></pre><p>声明指针时一定要初始化！  </p>
+<pre><code>int number = 10;  
+int *pointer = &amp;number;  
+</code></pre><p>可以和其它变量一起声明：  </p>
+<pre><code>int *p, q;  //声明了指针变量p和整型变量q  
+</code></pre><p>使用间接运算符*可以访问指针所指的变量值。这个运算符也称为取消引用运算符：  </p>
+<pre><code>int number = 3;
+int *pointer = &amp;number; //pointer变量含有number变量的地址
+int result = 0;
+result = *pointer + 5;  //8  
+</code></pre><p>使用指针：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> num1=<span class="number">0L</span>, num2=<span class="number">0L</span>, *p=<span class="literal">NULL</span>;  <span class="comment">//初始化指针变量p</span></div><div class="line">    p = &amp;num1;  <span class="comment">//p指向num1</span></div><div class="line">    num2 = ++*p;    <span class="comment">//p和num2都是1</span></div><div class="line">    p = &amp;num2;  <span class="comment">//p指向num2</span></div><div class="line">    num2 += *p; <span class="comment">//num2等于2，所以p指向的值也是2</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"num1=%d, num2=%d, pvalue=%d."</span>, num1, num2, *p); <span class="comment">//1，2，2</span></div><div class="line">    *p = <span class="number">4</span>; <span class="comment">//直接赋值</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"num2=%d pvalue=%d."</span>, num2, *p); <span class="comment">//*p等于num2等于4</span></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>以上可以看出p可以指向多个变量，并改变它们的值，只要它们的变量类型相同。  </p>
+<pre><code>*p++    //一元运算符从右向左计算，所以是先递增地址，再取消引用得到值，与scanf()配合使用：
+</code></pre><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> value=<span class="number">0</span>, *p=<span class="literal">NULL</span>;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"输入一个数："</span>);</div><div class="line">    p = &amp;value;</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, p); <span class="comment">//这里p和&amp;value等价</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"你输入的数为：%d"</span>, value);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>指向常量的指针：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> value = <span class="number">999</span>;</div><div class="line">    <span class="keyword">const</span> <span class="keyword">long</span> *p = &amp;value; <span class="comment">//声明为不动值</span></div><div class="line">    *p = <span class="number">888</span>;   <span class="comment">//*p是不允许改变的，但可以改变p指向的地址。如long num=888;p=&amp;num;</span></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>常量指针：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> value = <span class="number">999</span>;</div><div class="line">    <span class="keyword">int</span> *<span class="keyword">const</span> p = &amp;value;</div><div class="line">    p = &amp;value; <span class="comment">//p是常量，不允许改变。但可以*p=888来改变常量的值。</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, *p);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>结合以上两个：  </p>
+<pre><code>const int *const p = NULL;  //这时候p完全不能改变
+</code></pre><h3 id="2-数组和指针"><a href="#2-数组和指针" class="headerlink" title="2 数组和指针"></a>2 数组和指针</h3><pre><code>char multi[] = &quot;my string&quot;;
+char *p = &amp;multi[0];
+printf(&quot;%p&quot;, p);
+p = multi;
+printf(&quot;%p&quot;, 0);//和第二行一样的结果
+</code></pre><h3 id="3-多维数组"><a href="#3-多维数组" class="headerlink" title="3 多维数组"></a>3 多维数组</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> board[<span class="number">3</span>][<span class="number">3</span>] = &#123;</div><div class="line">    &#123;<span class="string">'1'</span>,<span class="string">'2'</span>,<span class="string">'3'</span>&#125;,</div><div class="line">    &#123;<span class="string">'4'</span>,<span class="string">'5'</span>,<span class="string">'6'</span>&#125;,</div><div class="line">    &#123;<span class="string">'7'</span>,<span class="string">'8'</span>,<span class="string">'9'</span>&#125;</div><div class="line">    &#125;;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"value of board[0][0]:%8c\nvalue of *board[0]:%8c\nvalude of **board:%8c"</span>,board[<span class="number">0</span>][<span class="number">0</span>], *board[<span class="number">0</span>], **board); <span class="comment">//都是1</span></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面有  </p>
+<pre><code>**(board+1)=4;  
+**board+16=A;  
+*(*board+1)=2;  //*board==&amp;board[0][0]  
+</code></pre><h3 id="4-内存的使用"><a href="#4-内存的使用" class="headerlink" title="4 内存的使用"></a>4 内存的使用</h3><h4 id="4-1-动态内存分配：malloc"><a href="#4-1-动态内存分配：malloc" class="headerlink" title="4.1 动态内存分配：malloc()"></a>4.1 动态内存分配：malloc()</h4><pre><code>int *p = (int *)malloc(100);
+</code></pre><p>100是malloc()的参数，表明要申请的内存大小，返回第一个字节的地址，所以用int *来修饰malloc()表明要把这100B保存为int型，那么能存25个int值。malloc()在&lt;stdlib.h&gt;中。  </p>
+<h4 id="4-2-找质数"><a href="#4-2-找质数" class="headerlink" title="4.2 找质数"></a>4.2 找质数</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdbool.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">unsigned</span> <span class="keyword">long</span> *p=<span class="literal">NULL</span>, trial=<span class="number">0</span>; <span class="comment">//质数都是正的，用无符号类型</span></div><div class="line">    <span class="keyword">bool</span> found=<span class="literal">false</span>;   <span class="comment">//加stdbool.h</span></div><div class="line">    <span class="keyword">size_t</span> total=<span class="number">0</span>,count=<span class="number">0</span>; </div><div class="line"></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"输入你想找的质数个数，大于4个："</span>);</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%u"</span>, &amp;total);    <span class="comment">//输入10000，最后一个质数是104729，花了6.817秒 </span></div><div class="line">    total = total&lt;<span class="number">4U</span> ? <span class="number">4U</span> : total;  <span class="comment">//已知了2、3、5，所以最好也要4个以上</span></div><div class="line"></div><div class="line">    p = (<span class="keyword">unsigned</span> <span class="keyword">long</span> *)<span class="built_in">malloc</span>(total * <span class="keyword">sizeof</span>(<span class="keyword">unsigned</span> <span class="keyword">long</span>)); <span class="comment">//申请空间，加头文件stdlib.h。sizeof()返回的是size_t类型，上面total也声明为此类型</span></div><div class="line">    <span class="keyword">if</span>(p == <span class="literal">NULL</span>)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"内存不足！"</span>);</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    *p = <span class="number">2U</span>L;   <span class="comment">//第一个质数</span></div><div class="line">    *(p+<span class="number">1</span>) = <span class="number">3U</span>L;</div><div class="line">    *(p+<span class="number">2</span>) = <span class="number">5U</span>L;</div><div class="line">    count = <span class="number">3U</span>; <span class="comment">//现在有三个质数</span></div><div class="line">    trial = <span class="number">5U</span>; <span class="comment">//现在的质数为5</span></div><div class="line"></div><div class="line">    <span class="keyword">while</span>(count&lt;total)</div><div class="line">    &#123;</div><div class="line">        trial += <span class="number">2U</span>L;   <span class="comment">//从下一个测试数开始，质数肯定是奇数！</span></div><div class="line">        <span class="keyword">size_t</span> i=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(; i&lt;count; i++)</div><div class="line">            <span class="keyword">if</span>(!(found = (trial % *(p+i)))) <span class="comment">//除数是已经的质数则会快很多，如果能除尽就跳出循环</span></div><div class="line">                <span class="keyword">break</span>;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(found)   <span class="comment">//发现质数！！！</span></div><div class="line">            *(p+count++) = trial;   <span class="comment">//将发现的质数加入队列</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">size_t</span> j=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(; j&lt;total; j++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(!(j%<span class="number">5U</span>)) <span class="comment">//每行打印五个</span></div><div class="line">            <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%12lu"</span>, *(p+j));</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">free</span>(p);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="4-3-calloc"><a href="#4-3-calloc" class="headerlink" title="4.3 calloc()"></a>4.3 calloc()</h4><pre><code>int *p = (int *)calloc(100, sizeof(int));  
+</code></pre><p>与malloc()类似，只是申请成功后会用0初始化所分配的空间，两个参数都是size_t类型。</p>
+<h4 id="4-4-释放动态分配的内存"><a href="#4-4-释放动态分配的内存" class="headerlink" title="4.4 释放动态分配的内存"></a>4.4 释放动态分配的内存</h4><p>当动态分配了一些内存时，没有保留对它们的引用，就会出现内存泄漏，此时无法释放内存。这通常发生在循环内部，由于没有释放不再需要的内存，程序会使用更多的内存，最终占用所有内存。  </p>
+<p>使用free(p);释放内存。  </p>
+<h4 id="4-5-重新分配内存"><a href="#4-5-重新分配内存" class="headerlink" title="4.5 重新分配内存"></a>4.5 重新分配内存</h4><p>relloc()可以征用前面通过malloc() or calloc() or relloc()分配的内存。  </p>
+<pre><code>relloc(p, count*sizeof(int));   //第一个参数是以前申请的内存首地址，第二个参数是需要的内存大小，很明显第二个参数要小于以前申请的内存大小。  
+</code></pre><h3 id="5-使用指针处理字符串"><a href="#5-使用指针处理字符串" class="headerlink" title="5 使用指针处理字符串"></a>5 使用指针处理字符串</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">const</span> <span class="keyword">size_t</span> BUFFER_LEN = <span class="number">512</span>;  <span class="comment">//定义缓冲区大小</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">char</span> buffer[BUFFER_LEN];  <span class="comment">//存储字符串</span></div><div class="line">  <span class="keyword">char</span> *pS[<span class="number">3</span>] = &#123; <span class="literal">NULL</span> &#125;;   <span class="comment">//输入的三行字符串保存在这</span></div><div class="line">  <span class="keyword">char</span> *pbuffer = buffer;   <span class="comment">//指向缓冲区</span></div><div class="line">  <span class="keyword">size_t</span> index = <span class="number">0</span>; <span class="comment">//缓冲区中可用的位置</span></div><div class="line"></div><div class="line">  <span class="built_in">printf</span>(<span class="string">"\nEnter 3 messages that total less than %u characters."</span>, BUFFER_LEN<span class="number">-2</span>);</div><div class="line"></div><div class="line">  <span class="keyword">int</span> i=<span class="number">0</span> ;</div><div class="line">  <span class="keyword">for</span>(; i&lt;<span class="number">3</span> ; i++)</div><div class="line">  &#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\nEnter %s message\n"</span>, i&gt;<span class="number">0</span> ? <span class="string">"another"</span> : <span class="string">"a"</span> );</div><div class="line">    pS[i] = &amp;buffer[index]; <span class="comment">//保存读入的字符串</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span>( ; index&lt;BUFFER_LEN ; index++)  <span class="comment">//如果缓冲区还有空闲</span></div><div class="line">      <span class="keyword">if</span>((*(pbuffer+index) = getchar()) == <span class="string">'\n'</span>)    <span class="comment">//检测是否到行尾</span></div><div class="line">        &#123;</div><div class="line">          *(pbuffer+index++) = <span class="string">'\0'</span>;</div><div class="line">          <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span>((index == BUFFER_LEN) &amp;&amp; ((*(pbuffer+index<span class="number">-1</span>) != <span class="string">'\0'</span>) || (i&lt;<span class="number">2</span>)))</div><div class="line">    &#123;</div><div class="line">      <span class="built_in">printf</span>(<span class="string">"\nYou ran out of space in the buffer."</span>);</div><div class="line">      <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="built_in">printf</span>(<span class="string">"\nThe strings you entered are:\n\n"</span>);</div><div class="line">  <span class="keyword">int</span> j = <span class="number">0</span> ;</div><div class="line">  <span class="keyword">for</span>(; j&lt;<span class="number">3</span> ; j++)</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, pS[j]);</div><div class="line"></div><div class="line">  <span class="built_in">printf</span>(<span class="string">"The buffer has %d characters unused.\n"</span>, BUFFER_LEN-index);</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>地址也可以减<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">long</span> <span class="keyword">long</span> a=<span class="number">1L</span>L,b=<span class="number">2223L</span>L;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"%p %p\n"</span>,&amp;a, &amp;b);</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"%d"</span>,(<span class="keyword">int</span>)&amp;a-(<span class="keyword">int</span>)&amp;b); <span class="comment">//8</span></div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">short</span> a=<span class="number">1L</span>L,b=<span class="number">2223L</span>L;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"%p %p\n"</span>,&amp;a, &amp;b);</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"%d"</span>,&amp;a-&amp;b);   <span class="comment">//1</span></div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>gets()存储换行符，并加上终止符’\0’；fgets()不存储换行符。  </p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C语言/" rel="tag">#C语言</a>
+          
+            <a href="/tags/指针/" rel="tag">#指针</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/12/22/C语言06/" rel="next" title="C语言－第六章－字符串">
+                <i class="fa fa-chevron-left"></i> C语言－第六章－字符串
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/01/11/vbird-bash/" rel="prev" title="鸟哥的私房菜-bash">
+                鸟哥的私房菜-bash <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2013/12/25/C语言07/"
+           data-title="C语言－第七章－指针" data-url="http://www.turuir.cn/2013/12/25/C语言07/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.jpg" alt="涂睿" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">涂睿</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">人生苦短莫蹉跎</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/uruir" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/t9228" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 微博
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-指针"><span class="nav-number">1.</span> <span class="nav-text">1 指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-数组和指针"><span class="nav-number">2.</span> <span class="nav-text">2 数组和指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-多维数组"><span class="nav-number">3.</span> <span class="nav-text">3 多维数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-内存的使用"><span class="nav-number">4.</span> <span class="nav-text">4 内存的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-动态内存分配：malloc"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 动态内存分配：malloc()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-找质数"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 找质数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-calloc"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 calloc()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-释放动态分配的内存"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 释放动态分配的内存</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-重新分配内存"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 重新分配内存</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-使用指针处理字符串"><span class="nav-number">5.</span> <span class="nav-text">5 使用指针处理字符串</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">涂睿</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"uruir"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

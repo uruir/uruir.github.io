@@ -1,0 +1,967 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="CSS3," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="大致把书过了一遍，记下笔记若干，算是为以后参考与丰富。内容很多是基础 CSS，最后几章介绍`transform`、`animation`、响应式布局，内容偏少，且写的不详细，深感失望。总归，这本书让我对 CSS3 有个整体层面上的认识，摆脱之前对 CSS 的局部（错误）认识。但缺点相当明显，质量不高，只适合借阅一读，不适合购买与对 CSS3 的深入理解的前端人员阅读。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大漠的图解CSS3">
+<meta property="og:url" content="http://www.turuir.cn/2015/11/06/图解 CSS3 核心技术与案例实战/index.html">
+<meta property="og:site_name" content="uRuier's Blog">
+<meta property="og:description" content="大致把书过了一遍，记下笔记若干，算是为以后参考与丰富。内容很多是基础 CSS，最后几章介绍`transform`、`animation`、响应式布局，内容偏少，且写的不详细，深感失望。总归，这本书让我对 CSS3 有个整体层面上的认识，摆脱之前对 CSS 的局部（错误）认识。但缺点相当明显，质量不高，只适合借阅一读，不适合购买与对 CSS3 的深入理解的前端人员阅读。">
+<meta property="og:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071004.png">
+<meta property="og:updated_time" content="2015-12-07T06:34:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大漠的图解CSS3">
+<meta name="twitter:description" content="大致把书过了一遍，记下笔记若干，算是为以后参考与丰富。内容很多是基础 CSS，最后几章介绍`transform`、`animation`、响应式布局，内容偏少，且写的不详细，深感失望。总归，这本书让我对 CSS3 有个整体层面上的认识，摆脱之前对 CSS 的局部（错误）认识。但缺点相当明显，质量不高，只适合借阅一读，不适合购买与对 CSS3 的深入理解的前端人员阅读。">
+<meta name="twitter:image" content="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071004.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> 大漠的图解CSS3 | uRuier's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">uRuier's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">涂睿的博客</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                大漠的图解CSS3
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-11-06T18:51:32+08:00" content="2015-11-06">
+              2015-11-06
+            </time>
+          </span>
+          <span class="post-time">
+            | 修改于
+            <time itemprop="dateCreated" datetime="2015-12-07T14:34:27+08:00" content="2015-12-07">
+              2015-12-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/11/06/图解 CSS3 核心技术与案例实战/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/06/图解 CSS3 核心技术与案例实战/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h2 id="Cascading-StyleSheet-3-概要"><a href="#Cascading-StyleSheet-3-概要" class="headerlink" title="Cascading StyleSheet 3 概要"></a>Cascading StyleSheet 3 概要</h2><blockquote>
+<p>大漠著 机械工业出版社出版 @ 2014年12月第1版</p>
+</blockquote>
+<p>大致把书过了一遍。内容很多是基础 CSS（且废话、废代码蛮多），接触前端两年，早已很熟悉。最后几章介绍<code>transform</code>、<code>transition</code>、<code>animation</code>、响应式布局，内容偏少，且写的不细。总归，这本书让我对 CSS3 有个整体层面上的认识，摆脱之前对 CSS 的局部（错误）认识。但缺点相当明显，质量不高，只适合借阅一读，不适合购买与对 CSS3 的深入理解。</p>
+<p>CSS 属性不区分大小写。如：<code>body { MarGin: 0; }</code>。</p>
+<p>内联元素不能设置<code>margin-top</code> &amp; <code>margin-bottom</code>，原因是行内非替换元素的外边距不会改变元素的行高。可以设置上下内边距，但仅改变其背景，行高依然不变。</p>
+<h2 id="CSS3-选择器"><a href="#CSS3-选择器" class="headerlink" title="CSS3 选择器"></a>CSS3 选择器</h2><p>CSS3 选择器在常规选择器的基础上新增了属性选择器、伪类选择器和过滤选择器。</p>
+<p>根据所获取页面中元素的不同，将 CSS3 选择器划分为五大类：</p>
+<ul>
+<li>基本选择器<ul>
+<li>通配：<code>*</code></li>
+<li>标签：<code>&lt;element&gt;</code></li>
+<li>id：<code>#</code></li>
+<li>class：<code>.</code></li>
+<li>群组：<code>selected1, selectedN</code></li>
+</ul>
+</li>
+<li>层次选择器<ul>
+<li>后代：<code>E F</code></li>
+<li>子：<code>E &gt; F</code></li>
+<li>相邻：<code>E + F</code></li>
+<li>通用：<code>E ~ F</code></li>
+</ul>
+</li>
+<li>伪类选择器<ul>
+<li>动态伪类（简称LoVe / HAte）<ul>
+<li><code>E:link</code></li>
+<li><code>E:visited</code></li>
+<li><code>E:hover</code></li>
+<li><code>E:active</code></li>
+<li><code>E:focus</code></li>
+</ul>
+</li>
+<li>目标伪类<ul>
+<li><code>E:target</code> - 选择匹配 E 的所有元素，且匹配元素被相关 URL 指向</li>
+</ul>
+</li>
+<li>语言伪类：根据不同语言版本设置页面的字体风格</li>
+<li>UI元素状态伪类<ul>
+<li>启用</li>
+<li>禁用</li>
+<li>选中</li>
+<li>未选中</li>
+<li>获得焦点</li>
+<li>失去焦点</li>
+<li>锁定</li>
+<li>待机</li>
+</ul>
+</li>
+<li>结构伪类<ul>
+<li><code>E:first-child</code> - 等同于<code>E:nth-child(1)</code>，index 从 1 开始</li>
+<li><code>E:last-child</code> - 等同于<code>E:nth-last-child(1)</code></li>
+<li><code>E:root</code> - 等同于<code>&lt;html&gt;</code></li>
+<li><code>E F:nth-child(n)</code> - n 可以是整数、关键字（even | odd）、公式（2n - 1），n 的起始值为 1</li>
+<li><code>E F:nth-last-child(n)</code> - 特殊的，当 n 为 1，则是最后一个元素</li>
+<li><code>E:first-of-type</code> - 特定类型的第一个元素</li>
+<li><code>E:last-of-type</code></li>
+<li><code>E:nth-of-type(n)</code> - 特殊的，当 n 为 1，指匹配的特定类型的第一个元素</li>
+<li><code>E:nth-last-of-type(n)</code></li>
+<li><code>E:only-child</code></li>
+<li><code>E:only-of-type</code></li>
+<li><code>E:empty</code></li>
+</ul>
+</li>
+<li>否定伪类<ul>
+<li><code>E:not(F)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>伪元素选择器：用于定位文档中包含的文本，但无法在文档树中定位<ul>
+<li><code>::first-letter</code> - 选择文本块中的第一个字母，多用于添加排版细节，好首字母下沉</li>
+<li><code>::first-line</code> - 匹配 block | inline-block | table-caption | table-cell 等级别元素的第一行</li>
+<li><code>::before &amp; ::after</code> - 可以插入额外内容的位置，生成的内容不会成为 DOM 的一部分，但可以设置样式，需配合<code>content</code>属性使用。而<code>:before</code> &amp; <code>:after</code>是用于清除浮动的伪类</li>
+<li><code>::selection</code> - 用于匹配突出显示的文本，只有 background &amp; color 两个属性</li>
+</ul>
+</li>
+<li>属性选择器<ul>
+<li><code>E[attr]</code> - 匹配具有属性 attr 的 E 元素，E 可省略。如<code>a[id] { color: red; }</code>，指含有 ID 属性的链接，可<code>a[id][title]</code>这样连续添加过滤属性</li>
+<li><code>E[attr=val]</code> - val 区分大小写。如<code>a[id=first]</code>，注意没有引号。若是适配以空格隔开的类，则要引号</li>
+<li><code>E[attr|=val]</code> - 包含 val 或以 val 开头</li>
+<li><code>E[attr~=val]</code> - 包含以空格分开的 val</li>
+<li><code>E[attr\*=val]</code> - 只要包含 val 即匹配。如<code>a[title\*=&#39;trvalue&#39;]</code></li>
+<li><code>E[attr^=val]</code> - 以 val 开头</li>
+<li><code>E[attr$=val]</code> - 以 $ 结尾。如<code>a[href$=pdf]</code></li>
+</ul>
+</li>
+</ul>
+<p>优先级：!important &gt; id &gt; class &gt; tag<br>可继承的样式：font-size/font-family/color<br>不可继承的样式：border/padding/margin/width/height</p>
+<h2 id="CSS3-边框"><a href="#CSS3-边框" class="headerlink" title="CSS3 边框"></a>CSS3 边框</h2><figure class="highlight tap"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">border: border-width border-style border-color;</div><div class="line">// 每重边框间用逗号隔开。每个边框的每<span class="number"> 4 </span>个参数指边框宽度；而第<span class="number"> 3 </span>个参数指发散度，值越大越发散</div><div class="line">box-shadow:<span class="number"> 0 </span>0<span class="number"> 0 </span>6px rgba(0,0,0,0.2),<span class="number"> 0 </span>0<span class="number"> 0 </span>12px rgba(0,0,0,0.2),<span class="number"> 0 </span>0<span class="number"> 0 </span>18px rgba(0,0,0,0.2),<span class="number"> 0 </span>0<span class="number"> 0 </span>24px rgba(0,0,0,0.2);</div></pre></td></tr></table></figure>
+<p>另两个值可以没有，但一定要有<code>border-style</code>。</p>
+<h3 id="border-style"><a href="#border-style" class="headerlink" title="border-style"></a>border-style</h3><ul>
+<li><code>none</code></li>
+<li><code>hidden</code> - 与<code>none</code>相同，主要用于表的边框冲突</li>
+<li><code>dotted</code> - 点状</li>
+<li><code>dashed</code> - 虚线</li>
+<li><code>solid</code> - 实线，这个值应该用得最多</li>
+<li><code>double</code> - 双线</li>
+<li><code>groove</code> - 3D 凹槽</li>
+<li><code>ridge</code> - 3D 垄状</li>
+<li><code>inset</code> - 3D inset</li>
+<li><code>outset</code> - 3D outset</li>
+<li><code>inherit</code> - 从父元素继承</li>
+</ul>
+<h3 id="border-color（并没有看懂这节，书上写得相当乱，在此仅mark）"><a href="#border-color（并没有看懂这节，书上写得相当乱，在此仅mark）" class="headerlink" title="border-color（并没有看懂这节，书上写得相当乱，在此仅mark）"></a>border-color（并没有看懂这节，书上写得相当乱，在此仅mark）</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">border-top</span>-colors: <span class="number">#111</span> <span class="number">#222</span> <span class="number">#333</span> <span class="number">#444</span> <span class="number">#555</span>;</div><div class="line"><span class="attribute">border-right</span>-colors: <span class="number">#111</span> <span class="number">#222</span> <span class="number">#333</span> <span class="number">#444</span> <span class="number">#555</span>;</div><div class="line"><span class="attribute">border-bottom</span>-colors: <span class="number">#111</span> <span class="number">#222</span> <span class="number">#333</span> <span class="number">#444</span> <span class="number">#555</span>;</div><div class="line"><span class="attribute">border-left</span>-colors: <span class="number">#111</span> <span class="number">#222</span> <span class="number">#333</span> <span class="number">#444</span> <span class="number">#555</span>;</div></pre></td></tr></table></figure>
+<p>此时：<code>border: 5px solid transparent;</code></p>
+<h2 id="CSS3-背景"><a href="#CSS3-背景" class="headerlink" title="CSS3 背景"></a>CSS3 背景</h2><p>背景有五个属性：</p>
+<ul>
+<li><code>background-color</code>: transparent | color</li>
+<li><code>background-image</code>: none | url</li>
+<li><code>background-repeat</code>: repeat | repeat-x | repeat-y | no-repeat</li>
+<li><code>background-attachment</code>: scroll | fixed</li>
+<li><code>background-position</code></li>
+</ul>
+<p>可以统写成一个属性：<code>background: color, image, repeat, attachment, position;</code></p>
+<h2 id="CSS3-文本"><a href="#CSS3-文本" class="headerlink" title="CSS3 文本"></a>CSS3 文本</h2><p>CSS 字体类型：</p>
+<ul>
+<li><code>font-family</code></li>
+<li><code>font-style</code>: normal | italic | oblique</li>
+<li><code>font-weight</code>: 100-900 | normal | bold | bolder | lighter</li>
+<li><code>font-size-adjust</code></li>
+<li><code>font-stretch</code></li>
+<li><code>font-variant</code>: normal | small-caps</li>
+</ul>
+<p>复合属性：<code>font: style weight family;</code></p>
+<p>CSS 文本类型：</p>
+<ul>
+<li><code>word-spacing</code>: normal | length</li>
+<li><code>letter-spacing</code>: normal | length</li>
+<li><code>vertical-align</code>: baseline | sub | super | bottom | text-bottom | top | middle | percent | length</li>
+<li><code>text-decoration</code>: none | underline | overline | line-through | blink</li>
+<li><code>text-indent</code>: length</li>
+<li><code>text-align</code>: left | center | right | justify</li>
+<li><code>line-height</code>: normal | length | percent | number</li>
+<li><code>text-transform</code>: none | uppercase | lowercase | capitalize</li>
+<li><code>text-shadow</code>: color x-offset y-offset blur-radius</li>
+<li><code>white-space</code>: normal | nowrap | pre | pre-wrap | pre-line</li>
+<li><code>direction</code>: ltr | rtl | inherit</li>
+</ul>
+<p>CSS3 溢出文本属性：<code>text-overflow: clip | ellipsis;</code>，需要配合<code>width &amp; white-space &amp; overflow</code>使用。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.text-overflow-clip</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">400px</span>;</div><div class="line">  <span class="attribute">padding</span>: <span class="number">10px</span>;</div><div class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>; </div><div class="line">  <span class="attribute">text-overflow</span>: clip; <span class="comment">/* 文本裁切 */</span></div><div class="line">  <span class="attribute">white-space</span>: nowrap; <span class="comment">/* 强制不换行 */</span></div><div class="line">  <span class="attribute">overflow</span>: hidden <span class="comment">/* 溢出隐藏 */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="CSS3-颜色特性"><a href="#CSS3-颜色特性" class="headerlink" title="CSS3 颜色特性"></a>CSS3 颜色特性</h2><h2 id="CSS3-盒模型"><a href="#CSS3-盒模型" class="headerlink" title="CSS3 盒模型"></a>CSS3 盒模型</h2><ul>
+<li>IE盒子 - 包含了 padding &amp; border </li>
+<li>标准 W3C 盒子</li>
+</ul>
+<p>DIV居中：设定宽度，然后<code>margin: 0 auto;</code></p>
+<h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><p>布局是指对页面内容进行分区显示，便于划分功能区。在 DIV 未兴起时，一般使用 table 布局方式，现今 HTML5 与 CSS3 的功能逐渐被浏览器实现，便有了多种布局方式供选择。</p>
+<h3 id="多列布局"><a href="#多列布局" class="headerlink" title="多列布局"></a>多列布局</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">column-count</span>: <span class="number">3</span>;</div><div class="line"><span class="attribute">column-gap</span>: <span class="number">30px</span>;</div><div class="line"><span class="attribute">column-rule</span>: <span class="number">4px</span> outset red; <span class="comment">//style:dotted/dashed/solid/double</span></div><div class="line"><span class="attribute">column-width</span>: <span class="number">100px</span>;</div><div class="line"><span class="comment">// 复合属性</span></div><div class="line"><span class="attribute">columns</span>: <span class="number">100px</span> <span class="number">3</span>; <span class="comment">//列宽列数</span></div></pre></td></tr></table></figure>
+<h3 id="Flex-布局"><a href="#Flex-布局" class="headerlink" title="Flex 布局"></a>Flex 布局</h3><p>2009年，W3C 提出<strong>Flex布局</strong>，它可以简便、完整、响应式地实现各种页面布局，包括垂直水平居中。</p>
+<p><strong>Flex</strong>是 Flexible Box 的缩写，即弹性布局，是 CSS3 中的新布局模式，由伸缩窗口和伸缩项目组成。</p>
+<p>任何一个容器都可以通过设置<code>display</code>属性为<code>flex | inline-flex</code>得到一个伸缩窗口。如：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.box</span> &#123;</div><div class="line">  <span class="attribute">display</span>: inline-flex; <span class="comment">//在现代浏览器里加前缀，如-webkit-</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>注意：设置<code>Flex</code>布局后，子元素的<code>float/clear/vertical-align</code>属性失效。布局的传统解决方案，是基于盒状模型，依赖<code>display + position + float</code>实现。</p>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>采用 Flex 布局的元素，称为 Flex 容器，它的所有子元素自动成为容器成员，称为 Flex 项目。</p>
+<p><img src="http://www.ruanyifeng.com/blogimg/asset/2015/bg2015071004.png" alt="Flex Container"></p>
+<p>容器有两根轴</p>
+<ul>
+<li>水平主轴</li>
+<li>垂直交叉轴</li>
+</ul>
+<p>项目默认沿主轴排列。</p>
+<h3 id="容器的属性"><a href="#容器的属性" class="headerlink" title="容器的属性"></a>容器的属性</h3><p>有六个属性：</p>
+<ul>
+<li><code>flex-direction</code> // row | row-reverse | column | column-reverse</li>
+<li><code>flex-wrap</code> // 轴线上排列不下时，如何换行。nowrap | wrap | wrap-reverse</li>
+<li><code>flex-flow</code> // 以上两个属性的简写，默认为row nowrap</li>
+<li><code>justify-content</code> // 项目在主轴上的对齐方式。flex-start | flex-end | center | space-between | space-around</li>
+<li><code>align-items</code> // 项目在交叉轴上的对齐方式。flex-start | flex-end | center | baseline | stretch</li>
+<li><code>align-content</code> // 多根轴线的对齐方式，若轴线为一则该属性失效，一般指交叉轴上的对齐。flex-start | flex-end | center | space-between | space-around | stretch</li>
+</ul>
+<h3 id="项目的属性"><a href="#项目的属性" class="headerlink" title="项目的属性"></a>项目的属性</h3><p>也是六个：</p>
+<ul>
+<li><code>order</code> //项目的排列顺序，值越小，越靠前，默认 0</li>
+<li><code>flex-grow</code> //项目的放大比例，默认 0</li>
+<li><code>flex-shrink</code> //项目的缩小比例，默认 1</li>
+<li><code>flex-basis</code> //项目占据的主轴空间（main size），默认值 auto，可以设为<code>width</code> or <code>height</code>的值</li>
+<li><code>flex</code> //flex-grow, flex-shrink, flex-basis的简写。auto(1 1 auto) or none(0 0 auto)</li>
+<li><code>align-self</code> //允许单个项目有与其他项目不一样的对齐方式，可覆盖<code>align-items</code>属性，默认值<code>auto</code>，表继承父元素的<code>align-items</code>属性，如无父元素，则为<code>stretch</code></li>
+</ul>
+<h2 id="CSS3-渐变"><a href="#CSS3-渐变" class="headerlink" title="CSS3 渐变"></a>CSS3 渐变</h2><p>渐变是两种或多种颜色间的平滑过渡。在创建渐变的过程中，可以设置多个中间颜色值，称之为色标。每个色标包含一种颜色和一个位置。</p>
+<h2 id="CSS3-变形"><a href="#CSS3-变形" class="headerlink" title="CSS3 变形"></a>CSS3 变形</h2><p><code>transform</code>属性指一组转换函数，<code>transform-origin</code>属性指定元素的中心点在哪，新增加了第三个属性<code>transform-origin-z</code>，控制元素三维空间中心点。<code>transform-style</code>的值设置为<code>preserve-3d</code>，建立一个3D渲染环境。</p>
+<h3 id="transform-属性"><a href="#transform-属性" class="headerlink" title="transform 属性"></a>transform 属性</h3><p><code>transform: none | &lt;transform-function&gt; [&lt;transform-function&gt;]*</code></p>
+<p>可用于内联或块元素，默认值为<code>none</code>，表示元素不变形。</p>
+<h4 id="2D-transform-常用-transform-function-功能"><a href="#2D-transform-常用-transform-function-功能" class="headerlink" title="2D transform 常用 transform-function 功能"></a>2D transform 常用 transform-function 功能</h4><ul>
+<li><code>translate(10px,20px)</code>: translateX() | translateY()</li>
+<li><code>scale(2,4)</code>: scaleX() | scaleY()</li>
+<li><code>rotate(30deg)</code> // 从中心旋转 30 度</li>
+<li><code>skew()</code>: skewX() | skewY()</li>
+<li><code>matrix()</code>: 基于 X 轴和 Y 轴坐标重新定位元素位置</li>
+</ul>
+<p>如：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">transform</span>: translate(<span class="number">10px</span>,<span class="number">20px</span>);</div><div class="line"><span class="attribute">transform</span>: rotate(<span class="number">30deg</span>);</div><div class="line"><span class="attribute">transform</span>: scale(<span class="number">2</span>,<span class="number">4</span>);</div></pre></td></tr></table></figure>
+<h4 id="3D-transform-常用-transform-function-功能"><a href="#3D-transform-常用-transform-function-功能" class="headerlink" title="3D transform 常用 transform-function 功能"></a>3D transform 常用 transform-function 功能</h4><ul>
+<li><code>translate3d(30px, 30px, 200px)</code> - 指水平向右垂直向下各移动 30px，并且离观察者近 200px，即元素变大了</li>
+<li><code>translateZ(200px)</code> - 即<code>translate3d(0, 0, 200px)</code>，它们都类似于二维空间的<code>scale()</code>函数</li>
+<li><code>scale3d(sx, sy, sz)</code></li>
+<li><code>scaleZ()</code> - 即<code>scale3d(1, 1, sz)</code>，它们需要要配合其它变形函数一起使用</li>
+<li><code>rotate3d()</code></li>
+<li><code>rotateX(45deg) | rotateY() | rotateZ()</code> - 沿相应轴顺时针旋转多少度</li>
+<li><code>prespective()</code></li>
+<li><code>matrix3d()</code></li>
+</ul>
+<p>旋转中心点，默认是元素中心，即<code>50% 50%</code>处。单位可以是百分比、em、px等具体值，也可以是 top、left 等关键词。语法：<code>transform-origin: x-offset y-offset z-offset;</code>。常配合<code>transform</code>其它子属性使用。</p>
+<p><code>transform: translate(50px, 50px) translateY(50px);</code>指以元素中心点进行偏移，这里用了两次，效果叠加。PS：一般浏览器可视区域左上角坐标为 0，向右向下方向为正值。</p>
+<p><code>transform-style: flat | preserve-3d;</code>是 3 D空间属性，它设置在父元素中。</p>
+<p>3D属性：<code>perspective: none | length;</code>，指视距，单位为 px，也需要设置在父元素上。或写成<code>transform: persective(100px);</code>，值只能大于 0，写在当前变形元素上，且可以与其它<code>transform</code>函数一起使用。</p>
+<p><code>perspective-origin</code>是 3D 变形中另一个属性，决定<code>perspective</code>属性的源点角度，必须作用于设定了<code>perspective</code>属性的元素上。</p>
+<p><code>backface-visibility: visible | hidden;</code>属性决定元素旋转背面是否可见。</p>
+<h2 id="CSS3-过渡"><a href="#CSS3-过渡" class="headerlink" title="CSS3 过渡"></a>CSS3 过渡</h2><p>语法规则：<code>transition: property duration timing-function delay</code>。如<code>transition: background 2s linear 2s, border-radius 3s ease-in 4s;</code>，用逗号分隔多组操作，最后一个延迟的起始时间一致。该属性写在初始值上。</p>
+<p>一般通过<code>hover</code>、<code>focus</code>等触发，也可通过媒体查询触发，如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.transition</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">300px</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">0</span> auto;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">    <span class="attribute">transition</span>: width <span class="number">0.8s</span> ease;</div><div class="line">&#125;</div><div class="line">@<span class="keyword">media</span> only screen and (max-width: <span class="number">960px</span>) &#123;</div><div class="line">    <span class="selector-class">.transition</span> &#123;</div><div class="line">        <span class="attribute">background</span>: yellow;</div><div class="line">        <span class="attribute">width</span>: <span class="number">300px</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>还可以通过 JavaScript 触发：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// css</span></div><div class="line">.transition &#123;</div><div class="line">    <span class="built_in">width</span>: <span class="number">500</span>px;</div><div class="line">    <span class="built_in">height</span>: <span class="number">300</span>px;</div><div class="line">    margin: <span class="number">0</span> <span class="keyword">auto</span>;</div><div class="line">    <span class="built_in">background</span>: red;</div><div class="line">    transition: <span class="built_in">width</span> <span class="number">0.8</span>s ease;</div><div class="line">&#125;</div><div class="line">.transition.on &#123;</div><div class="line">    <span class="built_in">background</span>: yellow;</div><div class="line">    <span class="built_in">width</span>: <span class="number">300</span>px;</div><div class="line">&#125;</div><div class="line"><span class="comment">// js</span></div><div class="line">$(<span class="string">'div'</span>).on(<span class="string">'click'</span>, function()&#123;</div><div class="line">    $(<span class="keyword">this</span>).toggleClass(<span class="string">'on'</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>开关状态的过度方式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.example</span> &#123;</div><div class="line">    <span class="attribute">background</span>: red;</div><div class="line">    <span class="attribute">transition</span>: background <span class="number">0.3s</span> ease-out;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.example</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">    <span class="attribute">background</span>: yellow;</div><div class="line">    <span class="attribute">transition</span>: background <span class="number">2s</span> linear;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样，当鼠标悬停于元素上时，过渡2秒。返回初始状态时只要 0.3s，有助于提高 UI 元素的可用性。</p>
+<h2 id="CSS3-动画"><a href="#CSS3-动画" class="headerlink" title="CSS3 动画"></a>CSS3 动画</h2><p>通过<code>transition</code>实现的动画，功能有限（只有start &amp; end两种状态），于是有<code>animation</code>属性。它可以通过关键帧控制动画的每一步，从而实现更复杂的动画效果。</p>
+<p>动画由两部分组成：</p>
+<ul>
+<li>定义动画：使用<code>@keyframes</code>规则来声明关键帧（通过 from/to 或者百分比），并需要给动画命名。</li>
+<li>将其赋给指定的HTML元素</li>
+</ul>
+<p>在创建了关键帧声明块后，要把动画赋给HTML元素，并为该元素定义一个属性列表，共有八个子属性：</p>
+<ul>
+<li><code>animation-name: drive;</code> // 指定关键帧动画的名字，这个动画必须对应一个<code>@keyframes</code>规则</li>
+<li><code>animation-duration: 2s;</code> // 动画持续的时间，单位为秒</li>
+<li><code>animation-time-function: ease-in;</code> // 默认为 ease，另有 linear | ease-out | ease-in-out</li>
+<li><code>animation-delay: 2s;</code> // 延迟多久才播放</li>
+<li><code>animation-iteration-count: 1;</code> // 默认为 1 次，定义重复播放多少次动画，另有 infinite</li>
+<li><code>animation-direction: normal;</code> // reverse | alternate | alternate-reverse</li>
+<li><code>animation-play-state: running;</code> // running | paused，控制动画的播放状态</li>
+<li><code>animation-fill-mode: both;</code> // none | forwards | backwards</li>
+</ul>
+<p>简写：<code>animation: &lt;name&gt; &lt;duration&gt; &lt;timing-function&gt; &lt;delay&gt; &lt;iteration-count&gt; &lt;direction&gt; &lt;fill-mode&gt; &lt;play-state&gt;</code>。</p>
+<p><code>time-function</code>还可以使用<code>steps</code>，如<code>steps(10)</code>就是将动画分成 10 份，常配合背景图使用。</p>
+<p><code>@keyframes</code>语法规则</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 定义名为 change 的动画，0%即是 from，100%即是 to</span></div><div class="line">@keyframes change &#123;</div><div class="line">    0% &#123;</div><div class="line">        <span class="attribute">margin-left</span>: <span class="number">100px</span>;</div><div class="line">        <span class="attribute">background</span>: green;</div><div class="line">    &#125;</div><div class="line">    50% &#123;</div><div class="line">        <span class="attribute">margin-left</span>: <span class="number">200px</span>;</div><div class="line">        <span class="attribute">background</span>: orange;</div><div class="line">    &#125;</div><div class="line">    100% &#123;</div><div class="line">        <span class="attribute">margin-left</span>: <span class="number">0</span>;</div><div class="line">        <span class="attribute">background</span>: red;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 使用动画</span></div><div class="line"><span class="selector-class">.demo</span> &#123;</div><div class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">border-radius</span>: <span class="number">100px</span>;</div><div class="line">    <span class="attribute">animation</span>: change <span class="number">1s</span> ease-in <span class="number">0s</span> <span class="number">100</span> alternate;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>首先声明一段动画，赋与<code>change</code>名称。然后在元素上应用<code>animation</code>属性，它有上述列表中 8 个值，上例只给出了 5 个值，其中倒数第二个值 100 指循环次数；最后一个值指上一次结束后，原路反方向播放动画。</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//HTML</span></div><div class="line"><span class="params">&lt;div class="sprite"&gt;</span><span class="params">&lt;/div&gt;</span></div><div class="line"><span class="comment">//CSS</span></div><div class="line">.<span class="class">sprite </span>&#123;</div><div class="line"><span class="symbol">  width:</span><span class="number">245</span>px;</div><div class="line"><span class="symbol">  height:</span><span class="number">400</span>px;</div><div class="line"><span class="symbol">  display:</span>block;	</div><div class="line"><span class="symbol">  background:</span>transparent url(http:<span class="comment">//s.cdpn.io/13034/walker.png) 0 0 no-repeat;	</span></div><div class="line"><span class="symbol">  margin:</span><span class="number">3</span>em auto;</div><div class="line"><span class="symbol">  animation:</span> walker <span class="number">1</span>s steps(<span class="number">10</span>) infinite;</div><div class="line">&#125;</div><div class="line">@keyframes <span class="class">walker </span>&#123;</div><div class="line">  <span class="class">from </span>&#123;background-position:<span class="number">0</span> <span class="number">0</span>;&#125;</div><div class="line">  <span class="class">to </span>&#123;background-position:<span class="number">0</span> <span class="number">-4000</span>px;&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>通过<code>animation-play-state</code>来启动或停止动画，如把<code>hover</code>作为触发器，也可以结合<code>JavaScript</code>来使用，形成更复杂的交互。</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//HTML</span></div><div class="line">&lt;link href=<span class="string">'http://fonts.googleapis.com/css?family=Bree+Serif'</span> rel=<span class="string">'stylesheet'</span> type=<span class="string">'text/css'</span>&gt;</div><div class="line">&lt;div <span class="keyword">class</span>=<span class="string">"wrap"</span>&gt;</div><div class="line">  &lt;div <span class="keyword">class</span>=<span class="string">"sticker"</span>&gt;&lt;/div&gt;</div><div class="line">  &lt;div <span class="keyword">class</span>=<span class="string">"msg"</span>&gt;<span class="keyword">new</span>!&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line"><span class="comment">//CSS</span></div><div class="line">body &#123;</div><div class="line">  padding:<span class="number">4</span>em; </div><div class="line">  <span class="built_in">background</span>:<span class="meta">#fcfcfc;</span></div><div class="line">&#125;</div><div class="line">.wrap &#123;</div><div class="line">  <span class="built_in">width</span>:<span class="number">200</span>px;</div><div class="line">  margin:<span class="keyword">auto</span>; </div><div class="line">  z-index:<span class="number">1</span>;</div><div class="line">&#125;</div><div class="line">.msg &#123;</div><div class="line">  color: red;</div><div class="line">  <span class="built_in">text</span>-align:center;</div><div class="line">  font-family: <span class="string">'Bree Serif'</span>, Courier, monospaced; </div><div class="line">  font-<span class="built_in">size</span>:<span class="number">3.5</span>em;</div><div class="line">  <span class="built_in">width</span>:<span class="number">200</span>px;</div><div class="line">  <span class="built_in">position</span>:absolute;</div><div class="line">  margin:<span class="number">55</span>px <span class="number">0</span> <span class="number">0</span> <span class="number">2</span>px;</div><div class="line">  pointer-events: none; </div><div class="line">&#125;</div><div class="line">.sticker &#123;</div><div class="line">  <span class="built_in">width</span>:<span class="number">200</span>px;</div><div class="line">  <span class="built_in">height</span>:<span class="number">200</span>px;</div><div class="line">  <span class="built_in">position</span>:absolute;</div><div class="line">  <span class="built_in">background</span>: url(http:<span class="comment">//www.w3cplus.com/sites/default/files/blogs/2015/1506/sticker.png) top center no-repeat; </span></div><div class="line">  animation: spin <span class="number">10</span>s linear infinite;</div><div class="line">  animation-play-state: paused; </div><div class="line">&#125;</div><div class="line">.sticker:hover &#123;</div><div class="line">  animation-play-state: <span class="built_in">running</span>;</div><div class="line">&#125;</div><div class="line">@keyframes spin &#123;</div><div class="line">  <span class="number">100</span>% &#123;transform: rotate(<span class="number">1</span><span class="built_in">turn</span>); &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一个对象多个动画：</p>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">//HTML</div><div class="line">&lt;div <span class="keyword">class</span>=<span class="string">"wrapper"</span>&gt;</div><div class="line">  &lt;div &gt;</div><div class="line">    &lt;div <span class="keyword">class</span>=<span class="string">"mol"</span>&gt;&lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">//CSS</div><div class="line">body &#123;</div><div class="line">  background-color:#f3f3f3;</div><div class="line">&#125;	</div><div class="line">.wrapper &#123;</div><div class="line">  margin:em;</div><div class="line">&#125;</div><div class="line">.mol &#123;</div><div class="line">  width:74px;  </div><div class="line">  height:74px;</div><div class="line">  background:transparent url(<span class="string">'http://www.w3cplus.com/sites/default/files/blogs/2015/1506/mol_badge.png'</span>) top center no-<span class="built_in">repeat</span>;</div><div class="line">  <span class="keyword">position</span>:absolute;</div><div class="line">  left:00px;</div><div class="line">  animation-<span class="keyword">name</span>: roll-<span class="keyword">in</span>, <span class="built_in">scale</span>-up;</div><div class="line">  animation-duration: s, .5s;</div><div class="line">  animation-delay: s ,s;</div><div class="line">  animation-timing-<span class="function"><span class="keyword">function</span></span>: ease-<span class="keyword">in</span>, linear;	</div><div class="line">  animation-iteration-<span class="built_in">count</span>: <span class="number">1</span>;</div><div class="line">  animation-fill-mode: forwards;</div><div class="line">&#125;</div><div class="line">@keyframes roll-<span class="keyword">in</span> &#123;</div><div class="line">  <span class="number">0</span>% &#123;</div><div class="line">    transform: translateX(-00px) rotate(deg);</div><div class="line">  &#125;		</div><div class="line">  <span class="number">100</span>% &#123;</div><div class="line">    transform: translateX(px) rotate(60deg);</div><div class="line">  &#125;		</div><div class="line">&#125;</div><div class="line">@keyframes <span class="built_in">scale</span>-up &#123;</div><div class="line">	<span class="number">0</span>% &#123;</div><div class="line">		transform: <span class="built_in">scale</span>(<span class="number">1</span>);</div><div class="line">		animation-timing-<span class="function"><span class="keyword">function</span></span>: ease-<span class="keyword">in</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="number">25</span>% &#123;</div><div class="line">		transform: <span class="built_in">scale</span>(<span class="number">1.15</span>);</div><div class="line">		animation-timing-<span class="function"><span class="keyword">function</span></span>: ease-<span class="keyword">out</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="number">60</span>% &#123;</div><div class="line">		transform: <span class="built_in">scale</span>(<span class="number">.9</span>);</div><div class="line">		animation-timing-<span class="function"><span class="keyword">function</span></span>: ease-<span class="keyword">in</span>;</div><div class="line">	&#125;</div><div class="line">	<span class="number">100</span>% &#123;</div><div class="line">		transform: <span class="built_in">scale</span>(<span class="number">1</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="缓动函数"><a href="#缓动函数" class="headerlink" title="缓动函数"></a>缓动函数</h3><p><a href="http://easings.net/zh-cn#" target="_blank" rel="external">缓动函数</a>指定动画效果在执行时的速度，使其看起来更加真实。</p>
+<h2 id="媒体特性与-Responsive-设计"><a href="#媒体特性与-Responsive-设计" class="headerlink" title="媒体特性与 Responsive 设计"></a>媒体特性与 Responsive 设计</h2><p>媒体类型的引入方法</p>
+<ul>
+<li><code>&lt;link href=&quot;style.css&quot; media=&quot;screen and (max-width: 600px)&quot; /&gt;</code></li>
+<li>@import url(style.css) screen;</li>
+<li>@media screen and (max-width: 960px) { … } // 这种方式最常见</li>
+</ul>
+<p>上面第三种方式的格式是：<code>@media 媒体类型[ and (媒体特性)]* {样式}</code></p>
+<p>当响应式设计页面在智能设备中进行测试的时候，所有的媒体查询都不会生效，因为它们使用了一个比实际屏幕尺寸大很多的虚拟可视区域，主要目的是让页面在智能手机上阅读时不会因为实际可视区域而变形。因此在智能手机上需要一个特殊的<code>meta</code>标签。如：<code>&lt;meta name=&quot;viewport&quot; content=&quot;&quot; /&gt;</code>。</p>
+<p>其中<code>content</code>的值有</p>
+<ul>
+<li><code>width</code>: number | device-width</li>
+<li><code>height</code>: number | device-height</li>
+<li><code>initial-scale</code></li>
+<li><code>minimun-scale</code></li>
+<li><code>maximun-scale</code></li>
+<li><code>user-scalable</code></li>
+</ul>
+<p>如：<code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width; initial-scale=1.0&quot; /&gt;</code>。</p>
+<h2 id="嵌入-Web-字体"><a href="#嵌入-Web-字体" class="headerlink" title="嵌入 Web 字体"></a>嵌入 Web 字体</h2><p>使用<code>@font-face</code>模块，不管用户电脑是否安装对应字体，只要服务器端有即可显示该字体。</p>
+<p>在<code>&lt;style&gt;</code>标签中如下所示引用</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">font-face</span> &#123;</div><div class="line">  <span class="attribute">font-family</span>: <span class="string">'myFont'</span>;</div><div class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'myFont.eot'</span>); <span class="comment">/* IE9 */</span></div><div class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'myFont.eot?#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>), <span class="comment">/* IE6 - IE9*/</span></div><div class="line">    <span class="built_in">url</span>(<span class="string">'myFont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>), <span class="comment">/* 现代浏览器 */</span></div><div class="line">    <span class="built_in">url</span>(<span class="string">'myFont.ttf'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>), <span class="comment">/* Safari, Android, iOS */</span></div><div class="line">    <span class="built_in">url</span>(<span class="string">'myFont.svg# myFont'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>); <span class="comment">/* Legacy iOS */</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="selector-tag">h2</span> &#123; <span class="attribute">font-family</span>: <span class="string">'myFont'</span>; &#125;</div></pre></td></tr></table></figure>
+<h2 id="生成工具"><a href="#生成工具" class="headerlink" title="生成工具"></a>生成工具</h2><h3 id="CSS3-Maker"><a href="#CSS3-Maker" class="headerlink" title="CSS3 Maker"></a>CSS3 Maker</h3><p>在线演示渐变、阴影、旋转、动画等效果，并生成对应效果的代码</p>
+<h3 id="CSS3-Generator"><a href="#CSS3-Generator" class="headerlink" title="CSS3 Generator"></a>CSS3 Generator</h3><p>CSS3 代码生成器，支持圆角、渐变、旋转和阴影等特性，带预览效果</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS3/" rel="tag">#CSS3</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/11/Electron 入门实例/" rel="next" title="Electron 入门实例">
+                <i class="fa fa-chevron-left"></i> Electron 入门实例
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/12/09/鸡汤/" rel="prev" title="鸡汤">
+                鸡汤 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/11/06/图解 CSS3 核心技术与案例实战/"
+           data-title="大漠的图解CSS3" data-url="http://www.turuir.cn/2015/11/06/图解 CSS3 核心技术与案例实战/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.jpg" alt="涂睿" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">涂睿</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">人生苦短莫蹉跎</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/uruir" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/t9228" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 微博
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cascading-StyleSheet-3-概要"><span class="nav-number">1.</span> <span class="nav-text">Cascading StyleSheet 3 概要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3-选择器"><span class="nav-number">2.</span> <span class="nav-text">CSS3 选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3-边框"><span class="nav-number">3.</span> <span class="nav-text">CSS3 边框</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#border-style"><span class="nav-number">3.1.</span> <span class="nav-text">border-style</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#border-color（并没有看懂这节，书上写得相当乱，在此仅mark）"><span class="nav-number">3.2.</span> <span class="nav-text">border-color（并没有看懂这节，书上写得相当乱，在此仅mark）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3-背景"><span class="nav-number">4.</span> <span class="nav-text">CSS3 背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3-文本"><span class="nav-number">5.</span> <span class="nav-text">CSS3 文本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3-颜色特性"><span class="nav-number">6.</span> <span class="nav-text">CSS3 颜色特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3-盒模型"><span class="nav-number">7.</span> <span class="nav-text">CSS3 盒模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布局"><span class="nav-number">8.</span> <span class="nav-text">布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#多列布局"><span class="nav-number">8.1.</span> <span class="nav-text">多列布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Flex-布局"><span class="nav-number">8.2.</span> <span class="nav-text">Flex 布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">8.3.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#容器的属性"><span class="nav-number">8.4.</span> <span class="nav-text">容器的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目的属性"><span class="nav-number">8.5.</span> <span class="nav-text">项目的属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3-渐变"><span class="nav-number">9.</span> <span class="nav-text">CSS3 渐变</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3-变形"><span class="nav-number">10.</span> <span class="nav-text">CSS3 变形</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#transform-属性"><span class="nav-number">10.1.</span> <span class="nav-text">transform 属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2D-transform-常用-transform-function-功能"><span class="nav-number">10.1.1.</span> <span class="nav-text">2D transform 常用 transform-function 功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3D-transform-常用-transform-function-功能"><span class="nav-number">10.1.2.</span> <span class="nav-text">3D transform 常用 transform-function 功能</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3-过渡"><span class="nav-number">11.</span> <span class="nav-text">CSS3 过渡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS3-动画"><span class="nav-number">12.</span> <span class="nav-text">CSS3 动画</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#缓动函数"><span class="nav-number">12.1.</span> <span class="nav-text">缓动函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#媒体特性与-Responsive-设计"><span class="nav-number">13.</span> <span class="nav-text">媒体特性与 Responsive 设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#嵌入-Web-字体"><span class="nav-number">14.</span> <span class="nav-text">嵌入 Web 字体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成工具"><span class="nav-number">15.</span> <span class="nav-text">生成工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS3-Maker"><span class="nav-number">15.1.</span> <span class="nav-text">CSS3 Maker</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS3-Generator"><span class="nav-number">15.2.</span> <span class="nav-text">CSS3 Generator</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">涂睿</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"uruir"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

@@ -1,0 +1,726 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="C语言,循环," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="for、while等">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言－第四章－循环">
+<meta property="og:url" content="http://www.turuir.cn/2013/12/19/C语言04/index.html">
+<meta property="og:site_name" content="uRuier's Blog">
+<meta property="og:description" content="for、while等">
+<meta property="og:updated_time" content="2015-08-19T08:05:52.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C语言－第四章－循环">
+<meta name="twitter:description" content="for、while等">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> C语言－第四章－循环 | uRuier's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">uRuier's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">涂睿的博客</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                C语言－第四章－循环
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2013-12-19T23:10:57+08:00" content="2013-12-19">
+              2013-12-19
+            </time>
+          </span>
+          <span class="post-time">
+            | 修改于
+            <time itemprop="dateCreated" datetime="2015-08-19T16:05:52+08:00" content="2015-08-19">
+              2015-08-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/语言/" itemprop="url" rel="index">
+                    <span itemprop="name">语言</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/12/19/C语言04/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/12/19/C语言04/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><p>让一段代码重复执行，直到满足设定条件为止。</p>
+<h3 id="1-递增和递减运算符"><a href="#1-递增和递减运算符" class="headerlink" title="1 递增和递减运算符"></a>1 递增和递减运算符</h3><p>自增或自减，改变的是变量本身的值。如int number=6; number++;则执行完后number自变为7。  </p>
+<h3 id="2-for循环"><a href="#2-for循环" class="headerlink" title="2 for循环"></a>2 for循环</h3><p>打印26个英文字母。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> ch=<span class="string">'a'</span>;</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;=<span class="number">26</span>; i++)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%c "</span>, ch++);    <span class="comment">//这时char的值可以和int互换</span></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面for(…)中，第一个表达式是初始条件；第二个表达式必须是一个逻辑表达式，逻辑终点就是在这里确定，最开始i=1，符合i&lt;=26的条件，循环继续；第三个表达式是循环变量，否则会成为死循环，跳不出来。每个表达式之间用“；”隔开。<br>也可以在for循环里设置多个变量，如：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">for(i=<span class="number">1</span>, j=<span class="number">2</span>; i&lt;=<span class="number">5</span>; i++, j+=<span class="number">2</span>)  <span class="comment">//先i=1，再j=2，再比较i是否大于5，再i++，最后j+=2</span></div><div class="line">  printf(<span class="string">"%5d"</span>, i*j);</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h3 id="3-再谈递增和递减运算符"><a href="#3-再谈递增和递减运算符" class="headerlink" title="3 再谈递增和递减运算符"></a>3 再谈递增和递减运算符</h3><p>下面三条语句效果相同：<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">count</span> = <span class="built_in">count</span> +<span class="number">1</span><span class="comment">;</span></div><div class="line"><span class="built_in">count</span> += <span class="number">1</span><span class="comment">;</span></div><div class="line">++<span class="built_in">count</span><span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p>而第三条语句，++放在count后和count前有很大区别，如在下例中：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">label</span> a:</div><div class="line">int <span class="keyword">count</span> = 5;</div><div class="line"><span class="keyword">total</span> = ++<span class="keyword">count</span> + 6;    <span class="comment">//total = 12 &amp; count = 6</span></div></pre></td></tr></table></figure></p>
+<p>执行完第二条语句时，count自增为6并参与运算然后再赋值到左边，total = 6 + 6。但，<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">label <span class="keyword">b:</span></div><div class="line">int <span class="built_in">count</span> = <span class="number">5</span><span class="comment">;</span></div><div class="line">total = <span class="built_in">count</span>++ + <span class="number">6</span><span class="comment">;    //total = 11 &amp; count = 6</span></div></pre></td></tr></table></figure></p>
+<p>它是在这条赋值语句执行完后才自增为6，也就是（total = 5 + 6）后再变成6。可以认为label b中第二条语句等价于：<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">total = <span class="built_in">count</span> + <span class="number">6</span><span class="comment">;</span></div><div class="line">++<span class="built_in">count</span><span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<h3 id="4-再谈for"><a href="#4-再谈for" class="headerlink" title="4 再谈for"></a>4 再谈for</h3><h4 id="4-1-前n个自然数的和："><a href="#4-1-前n个自然数的和：" class="headerlink" title="4.1 前n个自然数的和："></a>4.1 前n个自然数的和：</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">long</span> sum = <span class="number">0L</span>;</div><div class="line">    <span class="keyword">int</span> i=<span class="number">1</span>, n, count = <span class="number">0</span>;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"输入整数n：\n"</span>);</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</div><div class="line">    <span class="keyword">for</span>(; i&lt;=n; i++)</div><div class="line">        sum += i;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"总和是：%d"</span>, sum);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>PS:上面的第9、10行可简化为一行：for(; i&lt;=n; sum += i++);  </p>
+<p>for()语句，括号内是从左到右执行的。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> m=<span class="number">1</span>,n=<span class="number">3</span>;</div><div class="line">    <span class="keyword">for</span>(;m&lt;=<span class="number">8</span>;++m)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">if</span>(m==n)</div><div class="line">        <span class="keyword">break</span>;  </div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,m); <span class="comment">//3</span></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这个自然数和只作为一个例子，求其和可直接：printf(“%ld”, n*(n+1)/2);</p>
+<h4 id="4-2-循环内的break语句"><a href="#4-2-循环内的break语句" class="headerlink" title="4.2 循环内的break语句"></a>4.2 循环内的break语句</h4><p>上一章中谈到switch时有引入关键字break，它的意思是跳出语句块执行下一条语句。所以在类似for(;;)这样无限死循环中，可用它来跳出，如：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> answer = <span class="number">0</span>;</div><div class="line"><span class="keyword">for</span>(;;)</div><div class="line">&#123;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"继续输入吗？(y/n)"</span>);</div><div class="line">  <span class="built_in">scanf</span>(<span class="string">"%c"</span>, &amp;answer);</div><div class="line">  <span class="keyword">if</span>(<span class="built_in">tolower</span>(answer) == <span class="string">'n'</span>)</div><div class="line">    <span class="keyword">break</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这里，如果不输入“n”或“N”，则会一直读取输入，执行循环。  </p>
+<h3 id="5-嵌套循环"><a href="#5-嵌套循环" class="headerlink" title="5 嵌套循环"></a>5 嵌套循环</h3><p>循环内还有循环：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i=<span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span>(; i&lt;=<span class="number">6</span>; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> j=<span class="number">1</span>,sum=<span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(; j&lt;=i; sum+=j++);</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d\t%d\n"</span>,i,sum);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>printf语句位于外循环里面，循环里又有一个for循环，每经历一次外循环，初始化j和sum，然后从1开始一直加到当时的i。  </p>
+<p>写成下面这种方式更容易理解：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i=<span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span>(; i&lt;=<span class="number">6</span>; i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> j=<span class="number">1</span>,sum=<span class="number">1</span>;  <span class="comment">//每次外循环都初始化这两个量</span></div><div class="line">        <span class="built_in">printf</span>(<span class="string">"1 "</span>);</div><div class="line">        <span class="keyword">while</span>(j&lt;i)  <span class="comment">//另一种循环语句</span></div><div class="line">        &#123;</div><div class="line">            sum+=++j;   <span class="comment">//sum原值为1，因此除第一次外循环不参与加之外，它从2开始累加，直到加到第i次循环的i</span></div><div class="line">            <span class="built_in">printf</span>(<span class="string">"+ %d "</span>,j);</div><div class="line">        &#125;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">" = %d\n"</span>,sum);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="6-do-while循环"><a href="#6-do-while循环" class="headerlink" title="6 do-while循环"></a>6 do-while循环</h3><p>for和while循环都是很检查条件，再执行循环体，也就是如果条件不满足，则一次都不会执行。而do-while语句则至少会执行一次。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> num,renum=<span class="number">0</span>;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"输入一个正数："</span>);</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;num);</div><div class="line">    <span class="keyword">int</span> temp=num;</div><div class="line">    <span class="keyword">do</span>&#123;</div><div class="line">        renum = <span class="number">10</span>*renum + temp%<span class="number">10</span>; <span class="comment">//往左移一位，加入尾数</span></div><div class="line">        temp/=<span class="number">10</span>;   <span class="comment">//往右移一位，这样可以丢掉已经加的尾数</span></div><div class="line">    &#125;<span class="keyword">while</span>(temp);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, renum);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上例将一个正整数反转。  </p>
+<h3 id="7-continue"><a href="#7-continue" class="headerlink" title="7 continue"></a>7 continue</h3><p>它和break一样，可以跳出循环。只continue是跳过本次循环，而break是跳到最近一个外循环。以查寝为例，当查到某个寝室有妹子时，continue跳过这个寝室，查下一个寝室；而break是直接跳过本层，查下一层。   </p>
+<h3 id="8-小游戏"><a href="#8-小游戏" class="headerlink" title="8 小游戏"></a>8 小游戏</h3><p>屏幕显示一串数字，一秒后删除，如果输入正确3次，增加数字长度。下面是原书代码。原作者提示：当代码可以编译时，应该编译它，但不执行，确保每次写的代码都可以编译。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* Program 4.12 Simple Simon */</span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span>                     <span class="comment">/* For input and output   */</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctype.h&gt;</span>                     <span class="comment">/* For toupper() function */</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdbool.h&gt;</span>                   <span class="comment">/* For bool, true, false  */</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span>                    <span class="comment">/* For rand() and srand() */</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span>                      <span class="comment">/* For time() and clock() */</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="comment">/* Records if another game is to be played */</span></div><div class="line">  <span class="keyword">char</span> another_game = <span class="string">'Y'</span>;</div><div class="line"></div><div class="line">  <span class="comment">/* true if correct sequence entered, false otherwise */</span></div><div class="line">  <span class="keyword">int</span> correct = <span class="literal">false</span>;</div><div class="line"></div><div class="line">  <span class="comment">/* Number of sequences entered successfully          */</span></div><div class="line">  <span class="keyword">int</span> counter = <span class="number">0</span>;</div><div class="line"></div><div class="line">  <span class="keyword">int</span> sequence_length = <span class="number">0</span>;     <span class="comment">/* Number of digits in a sequence        */</span></div><div class="line">  <span class="keyword">time_t</span> seed = <span class="number">0</span>;             <span class="comment">/* Seed value for random number sequence */</span></div><div class="line">  <span class="keyword">int</span> number = <span class="number">0</span>;              <span class="comment">/* Stores an input digit                 */</span></div><div class="line"></div><div class="line">  <span class="keyword">time_t</span> now = <span class="number">0</span>;            <span class="comment">/* Stores current time - seed for random values  */</span></div><div class="line">  <span class="keyword">int</span> time_taken = <span class="number">0</span>;        <span class="comment">/* Time taken for game in seconds                */</span></div><div class="line"></div><div class="line">  <span class="comment">/* Describe how the game is played */</span></div><div class="line">  <span class="built_in">printf</span>(<span class="string">"\nTo play Simple Simon, "</span>);</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"watch the screen for a sequence of digits."</span>);</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"\nWatch carefully, as the digits are only displayed"</span></div><div class="line">                                                <span class="string">" for a second! "</span>);</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"\nThe computer will remove them, and then prompt you "</span>);</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"to enter the same sequence."</span>);</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"\nWhen you do, you must put spaces between the digits. \n"</span>);</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"\nGood Luck!\nPress Enter to play\n"</span>);</div><div class="line">  <span class="built_in">scanf</span>(<span class="string">"%c"</span>, &amp;another_game);</div><div class="line"></div><div class="line">  <span class="comment">/* One outer loop iteration is one game */</span></div><div class="line">  <span class="keyword">do</span></div><div class="line">  &#123;</div><div class="line">    correct = <span class="literal">true</span>;         <span class="comment">/* By default indicates correct sequence entered */</span></div><div class="line">    counter = <span class="number">0</span>;            <span class="comment">/* Initialize count of number of successful tries*/</span></div><div class="line">    sequence_length = <span class="number">2</span>;    <span class="comment">/* Initial length of a digit sequence            */</span></div><div class="line">    time_taken = clock();  <span class="comment">/* Record current time at start of game       */</span></div><div class="line"></div><div class="line">    <span class="comment">/* Inner loop continues as long as sequences are entered correctly */</span></div><div class="line">    <span class="keyword">while</span>(correct)</div><div class="line">    &#123;</div><div class="line">      <span class="comment">/* On every third successful try, increase the sequence length */</span></div><div class="line">      sequence_length += counter++%<span class="number">3</span> == <span class="number">0</span>;</div><div class="line"></div><div class="line">      <span class="comment">/* Set seed to be the number of seconds since Jan 1,1970  */</span></div><div class="line">      seed = time(<span class="literal">NULL</span>);</div><div class="line"></div><div class="line">      now = clock();                  <span class="comment">/* record start time for sequence  */</span></div><div class="line"></div><div class="line">      <span class="comment">/* Generate a sequence of numbers and display the number */</span></div><div class="line">      srand((<span class="keyword">unsigned</span> <span class="keyword">int</span>)seed);</div><div class="line">      <span class="keyword">int</span> i = <span class="number">1</span>;     <span class="comment">/* Initialize the random sequence */</span></div><div class="line">      <span class="keyword">for</span>(; i &lt;= sequence_length; i++)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, rand() % <span class="number">10</span>);    <span class="comment">/* Output a random digit          */</span></div><div class="line"></div><div class="line">      <span class="comment">/* Wait one second */</span></div><div class="line">      <span class="keyword">for</span>( ;clock() - now &lt; CLOCKS_PER_SEC; );</div><div class="line"></div><div class="line">      <span class="comment">/* Now overwrite the digit sequence */</span></div><div class="line">      <span class="built_in">printf</span>(<span class="string">"\r"</span>);</div><div class="line">      <span class="keyword">int</span> r = <span class="number">1</span>;                   <span class="comment">/* go to beginning of the line */</span></div><div class="line">      <span class="keyword">for</span>(; r &lt;= sequence_length; r++)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"  "</span>);                 <span class="comment">/* Output two spaces */</span></div><div class="line"></div><div class="line">      <span class="keyword">if</span>(counter == <span class="number">1</span>)           <span class="comment">/* Only output message for the first try */</span></div><div class="line">        <span class="built_in">printf</span>(<span class="string">"\nNow you enter the sequence  - don't forget"</span></div><div class="line">                                               <span class="string">" the spaces\n"</span>);</div><div class="line">      <span class="keyword">else</span></div><div class="line">        <span class="built_in">printf</span>(<span class="string">"\r"</span>);                <span class="comment">/* Back to the beginning of the line */</span></div><div class="line"></div><div class="line">      <span class="comment">/* Check the input sequence of digits against the original */</span></div><div class="line">      srand((<span class="keyword">unsigned</span> <span class="keyword">int</span>)seed);</div><div class="line">      <span class="keyword">int</span> q = <span class="number">1</span>;    <span class="comment">/* Restart the random sequence    */</span></div><div class="line">      <span class="keyword">for</span>(; q &lt;= sequence_length; q++)</div><div class="line">      &#123;</div><div class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;number);         <span class="comment">/* Read an input number         */</span></div><div class="line">        <span class="keyword">if</span>(number != rand() % <span class="number">10</span>)     <span class="comment">/* Compare against random digit */</span></div><div class="line">        &#123;</div><div class="line">          correct = <span class="literal">false</span>;            <span class="comment">/* Incorrect entry             */</span></div><div class="line">          <span class="keyword">break</span>;                      <span class="comment">/* No need to check further... */</span></div><div class="line">        &#125;</div><div class="line">      &#125;</div><div class="line">      <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, correct? <span class="string">"Correct!"</span> : <span class="string">"Wrong!"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/* Calculate total time to play the game in seconds)*/</span></div><div class="line">    time_taken = (clock() - time_taken) / CLOCKS_PER_SEC;</div><div class="line"></div><div class="line">    <span class="comment">/* Output the game score */</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\n\n Your score is %d"</span>, --counter * <span class="number">100</span> / time_taken);</div><div class="line"></div><div class="line">    fflush(<span class="built_in">stdin</span>);</div><div class="line"></div><div class="line">    <span class="comment">/* Check if new game required*/</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\nDo you want to play again (y/n)? "</span>);</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%c"</span>, &amp;another_game);</div><div class="line"></div><div class="line">  &#125;<span class="keyword">while</span>(<span class="built_in">toupper</span>(another_game) == <span class="string">'Y'</span>);</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="9-练习"><a href="#9-练习" class="headerlink" title="9 练习"></a>9 练习</h3><h4 id="9-1-乘法表"><a href="#9-1-乘法表" class="headerlink" title="9.1 乘法表"></a>9.1 乘法表</h4><figure class="highlight maxima"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;</div><div class="line"></div><div class="line">int main(void)</div><div class="line">&#123;</div><div class="line">  int table_size = <span class="number">0</span>;                       <span class="comment">/* Table size        */</span></div><div class="line"></div><div class="line">  <span class="built_in">printf</span>(<span class="string">"Enter the table size (from 2 to 12): "</span>);</div><div class="line">  scanf(<span class="string">"%d"</span>, &amp;table_size);</div><div class="line">  <span class="keyword">if</span>(table_size&gt;<span class="number">12</span>)</div><div class="line">  &#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\nTable size must not exceed 12 - setting to 12"</span>);</div><div class="line">    table_size = <span class="number">12</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(table_size&lt;<span class="number">2</span>)</div><div class="line">  &#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\nTable size must be at least 2 - setting to 2"</span>);</div><div class="line">    table_size = <span class="number">2</span>;</div><div class="line">  &#125;</div><div class="line">  int <span class="built_in">row</span> = <span class="number">0</span> ;</div><div class="line">  <span class="keyword">for</span>( ;<span class="built_in">row</span>&lt;=table_size ; <span class="built_in">row</span>++)</div><div class="line">  &#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    int <span class="built_in">col</span> = <span class="number">0</span> ;                    <span class="comment">/* Start new row */</span></div><div class="line">    <span class="keyword">for</span>( ;<span class="built_in">col</span>&lt;=table_size ; <span class="built_in">col</span>++)</div><div class="line">    &#123;</div><div class="line">      <span class="keyword">if</span>(<span class="built_in">row</span> == <span class="number">0</span>)                     <span class="comment">/* 1st row?                     */</span></div><div class="line">      &#123;                                <span class="comment">/* Yes - output column headings */</span></div><div class="line">        <span class="keyword">if</span>(<span class="built_in">col</span> == <span class="number">0</span>)                   <span class="comment">/* 1st column?                  */</span></div><div class="line">          <span class="built_in">printf</span>(<span class="string">"    "</span>);              <span class="comment">/* Yes - no heading             */</span></div><div class="line">        <span class="keyword">else</span></div><div class="line">          <span class="built_in">printf</span>(<span class="string">"|%4d"</span>, <span class="built_in">col</span>);         <span class="comment">/*No - output heading           */</span></div><div class="line">      &#125;</div><div class="line">      <span class="keyword">else</span></div><div class="line">      &#123;                               <span class="comment">/* Not 1st row - output rows     */</span></div><div class="line">        <span class="keyword">if</span>(<span class="built_in">col</span> == <span class="number">0</span>)                  <span class="comment">/* 1st column?                   */</span></div><div class="line">          <span class="built_in">printf</span>(<span class="string">"%4d"</span>, <span class="built_in">row</span>);         <span class="comment">/* Yes - output row label        */</span></div><div class="line">        <span class="keyword">else</span></div><div class="line">          <span class="built_in">printf</span>(<span class="string">"|%4d"</span>, <span class="built_in">row</span>*<span class="built_in">col</span>);    <span class="comment">/* No - output table entry       */</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">row</span> == <span class="number">0</span> )                     <span class="comment">/* If we just completed 1st row  */</span></div><div class="line">    &#123;                                 <span class="comment">/* output separator dashes       */</span></div><div class="line">      <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">      int <span class="built_in">col</span>=<span class="number">0</span> ;</div><div class="line">      <span class="keyword">for</span>( ;<span class="built_in">col</span>&lt;=table_size ; <span class="built_in">col</span>++)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"_____"</span>);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    <span class="built_in">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="9-2-ASCII码表"><a href="#9-2-ASCII码表" class="headerlink" title="9.2 ASCII码表"></a>9.2 ASCII码表</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctype.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">char</span> ch = <span class="number">0</span>;</div><div class="line">  <span class="keyword">int</span> i = <span class="number">0</span> ;                     <span class="comment">/* Character code value */</span></div><div class="line">  <span class="keyword">for</span>( ;i&lt;<span class="number">128</span> ; i++)</div><div class="line">  &#123;</div><div class="line">    ch = (<span class="keyword">char</span>)i;</div><div class="line">    <span class="keyword">if</span>(ch%<span class="number">2</span>==<span class="number">0</span>)</div><div class="line">      <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"  %4d    %c"</span>,ch,(<span class="built_in">isgraph</span>(ch) ? ch : <span class="string">' '</span>));</div><div class="line">  &#125;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="9-3-扩展ASCII码表"><a href="#9-3-扩展ASCII码表" class="headerlink" title="9.3 扩展ASCII码表"></a>9.3 扩展ASCII码表</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctype.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">char</span> ch = <span class="number">0</span>;</div><div class="line">  <span class="keyword">int</span> i = <span class="number">0</span> ;                      <span class="comment">/* Character code value */</span></div><div class="line">  <span class="keyword">for</span>(; i&lt;<span class="number">128</span> ; i++)</div><div class="line">  &#123;</div><div class="line">    ch = (<span class="keyword">char</span>)i;</div><div class="line">    <span class="keyword">if</span>(ch%<span class="number">2</span>==<span class="number">0</span>)</div><div class="line">      <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"  %4d"</span>,ch);</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">isgraph</span>(ch))</div><div class="line">      <span class="built_in">printf</span>(<span class="string">"               %c"</span>,ch);</div><div class="line">    <span class="keyword">else</span></div><div class="line">      <span class="keyword">switch</span>(ch)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">case</span> <span class="string">'\n'</span>:</div><div class="line">           <span class="built_in">printf</span>(<span class="string">"         newline"</span>,ch);</div><div class="line">           <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="string">' '</span>:</div><div class="line">           <span class="built_in">printf</span>(<span class="string">"           space"</span>,ch);</div><div class="line">           <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="string">'\t'</span>:</div><div class="line">           <span class="built_in">printf</span>(<span class="string">"  horizontal tab"</span>,ch);</div><div class="line">           <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">case</span> <span class="string">'\v'</span>:</div><div class="line">           <span class="built_in">printf</span>(<span class="string">"    vertical tab"</span>,ch);</div><div class="line">           <span class="keyword">break</span>;</div><div class="line">         <span class="keyword">case</span> <span class="string">'\f'</span>:</div><div class="line">           <span class="built_in">printf</span>(<span class="string">"       form feed"</span>,ch);</div><div class="line">           <span class="keyword">break</span>;</div><div class="line">        <span class="keyword">default</span>:</div><div class="line">           <span class="built_in">printf</span>(<span class="string">"                "</span>);</div><div class="line">           <span class="keyword">break</span>;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">  &#125;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="9-4-猜迷游戏"><a href="#9-4-猜迷游戏" class="headerlink" title="9.4 猜迷游戏"></a>9.4 猜迷游戏</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span>                   <span class="comment">/* I added this for the exercise */</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctype.h&gt;</span>                    <span class="comment">/* I added this for the exercise */</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">int</span> chosen = <span class="number">15</span>;                    <span class="comment">/* The lucky number            */</span></div><div class="line">  <span class="keyword">int</span> guess = <span class="number">0</span>;                      <span class="comment">/* Stores a guess              */</span></div><div class="line">  <span class="keyword">int</span> count = <span class="number">3</span>;                      <span class="comment">/* The maximum number of tries */</span></div><div class="line">  <span class="keyword">const</span> <span class="keyword">int</span> MAXVALUE = <span class="number">20</span>;                         <span class="comment">/* I added this for the exercise */</span></div><div class="line">  <span class="keyword">char</span> answer = <span class="string">'N'</span>;                               <span class="comment">/* I added this for the exercise */</span></div><div class="line"></div><div class="line">  <span class="built_in">printf</span>(<span class="string">"\nThis is a guessing game."</span>);</div><div class="line"></div><div class="line">  <span class="comment">/* I changed the following statement for the exercise */</span></div><div class="line">  <span class="built_in">printf</span>(<span class="string">"\nI have chosen a number between 1 and %d"</span></div><div class="line">                                     <span class="string">" which you must guess.\n"</span>, MAXVALUE);</div><div class="line">  <span class="keyword">do</span>                                              <span class="comment">/* I added this for the exercise */</span></div><div class="line">  &#123;                                               <span class="comment">/* I added this for the exercise */</span></div><div class="line"></div><div class="line">    chosen = rand()*(MAXVALUE<span class="number">-1.0</span>)/RAND_MAX +<span class="number">1.0</span>; <span class="comment">/* I added this for the exercise */</span></div><div class="line">    <span class="comment">/* The calculation for chosen will be done as a floating-point calculation */</span></div><div class="line">    <span class="comment">/* because of the 1.0 in the first parentheses forces this. The result of  */</span></div><div class="line">    <span class="comment">/* the calculation will be automatically converted to type int because     */</span></div><div class="line">    <span class="comment">/* chosen is of type int.                                                  */</span></div><div class="line"></div><div class="line">    count = <span class="number">3</span>;                                    <span class="comment">/* I added this for the exercise */</span></div><div class="line">    <span class="keyword">for</span>( ; count&gt;<span class="number">0</span> ; --count)</div><div class="line">    &#123;</div><div class="line">      <span class="built_in">printf</span>(<span class="string">"\nYou have %d tr%s left."</span>, count, count == <span class="number">1</span> ? <span class="string">"y"</span> : <span class="string">"ies"</span>);</div><div class="line">      <span class="built_in">printf</span>(<span class="string">"\nEnter a guess: "</span>);      <span class="comment">/* Prompt for a guess  */</span></div><div class="line">      <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;guess);              <span class="comment">/* Read in a guess     */</span></div><div class="line"></div><div class="line">      <span class="comment">/* Check for a correct guess */</span></div><div class="line">      <span class="keyword">if</span> (guess == chosen)</div><div class="line">      &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"\nYou guessed it!\n"</span>);</div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;                       <span class="comment">/* End the program     */</span></div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="comment">/* Check for an invalid guess */</span></div><div class="line">      <span class="keyword">if</span>(guess&lt;<span class="number">1</span> || guess &gt; <span class="number">20</span>)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"I said between 1 and 20.\n "</span>);</div><div class="line">      <span class="keyword">else</span></div><div class="line">        <span class="built_in">printf</span>(<span class="string">"Sorry. %d is wrong.\n"</span>, guess);</div><div class="line">    &#125;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\nYou have had three tries and failed. The number was %d\n"</span>,</div><div class="line">                                                                  chosen);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Do you want another go(Y or N)? "</span>);   <span class="comment">/* I added this for the exercise */</span></div><div class="line">    <span class="built_in">scanf</span>(<span class="string">" %c"</span>, &amp;answer);                        <span class="comment">/* I added this for the exercise */</span></div><div class="line">  &#125; <span class="keyword">while</span>(<span class="built_in">toupper</span>(answer) == <span class="string">'Y'</span>);                <span class="comment">/* I added this for the exercise */</span></div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C语言/" rel="tag">#C语言</a>
+          
+            <a href="/tags/循环/" rel="tag">#循环</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/12/18/C语言03/" rel="next" title="C语言－第三章－条件判断">
+                <i class="fa fa-chevron-left"></i> C语言－第三章－条件判断
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/12/20/C语言05/" rel="prev" title="C语言－第五章－数组">
+                C语言－第五章－数组 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2013/12/19/C语言04/"
+           data-title="C语言－第四章－循环" data-url="http://www.turuir.cn/2013/12/19/C语言04/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.jpg" alt="涂睿" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">涂睿</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">人生苦短莫蹉跎</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/uruir" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/t9228" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 微博
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#循环"><span class="nav-number">1.</span> <span class="nav-text">循环</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-递增和递减运算符"><span class="nav-number">1.1.</span> <span class="nav-text">1 递增和递减运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-for循环"><span class="nav-number">1.2.</span> <span class="nav-text">2 for循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-再谈递增和递减运算符"><span class="nav-number">1.3.</span> <span class="nav-text">3 再谈递增和递减运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-再谈for"><span class="nav-number">1.4.</span> <span class="nav-text">4 再谈for</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-前n个自然数的和："><span class="nav-number">1.4.1.</span> <span class="nav-text">4.1 前n个自然数的和：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-循环内的break语句"><span class="nav-number">1.4.2.</span> <span class="nav-text">4.2 循环内的break语句</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-嵌套循环"><span class="nav-number">1.5.</span> <span class="nav-text">5 嵌套循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-do-while循环"><span class="nav-number">1.6.</span> <span class="nav-text">6 do-while循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-continue"><span class="nav-number">1.7.</span> <span class="nav-text">7 continue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-小游戏"><span class="nav-number">1.8.</span> <span class="nav-text">8 小游戏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-练习"><span class="nav-number">1.9.</span> <span class="nav-text">9 练习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#9-1-乘法表"><span class="nav-number">1.9.1.</span> <span class="nav-text">9.1 乘法表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-2-ASCII码表"><span class="nav-number">1.9.2.</span> <span class="nav-text">9.2 ASCII码表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-3-扩展ASCII码表"><span class="nav-number">1.9.3.</span> <span class="nav-text">9.3 扩展ASCII码表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-4-猜迷游戏"><span class="nav-number">1.9.4.</span> <span class="nav-text">9.4 猜迷游戏</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">涂睿</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"uruir"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

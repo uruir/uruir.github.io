@@ -1,0 +1,737 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="bash," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="不用说的经典，鸟哥的私房菜！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="鸟哥的私房菜-bash">
+<meta property="og:url" content="http://www.turuir.cn/2014/01/11/vbird-bash/index.html">
+<meta property="og:site_name" content="uRuier's Blog">
+<meta property="og:description" content="不用说的经典，鸟哥的私房菜！">
+<meta property="og:updated_time" content="2015-08-19T07:12:30.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="鸟哥的私房菜-bash">
+<meta name="twitter:description" content="不用说的经典，鸟哥的私房菜！">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> 鸟哥的私房菜-bash | uRuier's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">uRuier's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">涂睿的博客</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                鸟哥的私房菜-bash
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2014-01-11T13:46:18+08:00" content="2014-01-11">
+              2014-01-11
+            </time>
+          </span>
+          <span class="post-time">
+            | 修改于
+            <time itemprop="dateCreated" datetime="2015-08-19T15:12:30+08:00" content="2015-08-19">
+              2015-08-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Shell/" itemprop="url" rel="index">
+                    <span itemprop="name">Shell</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/01/11/vbird-bash/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/01/11/vbird-bash/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><blockquote>
+<p>最近在看鸟哥的私房菜，做了一些笔记，记录下来，能记住最好，记不住以后来查看。</p>
+</blockquote>
+<h3 id="查看命令类型"><a href="#查看命令类型" class="headerlink" title="查看命令类型"></a>查看命令类型</h3><p>比如看ls命令：<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">type</span> <span class="type">-a </span>ls</div></pre></td></tr></table></figure></p>
+<p>这样可以看到ls的别名(alias)和命令所在的目录。  </p>
+<h3 id="变量的赋值与应用"><a href="#变量的赋值与应用" class="headerlink" title="变量的赋值与应用"></a>变量的赋值与应用</h3><figure class="highlight ini"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attr">var</span>=<span class="string">"lang is $LANG"</span></div></pre></td></tr></table></figure>
+<p>等号两边不能有空格，双引号里可以有变量，这样变量var等于”lang is $LANG”。双引号里的$LANG也是一个变量，它是系统的环境变量，显示的是系统的语言，记住变量前有个<code>$</code>。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="variable">$var</span>	<span class="comment">#lang is zh_CN.UTF-8</span></div></pre></td></tr></table></figure></p>
+<p>如果变量在单引号里，则直接输出。比如：<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">var</span>=<span class="string">'lang is $LANG'</span>  </div><div class="line">echo $var	#lang is $LANG</div></pre></td></tr></table></figure></p>
+<p>echo相当于C语言里的printf函数，释放变量用：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">unset</span> <span class="keyword">var</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">name=uruir	<span class="comment">#不带双引号给变量赋值是可以的，但建议用双引  </span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$name</span>	<span class="comment">#uruir  </span></div><div class="line">name=<span class="string">"<span class="variable">$name</span>\' book"</span>	<span class="comment">#这里的\是转义的意思，表示后面的"'"和" "按原样输出  </span></div><div class="line"><span class="built_in">echo</span> <span class="variable">$name</span>	<span class="comment">#uruir' book</span></div></pre></td></tr></table></figure>
+<h3 id="将当前变量变成环境变量"><a href="#将当前变量变成环境变量" class="headerlink" title="将当前变量变成环境变量"></a>将当前变量变成环境变量</h3><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">var</span></div></pre></td></tr></table></figure>
+<p>这样就可以在子bash里使用var变量了，要不然在当前bash消失后，var变量也消失了～  </p>
+<h3 id="使用echo-PATH查看当前环境变量"><a href="#使用echo-PATH查看当前环境变量" class="headerlink" title="使用echo $PATH查看当前环境变量"></a>使用echo $PATH查看当前环境变量</h3><h3 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h3><figure class="highlight elixir"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PATH=<span class="string">"$PATH"</span><span class="symbol">:/home/ur/bin</span></div></pre></td></tr></table></figure>
+<p>目前我知道的添加环境变量是让我们给新安装的程序加上路径，这样就可以直接在bash里输入程序名来执行程序了。当然一般程序的默认安装路径在<code>/bin or /usr/bin or /usr/local/bin</code>这些系统默认的环境变量中～  </p>
+<h3 id="系统内核"><a href="#系统内核" class="headerlink" title="系统内核"></a>系统内核</h3><figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /<span class="class"><span class="keyword">lib</span>/<span class="title">modules</span>/`<span class="title">uname</span> -<span class="title">r</span>`/<span class="title">kernel</span>  </span></div><div class="line">cd /<span class="class"><span class="keyword">lib</span>/<span class="title">modules</span>/$(<span class="title">uname</span> -<span class="title">r</span>)/<span class="title">kernel</span></span></div></pre></td></tr></table></figure>
+<p>这里<code>uname -r</code>是一个命令，它显示当前系统内核版本，”`“是“Esc”键，用在路径中表示执行`xxx`这个命令，因为在我ubuntu12.04系统里：<code>uname -r</code>显示的是”3.8.0-35-generic”。而<code>cd</code>是change directory的意思，所以上面的命令表示我要切换到/lib/modules/3.8.0-35-generic/kernel这个目录  </p>
+<h3 id="查看当前目录"><a href="#查看当前目录" class="headerlink" title="查看当前目录"></a>查看当前目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="string">"the dir is <span class="variable">$(pwd)</span>"</span></div></pre></td></tr></table></figure>
+<p>如上所示”$(xxx)”跟<code>xxx</code>的功能类似，都是执行xxx命令的意思  </p>
+<h3 id="取1-32767之间的随机数"><a href="#取1-32767之间的随机数" class="headerlink" title="取1-32767之间的随机数"></a>取1-32767之间的随机数</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="variable">$RANDOM</span></div></pre></td></tr></table></figure>
+<h3 id="从键盘读入数据"><a href="#从键盘读入数据" class="headerlink" title="从键盘读入数据"></a>从键盘读入数据</h3><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">read</span> -p <span class="string">"please keyin ur name:"</span> -t <span class="number">30</span> <span class="built_in">name</span></div></pre></td></tr></table></figure>
+<p>这里的-p是read命令的参数，表示在输入时，显示<code>please keyin ur name:</code>这么一个提示语，-t 30也是read的参数，表示在30秒内输入有效，将输入的变量保存到name中，然后只要<code>echo $name</code>就可以显示出刚才输入的变量了～  </p>
+<h3 id="声明变量类型"><a href="#声明变量类型" class="headerlink" title="声明变量类型"></a>声明变量类型</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">declare</span> -i sum=100+210	<span class="comment">#i是int类型，所以sum就可以是100和210这两个整型的和了～  </span></div><div class="line"><span class="built_in">declare</span> <span class="_">-a</span>	<span class="comment">#array  </span></div><div class="line"><span class="built_in">declare</span> -x sum	<span class="comment">#环境变量，这样sum就可以在子bash中使用</span></div><div class="line"><span class="built_in">declare</span> -r 只读	<span class="comment">#readable  </span></div><div class="line"><span class="built_in">export</span> | grep sum	<span class="comment">#grep是查找的意思，与find命令类似  </span></div><div class="line"><span class="built_in">declare</span> +r 取消只读	<span class="comment">#使用“＋”表示取消</span></div></pre></td></tr></table></figure>
+<h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var[1]=<span class="string">"uruir"</span>  </div><div class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$&#123;var[1]&#125;</span>"</span></div></pre></td></tr></table></figure>
+<h3 id="对用户的限制"><a href="#对用户的限制" class="headerlink" title="对用户的限制"></a>对用户的限制</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">ulimit</span> <span class="_">-a</span></div></pre></td></tr></table></figure>
+<p>这条命令是查看给用户分配的资源，如果用户很多，那就有必要限制一下用户的资源了，比如我要让一个用户最多只能打开100个文件，则：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">ulimit</span> -n 100</div></pre></td></tr></table></figure></p>
+<p>控制台指令：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">stty <span class="_">-a</span></div></pre></td></tr></table></figure></p>
+<p>按ctrl+alt+f8是正常的图形界面，f1-f6是类似DOS这样的控制台～  </p>
+<h3 id="显示文件"><a href="#显示文件" class="headerlink" title="显示文件"></a>显示文件</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ll -d <span class="regexp">/etc/</span>?????  </div><div class="line">ll -d <span class="regexp">/etc/</span>*[<span class="number">0</span>-<span class="number">9</span>]*</div></pre></td></tr></table></figure>
+<p>这里用到了正则表达式，?匹配一个字符，5个?就匹配5个字符，一个不多一个不少。*匹配零到多个字符，[0-9]匹配任意一个数字。一个命令是否支持正则表达式，正则表达式的写法会有所不同，ls系列命令是不支持正则表达式的，这里只是在ls命令的参数中使用了正则  </p>
+<h3 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find / -name <span class="selector-class">.bashrc</span> &gt; <span class="attribute">right</span> <span class="number">2</span>&gt; wrong</div></pre></td></tr></table></figure>
+<p>表示在/目录下面查看名为.bashrc的文件，并把正确结果输出到right文件中，错误结果输出到wrong文件中。如果直接<code>find / -name .bashrc</code>，很显然不管正确还是错误的结果，都直接在bash里显示，如果不用<code>less</code> or <code>more</code>命令，那这结果我们就很难看清楚。<br><figure class="highlight golo"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">find</span> / -name .bashrc <span class="number">2</span>&gt; /dev/<span class="literal">null</span></div></pre></td></tr></table></figure></p>
+<p>只得到正确的数据。&gt;前面的2表示错误输出，我们通过2&gt;把错误输出重定向到了/dev/null里面了～相当于把错误结果给扔了，不要了～<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">find / -name .bashrc &gt; <span class="type">list</span> <span class="number">2</span>&gt;&amp;<span class="number">1</span>	#把正确和错误的结果都重定向到<span class="type">list</span>文件中</div></pre></td></tr></table></figure></p>
+<h3 id="文本文件"><a href="#文本文件" class="headerlink" title="文本文件"></a>文本文件</h3><figure class="highlight tcl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cat &gt; <span class="keyword">list</span>.bak &lt; <span class="keyword">list</span>	#用<span class="keyword">list</span>文件中的内容创建一个新的<span class="keyword">list</span>.bak文件  </div><div class="line">cat &gt;&gt; <span class="keyword">list</span> &lt;&lt; <span class="string">"eof"</span>	#以<span class="keyword">eof</span>来结束输入。&gt;&gt;和&gt;一样都是重定向，只是&gt;是直接覆盖原文件，而&gt;&gt;是追加内容。<span class="keyword">eof</span>是当在一行中输入<span class="keyword">eof</span>后，文件追加完毕～</div></pre></td></tr></table></figure>
+<h3 id="分隔符"><a href="#分隔符" class="headerlink" title="分隔符"></a>分隔符</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> <span class="variable">$PATH</span> | cut <span class="_">-d</span> <span class="string">':'</span> <span class="_">-f</span> 3,5</div></pre></td></tr></table></figure>
+<p><code>|</code>是管道，它表示把前一条命令的结果传递给后面一条命令。因为PATH变量里各元素以“：”分隔，所以cut命令就从echo拿到数据，并显示出PATH变量中由“:”分隔的第3个和第5个元素，“3,5”改成“3-5”的话，是显示3，4，5三个元素<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export | cut -c <span class="number">12</span>-  </div><div class="line"><span class="keyword">last</span> | <span class="keyword">grep</span> <span class="string">'reboot'</span></div></pre></td></tr></table></figure></p>
+<h3 id="反向选择"><a href="#反向选择" class="headerlink" title="反向选择"></a>反向选择</h3><figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">last</span> | <span class="keyword">grep</span> -v <span class="string">'reboot'</span>	<span class="comment">#-v参数是反向的意思，所以就是在last命令的结果里面找出不含“reboot”的行咯～</span></div><div class="line"><span class="keyword">last</span> | <span class="keyword">grep</span> -v <span class="string">'reboot'</span> | cut -d <span class="string">' '</span> -f <span class="number">1</span>	<span class="comment">#这里表示在上面那条命令的结果里使用cut命令，表示只显示出第一列的数据～</span></div></pre></td></tr></table></figure>
+<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cat <span class="regexp">/etc/</span>passwd | <span class="keyword">sort</span>	#对passwd文件的内容进行排序咯，当然排序有各种方式，就要用到下面这条命令里的参数咯～  </div><div class="line">cat <span class="regexp">/etc/</span>passwd | <span class="keyword">sort</span> -t <span class="string">':'</span> -k <span class="number">3</span> -n</div></pre></td></tr></table></figure>
+<h3 id="计算行列及总字符数"><a href="#计算行列及总字符数" class="headerlink" title="计算行列及总字符数"></a>计算行列及总字符数</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat <span class="regexp">/etc/</span>passwd | wc	<span class="comment">#wc命令是统计passwd里文本的行，列和总字符数～～～</span></div></pre></td></tr></table></figure>
+<h3 id="双向重导向"><a href="#双向重导向" class="headerlink" title="双向重导向"></a>双向重导向</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">last | tee <span class="_">-a</span> last | cut <span class="_">-d</span> <span class="string">' '</span> <span class="_">-f</span> 1	<span class="comment">#a是append，不用a则替换</span></div></pre></td></tr></table></figure>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/bash/" rel="tag">#bash</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/12/25/C语言07/" rel="next" title="C语言－第七章－指针">
+                <i class="fa fa-chevron-left"></i> C语言－第七章－指针
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/01/13/Riding/" rel="prev" title="riding">
+                riding <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/01/11/vbird-bash/"
+           data-title="鸟哥的私房菜-bash" data-url="http://www.turuir.cn/2014/01/11/vbird-bash/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.jpg" alt="涂睿" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">涂睿</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">人生苦短莫蹉跎</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/uruir" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/t9228" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 微博
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看命令类型"><span class="nav-number">1.</span> <span class="nav-text">查看命令类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量的赋值与应用"><span class="nav-number">2.</span> <span class="nav-text">变量的赋值与应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将当前变量变成环境变量"><span class="nav-number">3.</span> <span class="nav-text">将当前变量变成环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用echo-PATH查看当前环境变量"><span class="nav-number">4.</span> <span class="nav-text">使用echo $PATH查看当前环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加环境变量"><span class="nav-number">5.</span> <span class="nav-text">添加环境变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统内核"><span class="nav-number">6.</span> <span class="nav-text">系统内核</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看当前目录"><span class="nav-number">7.</span> <span class="nav-text">查看当前目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取1-32767之间的随机数"><span class="nav-number">8.</span> <span class="nav-text">取1-32767之间的随机数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从键盘读入数据"><span class="nav-number">9.</span> <span class="nav-text">从键盘读入数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#声明变量类型"><span class="nav-number">10.</span> <span class="nav-text">声明变量类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组"><span class="nav-number">11.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对用户的限制"><span class="nav-number">12.</span> <span class="nav-text">对用户的限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示文件"><span class="nav-number">13.</span> <span class="nav-text">显示文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向"><span class="nav-number">14.</span> <span class="nav-text">重定向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本文件"><span class="nav-number">15.</span> <span class="nav-text">文本文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分隔符"><span class="nav-number">16.</span> <span class="nav-text">分隔符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反向选择"><span class="nav-number">17.</span> <span class="nav-text">反向选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#排序"><span class="nav-number">18.</span> <span class="nav-text">排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算行列及总字符数"><span class="nav-number">19.</span> <span class="nav-text">计算行列及总字符数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#双向重导向"><span class="nav-number">20.</span> <span class="nav-text">双向重导向</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">涂睿</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"uruir"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

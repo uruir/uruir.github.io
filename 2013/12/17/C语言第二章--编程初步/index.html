@@ -1,0 +1,749 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="C语言,数据类型," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="介绍各种数据类型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言第二章--编程初步">
+<meta property="og:url" content="http://www.turuir.cn/2013/12/17/C语言第二章--编程初步/index.html">
+<meta property="og:site_name" content="uRuier's Blog">
+<meta property="og:description" content="介绍各种数据类型">
+<meta property="og:updated_time" content="2015-11-21T06:46:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C语言第二章--编程初步">
+<meta name="twitter:description" content="介绍各种数据类型">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> C语言第二章--编程初步 | uRuier's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">uRuier's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">涂睿的博客</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                C语言第二章--编程初步
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2013-12-17T17:05:25+08:00" content="2013-12-17">
+              2013-12-17
+            </time>
+          </span>
+          <span class="post-time">
+            | 修改于
+            <time itemprop="dateCreated" datetime="2015-11-21T14:46:51+08:00" content="2015-11-21">
+              2015-11-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/编程语言/" itemprop="url" rel="index">
+                    <span itemprop="name">编程语言</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/12/17/C语言第二章--编程初步/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/12/17/C语言第二章--编程初步/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><h3 id="整型变量"><a href="#整型变量" class="headerlink" title="整型变量"></a>整型变量</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">int</span> brothers, brides; <span class="comment">// 声明整型变量</span></div><div class="line">  brothers = <span class="number">7</span>; <span class="comment">// 初始化</span></div><div class="line">  brides = <span class="number">7</span>;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"%d brides for %d brothers.\n"</span>, brides, brothers); <span class="comment">// 括号内用逗号分开三个参数，前一参数控制后两个参数以什么方式显示，即它指定了输出数据的格式，%后面的d表示变量会以十进制被显示出来，\n是换行符</span></div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>; <span class="comment">// 返回控制权给操作系统</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="变量命名"><a href="#变量命名" class="headerlink" title="变量命名"></a>变量命名</h3><p>一个变量由n个字母、数字和下划线组成，不能以数字开头，所以<code>8_Ball</code>，<code>Hash!</code>，<code>Mary Lou</code>和<code>Mary-Lou</code>这类就属错误命名。一般以下划线开头的变量名常用在头文件中，为免和标准库冲突，不建议下划线开关命名的方式。  </p>
+<p><strong>PS：变量名区分大小写。</strong>  </p>
+<h3 id="算术语句"><a href="#算术语句" class="headerlink" title="算术语句"></a>算术语句</h3><h4 id="一元运算符"><a href="#一元运算符" class="headerlink" title="一元运算符"></a>一元运算符</h4><figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> expenditure = <span class="number">75</span>;</div><div class="line">pringf(<span class="string">"Your balance has changed by %d."</span>, -expenditure); <span class="regexp">//</span> expenditure的值并未改变，只是这里的%d被-<span class="number">75</span>代替了。-不是一个动作，不需要执行指令，只是通知编译器在程序里创建一个负的常量</div></pre></td></tr></table></figure>
+<h4 id="二元运算符"><a href="#二元运算符" class="headerlink" title="二元运算符"></a>二元运算符</h4><p>在赋值运算中，先计算<code>=</code>右边的表达式，然后赋值给左边的变量。  </p>
+<p>除法运算符总是得到整数值，如：<code>45/7=6</code>。若操作数不同号，结果为负，如：<code>-45/7</code>和<code>45/-7</code>都等于<code>-6</code>。若同号刚为正数。  </p>
+<p>取模运算符的结果总与左操作数符号一致，如：<code>-45%7</code>和<code>45/-7</code>分别是<code>-3</code>和<code>3</code>。还有几例：<code>4%-7=4</code>，<code>-4%7=-4</code>，<code>-5%2=-1</code>，<code>5%-2=1</code>，<code>3%5=3</code>，<code>-3%-5=-3</code>。  </p>
+<h3 id="变量与内存"><a href="#变量与内存" class="headerlink" title="变量与内存"></a>变量与内存</h3><h4 id="定点数"><a href="#定点数" class="headerlink" title="定点数"></a>定点数</h4><h5 id="有符号整型变量"><a href="#有符号整型变量" class="headerlink" title="有符号整型变量"></a>有符号整型变量</h5><p>计算机的内存组织单位是字节，每个变量都会占据一定数量的内在字节，一个字节有8位，能存储-128~+127的整数。</p>
+<ul>
+<li>signed char占用一个字节</li>
+<li>short int占用两个字节</li>
+<li>int占用四个字节</li>
+<li>long int占用四个字节</li>
+<li>long long int占用八个字节</li>
+</ul>
+<p>short,long,long long可以用作short int, long int, long long int的缩写。  </p>
+<h5 id="无符号整型变量"><a href="#无符号整型变量" class="headerlink" title="无符号整型变量"></a>无符号整型变量</h5><p>在有符号变量名前加unsigned，数值为非负，正值大一倍。如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">unsigned</span> <span class="keyword">short</span> count = <span class="number">60000</span>;   </div><div class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> inchesPerMile =<span class="number">63360U</span>L; <span class="comment">// 数值后面的UL代表unsigned long</span></div></pre></td></tr></table></figure>
+<p>整型常量中以0开关的会被认为是八进制数，如：014等于十进制的12；  </p>
+<p>而以0x或0X开关的是十六进制数，如：0xa等于十进制的10，0xb=11，依此类推0xf=15。  </p>
+<h4 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h4><h5 id="浮点数变量"><a href="#浮点数变量" class="headerlink" title="浮点数变量"></a>浮点数变量</h5><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="type">float</span> Radius = <span class="number">2.5</span>f; <span class="comment">// 数值后同样需要标识</span></div><div class="line">double Biggest = <span class="number">123e30</span>; <span class="comment">// 默认是double型</span></div></pre></td></tr></table></figure>
+<p>任何数，只要有小数点，就是double类型，除非加了f，使它变成float类型。  </p>
+<p>当用E或e指定指数值时，这个常量不需要包含小数点。如：1E3f是flaot，3e8是double。  </p>
+<h5 id="使用浮点数完成除法运算"><a href="#使用浮点数完成除法运算" class="headerlink" title="使用浮点数完成除法运算"></a>使用浮点数完成除法运算</h5><figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div></pre></td></tr></table></figure>
+<p>define A 10.0f //define里的标识必须大写，在此程序中出现的常量A都由10.0f直接替换，这种替换发生在程序编译之前，当程序开始编译时，就不再有A这个常量而是10.0f，但源程序并没有改变，依然含有A。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">float</span> b,</div><div class="line">        c;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"Input a num:\n"</span>);</div><div class="line">  <span class="built_in">scanf</span>(<span class="string">"%f"</span>, &amp;b);  <span class="comment">//stdio.h里的一个函数，表示从键盘读入字符，将之存入b中，b前加寻址运算符&amp;。</span></div><div class="line">  c=A/b;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"%-8.2f / %.0f = %.2f"</span>, A, b, c);    <span class="comment">//%.2f里的-代表向左对齐，默认没有此号是右对齐，8代表此值占用8个字符位，.2表示小数点后有两位有效值，f是float。</span></div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面的define中定义的常量，也可以用下面代码完成：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">float</span> A = <span class="number">10.0f</span>;  <span class="comment">//A是变量，但值不能被改变</span></div></pre></td></tr></table></figure></p>
+<p>而<br><figure class="highlight llvm"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">float <span class="keyword">c</span><span class="comment">;</span></div><div class="line"><span class="keyword">c</span>=a/b<span class="comment">;</span></div><div class="line">printf(<span class="string">"%-8.2f / %.0f = %.2f"</span>, a, b, <span class="keyword">c</span>)<span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p>也可以写到一行里，像这样：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">printf(<span class="string">"%-8.2f / %.0f = %.2f"</span>, <span class="keyword">a</span>, b, <span class="keyword">a</span>/b); <span class="comment"> //a/b将创建一个temp变量，当语句编译完后该temp变量自动销毁。</span></div></pre></td></tr></table></figure></p>
+<p>printf和scanf里第一个参数中常使用的变量格式：<br><figure class="highlight mojolicious"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="xml"></span><span class="perl">%hd -&gt; short  </span><span class="xml"></span></div><div class="line"><span class="perl">%d  -&gt; <span class="keyword">int</span>  </span><span class="xml"></span></div><div class="line"><span class="perl">%x -&gt; <span class="number">16</span>进制数值  </span><span class="xml"></span></div><div class="line"><span class="perl">%c -&gt; char  </span><span class="xml"></span></div><div class="line"><span class="perl">%ld -&gt; long  </span><span class="xml"></span></div><div class="line"><span class="perl">%lld -&gt; long long</span><span class="xml"></span></div><div class="line"><span class="perl">%f <span class="keyword">or</span> %e -&gt; float  </span><span class="xml"></span></div><div class="line"><span class="perl">%lf <span class="keyword">or</span> le -&gt; double  </span><span class="xml"></span></div><div class="line"><span class="perl">%Lf <span class="keyword">or</span> Le -&gt; long double</span><span class="xml"></span></div></pre></td></tr></table></figure></p>
+<h2 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h2><h3 id="sizeof运算符"><a href="#sizeof运算符" class="headerlink" title="sizeof运算符"></a>sizeof运算符</h3><p>sizeof可以确定给定的类型占据多少字节。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"%d"</span>,<span class="keyword">sizeof</span>(<span class="keyword">int</span>)); <span class="comment">//结果是4，即int占用了4byte。sizeof的值类型是size_t类型的整数。</span></div><div class="line">  <span class="built_in">printf</span>(<span class="string">"%d"</span>, <span class="keyword">sizeof</span>(<span class="number">100L</span>L));  <span class="comment">//8</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>size_t类型在<stddef.h>中定义，对应于一个基本整数类型<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">size_t</span> size = <span class="keyword">sizeof</span>(<span class="keyword">long</span> <span class="keyword">long</span>);</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"%d"</span>,size);    <span class="comment">//8</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></stddef.h></p>
+<h3 id="3-类型转换"><a href="#3-类型转换" class="headerlink" title="3 类型转换"></a>3 类型转换</h3><p>隐式类型转换：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">long</span> <span class="keyword">double</span> &gt; <span class="keyword">double</span> &gt; <span class="keyword">float</span> &gt; <span class="keyword">long</span> &gt; <span class="keyword">int</span></div></pre></td></tr></table></figure></p>
+<p>无符号整数类型的级别从低到高：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">signed</span> <span class="keyword">char</span>, <span class="keyword">short</span>, <span class="keyword">int</span>, <span class="keyword">long</span>, <span class="keyword">long</span> <span class="keyword">long</span></div></pre></td></tr></table></figure></p>
+<p>当两个操作数进行四则运算时，数值域自动从操作数中低的域转换到高的域，如：<br><code>int/double</code>int为4byte整型，double为8byte有小数的浮点型 ，则运算前自动将int转换成double数值进行处理。  </p>
+<p>赋值语句可能造成数据丢失，如：<br><figure class="highlight abnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int num=<span class="number">3</span><span class="comment">;</span></div><div class="line">float a=<span class="number">11.3287</span>f<span class="comment">;</span></div><div class="line"><span class="attribute">num</span> = a<span class="comment">;    //num等于11，a在传值过程中的小数丢失了。</span></div></pre></td></tr></table></figure></p>
+<h2 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h2><h3 id="字符类型"><a href="#字符类型" class="headerlink" title="字符类型"></a>字符类型</h3><p>因为char类型只占用一个字节，所以如果表示成无符号数，则能表示0~255之间的整数。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">char</span> var=<span class="string">'a'</span>;   <span class="comment">//a在ASCII码值是97</span></div><div class="line">  <span class="built_in">printf</span>(<span class="string">"%d"</span>, var);  <span class="comment">//97</span></div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>反过来：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> <span class="keyword">var</span>=<span class="number">97</span>;</div><div class="line">printf(<span class="string">"%c"</span>, <span class="keyword">var</span>);    <span class="comment">//a</span></div></pre></td></tr></table></figure></p>
+<p>由于char变量具有这种双重性，所以：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> var=<span class="string">'a'</span>;   <span class="comment">//97</span></div><div class="line"><span class="keyword">int</span> var1=var+<span class="number">3</span>; <span class="comment">//100</span></div><div class="line"><span class="built_in">printf</span>(<span class="string">"%d\n"</span>, var1); <span class="comment">//d</span></div><div class="line"><span class="built_in">printf</span>(<span class="string">"The character is %c and the code value is %d."</span>, var1, var1);</div></pre></td></tr></table></figure></p>
+<a href="http://www.asciima.com/" target="_blank" rel="external">点击查看完整ASCII码</a>  
+<h4 id="4-2-宽字符类型"><a href="#4-2-宽字符类型" class="headerlink" title="4.2 宽字符类型"></a>4.2 宽字符类型</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stddef.h&gt;</span> <span class="comment">//引入宽字符类型</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">wchar_t</span> var=L'a'; <span class="comment">//定义宽字符类型</span></div><div class="line">  <span class="built_in">printf</span>(<span class="string">"%lc\n"</span>, var);</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="4-3-枚举类型"><a href="#4-3-枚举类型" class="headerlink" title="4.3 枚举类型"></a>4.3 枚举类型</h4><p>一般情况：<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Weekday</span> &#123;<span class="title">Monday</span>, <span class="title">Tuesday</span>, <span class="title">Wednesday</span>, <span class="title">Thursday</span>, <span class="title">Friday</span>, <span class="title">Saturday</span>, <span class="title">Sunday</span>&#125;;</span></div></pre></td></tr></table></figure></p>
+<p>直接在后面指定变量：<br><figure class="highlight excel"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">enum <span class="built_in">Weekday</span> &#123;Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday&#125; <span class="built_in">today</span>=Wednesday, tomorrow=<span class="built_in">today</span>+<span class="number">1</span>;</div><div class="line">printf(<span class="string">"%d\n"</span>, <span class="built_in">today</span>);  //<span class="number">2</span></div></pre></td></tr></table></figure></p>
+<p>定义枚举量时，默认从0开始，Monday对应0，Sunday对应6，如果定义today is Wednesday，则today+1=Thursday。也可以指定Monday=1。这种情况对应下面这样：<br><figure class="highlight capnproto"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">enum</span> <span class="title">FaceValue</span> </span>&#123;two=<span class="number">2</span>, three, four, five, six, seven, eight, nine, ten, jack, queen, king, ace&#125;;</div></pre></td></tr></table></figure></p>
+<h4 id="4-4-赋值操作"><a href="#4-4-赋值操作" class="headerlink" title="4.4 赋值操作"></a>4.4 赋值操作</h4><p>一般来说：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">num</span>=nub+3;</div></pre></td></tr></table></figure></p>
+<p>可以简写成：<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">num</span>+=<span class="number">3</span>;</div></pre></td></tr></table></figure></p>
+<p>其中+可以换成-,*,/,%等。</p>
+<h4 id="4-5-数学函数"><a href="#4-5-数学函数" class="headerlink" title="4.5 数学函数"></a>4.5 数学函数</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">double</span> x=<span class="number">2.23</span>;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"%lf\n"</span>, <span class="built_in">sqrt</span>(x)); <span class="comment">//1.493318</span></div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其它函数：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">floor</span><span class="params">(x)</span></span> -&gt; 返回不大于x的最大整数  </div><div class="line"><span class="function"><span class="title">ceil</span><span class="params">(x)</span></span> -&gt; 返回不小于x的最小整数  </div><div class="line"><span class="function"><span class="title">fabs</span><span class="params">(x)</span></span> -&gt; x的绝对值  </div><div class="line"><span class="function"><span class="title">log</span><span class="params">(x)</span></span>  </div><div class="line"><span class="function"><span class="title">log10</span><span class="params">(x)</span></span>  </div><div class="line"><span class="function"><span class="title">exp</span><span class="params">(x)</span></span>  </div><div class="line"><span class="function"><span class="title">pow</span><span class="params">(x)</span></span>  </div><div class="line"><span class="function"><span class="title">sin</span><span class="params">(x)</span></span>  </div><div class="line"><span class="function"><span class="title">cos</span><span class="params">(x)</span></span>  </div><div class="line"><span class="function"><span class="title">tan</span><span class="params">(x)</span></span></div></pre></td></tr></table></figure></p>
+<h3 id="5-练习"><a href="#5-练习" class="headerlink" title="5 练习"></a>5 练习</h3><p>计算两件商品的总价值<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"> </div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">float</span> item1price, item2price;</div><div class="line">  <span class="keyword">int</span> item1num, item2num;</div><div class="line">  </div><div class="line">  <span class="built_in">printf</span>(<span class="string">"Input the price of item1:\n"</span>);</div><div class="line">  <span class="built_in">scanf</span>(<span class="string">"%f"</span>, &amp;item1price);</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"Input the num of item1:\n"</span>);</div><div class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;item1num);</div><div class="line">  </div><div class="line">  <span class="built_in">printf</span>(<span class="string">"Input the price of item2:\n"</span>);</div><div class="line">  <span class="built_in">scanf</span>(<span class="string">"%f"</span>, &amp;item2price);</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"Input the num of item2:\n"</span>);</div><div class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;item2num);</div><div class="line">  </div><div class="line">  <span class="built_in">printf</span>(<span class="string">"The total value is %f"</span>, item1price*item1num + item2price*item2num);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C语言/" rel="tag">#C语言</a>
+          
+            <a href="/tags/数据类型/" rel="tag">#数据类型</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/12/16/C语言第一章--简介/" rel="next" title="C语言第一章--简介">
+                <i class="fa fa-chevron-left"></i> C语言第一章--简介
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/12/18/C语言03/" rel="prev" title="C语言－第三章－条件判断">
+                C语言－第三章－条件判断 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2013/12/17/C语言第二章--编程初步/"
+           data-title="C语言第二章--编程初步" data-url="http://www.turuir.cn/2013/12/17/C语言第二章--编程初步/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.jpg" alt="涂睿" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">涂睿</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">人生苦短莫蹉跎</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/uruir" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/t9228" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 微博
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#变量"><span class="nav-number">1.</span> <span class="nav-text">变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#整型变量"><span class="nav-number">1.1.</span> <span class="nav-text">整型变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量命名"><span class="nav-number">1.2.</span> <span class="nav-text">变量命名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算术语句"><span class="nav-number">1.3.</span> <span class="nav-text">算术语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#一元运算符"><span class="nav-number">1.3.1.</span> <span class="nav-text">一元运算符</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二元运算符"><span class="nav-number">1.3.2.</span> <span class="nav-text">二元运算符</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#变量与内存"><span class="nav-number">1.4.</span> <span class="nav-text">变量与内存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定点数"><span class="nav-number">1.4.1.</span> <span class="nav-text">定点数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#有符号整型变量"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">有符号整型变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#无符号整型变量"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">无符号整型变量</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浮点数"><span class="nav-number">1.4.2.</span> <span class="nav-text">浮点数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#浮点数变量"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">浮点数变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用浮点数完成除法运算"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">使用浮点数完成除法运算</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常量"><span class="nav-number">2.</span> <span class="nav-text">常量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sizeof运算符"><span class="nav-number">2.1.</span> <span class="nav-text">sizeof运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-类型转换"><span class="nav-number">2.2.</span> <span class="nav-text">3 类型转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数值类型"><span class="nav-number">3.</span> <span class="nav-text">数值类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符类型"><span class="nav-number">3.1.</span> <span class="nav-text">字符类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-宽字符类型"><span class="nav-number">3.1.1.</span> <span class="nav-text">4.2 宽字符类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-枚举类型"><span class="nav-number">3.1.2.</span> <span class="nav-text">4.3 枚举类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-赋值操作"><span class="nav-number">3.1.3.</span> <span class="nav-text">4.4 赋值操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-数学函数"><span class="nav-number">3.1.4.</span> <span class="nav-text">4.5 数学函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-练习"><span class="nav-number">3.2.</span> <span class="nav-text">5 练习</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">涂睿</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"uruir"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

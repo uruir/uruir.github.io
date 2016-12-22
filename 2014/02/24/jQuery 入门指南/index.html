@@ -1,0 +1,756 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="jQuery," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="jQuery简介及基本操作。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery 简介及基本操作">
+<meta property="og:url" content="http://www.turuir.cn/2014/02/24/jQuery 入门指南/index.html">
+<meta property="og:site_name" content="uRuier's Blog">
+<meta property="og:description" content="jQuery简介及基本操作。">
+<meta property="og:updated_time" content="2015-12-10T02:23:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="jQuery 简介及基本操作">
+<meta name="twitter:description" content="jQuery简介及基本操作。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> jQuery 简介及基本操作 | uRuier's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">uRuier's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">涂睿的博客</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                jQuery 简介及基本操作
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2014-02-24T11:43:26+08:00" content="2014-02-24">
+              2014-02-24
+            </time>
+          </span>
+          <span class="post-time">
+            | 修改于
+            <time itemprop="dateCreated" datetime="2015-12-10T10:23:23+08:00" content="2015-12-10">
+              2015-12-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/框架与库/" itemprop="url" rel="index">
+                    <span itemprop="name">框架与库</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/02/24/jQuery 入门指南/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/02/24/jQuery 入门指南/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>jQuery 是一个跨浏览器的免费开源 JavaScript 库，核心思想是：“write less do more”。它提供了一套易于使用的 API，这极大简化了客户端编程过程中的许多方面，包括：</p>
+<ul>
+<li>HTML DOM 的遍历与操作  </li>
+<li>浏览器事件处理  </li>
+<li>Asynchronous JavaScript And XML编程  </li>
+<li>动画效果</li>
+</ul>
+<h2 id="获取-jQuery"><a href="#获取-jQuery" class="headerlink" title="获取 jQuery"></a>获取 jQuery</h2><ol>
+<li>从<a href="http://jquery.com/" target="_blank" rel="external">jQuery官网</a>下载最新的 jQuery 文件，然后在<code>&lt;head&gt;</code>中添加引用，如下：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/本地相对路径/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<ol>
+<li>直接从百度静态资源库引入，同上在<code>&lt;head&gt;</code>元素内添加：</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="应用-jQuery-来编写-hello-world"><a href="#应用-jQuery-来编写-hello-world" class="headerlink" title="应用 jQuery 来编写 hello world"></a>应用 jQuery 来编写 hello world</h2><p>新建名为 helloWorld.html 的文档，内容如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"content-type"</span> <span class="attr">content</span>=<span class="string">"text/html;charset=utf-8"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">      <span class="function"><span class="keyword">function</span> <span class="title">initpage</span>(<span class="params"></span>)</span>&#123;</div><div class="line">          $(<span class="string">"#message"</span>).html(<span class="string">"hello world, it is now: "</span>+<span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleString());</div><div class="line">      &#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span> <span class="attr">onload</span>=<span class="string">"initpage()"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"message"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>以上代码中，onload 表示在页面 DOM 资源加载完后载入<code>initpage</code>函数，它的功能是将<code>ID</code>为<code>message</code>的<code>&lt;span&gt;</code>结点的内容改为<code>hello world, it is now: &quot; + new Date().toLocaleString()</code>，即显示页面载入时的时间。</p>
+<p>可知，jQuery 与 CSS 规则相似，都是选择元素，对其操作。语法规则为：</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$<span class="comment">(选择器)</span>.操作<span class="comment">(操作参数)</span>;</div></pre></td></tr></table></figure>
+<p>在 helloWorld.html 文档中<code>$(&quot;#message&quot;).html(&quot;hello world, it is now: &quot;+new Date().toLocaleString());</code>与下面原生 JavaScript 等价：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> msg = <span class="built_in">document</span>.getElementById(<span class="string">"message"</span>);</div><div class="line">msg.firstChild.nodeValue = <span class="string">"hello world, it is now: "</span> + <span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleString();</div></pre></td></tr></table></figure>
+<p>很明显，jQuery 代码省略了定义变量和给变量赋值那部分，当页面内有多个这种操作时，优势更为明显。  </p>
+<p>以下教程是 jQuery 官方联合在线学习网站 code school 出的入门教程，共 14 篇约一小时，已翻译成<a href="http://blog.jobbole.com/37699" target="_blank" rel="external">中文jQuery教程</a>。  </p>
+<h2 id="jQuery-可以用来做什么？"><a href="#jQuery-可以用来做什么？" class="headerlink" title="jQuery 可以用来做什么？"></a>jQuery 可以用来做什么？</h2><p>前端包含 HTML, CSS, JavaScript 三个组成部分。其中 HTML 定义内容，CSS 给内容定义样式，而 JavaScript 用于与用户交互。jQuery 是 JavaScript 的一个库，它极大地简化了原生 JavaScript 的操作，使得可以快速高效地创建一个响应式页面。  </p>
+<p>它擅长于：</p>
+<ul>
+<li>查找 html 元素</li>
+<li>改变该元素</li>
+<li>监听事件并快速响应</li>
+<li>动画效果</li>
+<li>AJAX交互</li>
+</ul>
+<h3 id="DOM"><a href="#DOM" class="headerlink" title="DOM"></a>DOM</h3><p>Document Object Model，由浏览器创建的树状结构，方便 JavaScript 查找 HTML 元素。如<code>&lt;head&gt;</code>和<code>&lt;body&gt;</code>都是<code>&lt;html&gt;</code>的直属子元素，<code>&lt;head&gt;</code>里包括<code>&lt;title&gt;</code>, <code>&lt;meta&gt;</code>, <code>&lt;description&gt;</code>等子元素。</p>
+<p>用户输入网址后，浏览器与该服务器建立连接，服务器发送回用户所需页面内容。这时页面内容应当包括 HTML, CSS, JavaScript 等全部内容。浏览利用收到的资源生成 DOM 树，<code>$(document).ready(function(){ ... });</code>表示当 DOM 加载完后再执行<code>function()</code>里的 jQuery 语句。</p>
+<h3 id="符号介绍"><a href="#符号介绍" class="headerlink" title="符号介绍"></a>符号介绍</h3><h4 id="选择元素"><a href="#选择元素" class="headerlink" title="选择元素"></a>选择元素</h4><ul>
+<li><code>$(&quot;div.myClass&quot;)</code> // 选择所有类名为<code>myClass</code>的 div 元素，如<code>&lt;div class=&quot;myClass&quot;&gt;</code></li>
+<li><code>$(&quot;input[name=turuir]&quot;)</code> // 选择 name 为<code>turuir</code>的 input 元素，如<code>&lt;input name=&quot;uruir&quot; type=&quot;button&quot; /&gt;</code>  </li>
+<li><code>$(&quot;a:first&quot;)</code> // 一般写成<code>$(&quot;a&quot;).first()</code>，即选择第一个链接元素，同理<code>$(&quot;a:last&quot;)</code>指选择最后一个链接元素。而<code>$(&quot;a:last&quot;).prev()</code>则是倒数第二个，next()方法与prev()相反  </li>
+<li><code>$(&quot;tr:odd&quot;)</code> // 选择表格里的偶数行，因为 index 从0开始  </li>
+<li><code>$(&quot;div:visible&quot;)</code> // 选择所有可见的 div 元素  </li>
+<li><code>$(&quot;div:gt(2)&quot;)</code> // 选择第三个及以后的 div 元素，gt 为 great  </li>
+<li><code>$(&quot;div&quot;).has(&quot;p&quot;)</code> // 选择带有<code>&lt;p&gt;</code>的<code>&lt;div&gt;</code>  </li>
+<li><code>$(&quot;div&quot;).not(&quot;.myClass&quot;)</code> // 选择所有不带<code>myClass</code>类的<code>&lt;div&gt;</code>  </li>
+<li><code>$(&quot;.myClass, #uId&quot;)</code> // 选择类名是<code>myClass</code>且 id 名是<code>uId</code>的元素  </li>
+<li><code>$(&quot;li&quot;).find(&quot;#uId&quot;)</code> // 在 li 元素里选择 id 名是<code>uId</code>的 li 元素  </li>
+<li><code>$(&quot;#uId&quot;).parent()</code> // 选择 id 名是<code>uId</code>的父元素  </li>
+<li><code>$(&quot;#myLi&quot;).children(&quot;li&quot;)</code> // 选择id名是<code>myLi</code>的直属子li元素。<code>$(&quot;#myLi li&quot;);</code>选择id名是<code>myLi</code>下的所有li元素  </li>
+</ul>
+<h4 id="改变元素内容"><a href="#改变元素内容" class="headerlink" title="改变元素内容"></a>改变元素内容</h4><p><code>var content = $(&quot;h1&quot;).text()</code> // 把 h1 的文本赋值给 content 变量  </p>
+<p><code>var price = $(&quot;&lt;p&gt;$99.99&lt;/p&gt;&quot;)</code> // 把段落赋值给 price 变量  </p>
+<p><code>$(&quot;h1&quot;).text(&quot;lalala&quot;)</code> // 直接改变 h1 的文本为”lalala”  </p>
+<h4 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h4><p><code>$(&quot;.vacation&quot;).append(price)</code> // 把 price 元素加到<code>.vacation</code>的最后一个子元素的后面。比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;ul <span class="class"><span class="keyword">class</span></span>=<span class="string">"vacations"</span>&gt;</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"vacation"</span>&gt;</span> <span class="comment">&lt;!-- $(".vacation")匹配到这个li元素 --&gt;</span></span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>fly to ShangHai<span class="tag">&lt;/<span class="name">p</span>&gt;</span> <span class="comment">&lt;!-- 匹配项的第一个子元素 --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"show price"</span> /&gt;</span> <span class="comment">&lt;!-- 匹配项的第二个子元素，也是最后一个子元素 --&gt;</span></div><div class="line">        <span class="comment">&lt;!-- append在这里 --&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"vacation"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>fly to BeiJing<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"show price"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>使用 jQuery 获取元素文本内容<code>$(&#39;#x&#39;).text();</code> or <code>$(&#39;#x&#39;).html();</code>，对应 JavaScript 原生代码如下：</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> p = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'p'</span>)[<span class="number">0</span>]; <span class="comment">// 获取节点，注意其中的Element是复数</span></div><div class="line">p.innerHTML; <span class="comment">// 节点文本的内容，也可以用p.firstChild.nodeValue</span></div></pre></td></tr></table></figure>
+<h3 id="js-实例"><a href="#js-实例" class="headerlink" title="js 实例"></a>js 实例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(<span class="built_in">document</span>).ready(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    $(<span class="string">"input"</span>).on(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> price = $(<span class="string">"&lt;p&gt;$99.99&lt;/p&gt;"</span>);</div><div class="line">        $(<span class="keyword">this</span>).closest(<span class="string">".vacation"</span>).append(price);</div><div class="line">        $(<span class="keyword">this</span>).remove(); <span class="comment">// 删除button</span></div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>当点击了按钮时，显示价格并删除按钮。<code>this</code>指代<code>button</code>，即<code>this</code>所在作用域的所有者，<code>closest(&quot;.vacation&quot;)</code>指离<code>this</code>最近的含有类名为<code>vacation</code>的祖先元素。这样在上例中，<code>this</code>指代的<code>button</code>和<code>price</code>处于同一级。</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/jQuery/" rel="tag">#jQuery</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/02/07/话说西游记/" rel="next" title="西游记二三事">
+                <i class="fa fa-chevron-left"></i> 西游记二三事
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/05/05/五一前单车环神农架/" rel="prev" title="五一前单人单车环湖北">
+                五一前单人单车环湖北 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/02/24/jQuery 入门指南/"
+           data-title="jQuery 简介及基本操作" data-url="http://www.turuir.cn/2014/02/24/jQuery 入门指南/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.jpg" alt="涂睿" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">涂睿</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">人生苦短莫蹉跎</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/uruir" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/t9228" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 微博
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取-jQuery"><span class="nav-number">2.</span> <span class="nav-text">获取 jQuery</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用-jQuery-来编写-hello-world"><span class="nav-number">3.</span> <span class="nav-text">应用 jQuery 来编写 hello world</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-可以用来做什么？"><span class="nav-number">4.</span> <span class="nav-text">jQuery 可以用来做什么？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM"><span class="nav-number">4.1.</span> <span class="nav-text">DOM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#符号介绍"><span class="nav-number">4.2.</span> <span class="nav-text">符号介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#选择元素"><span class="nav-number">4.2.1.</span> <span class="nav-text">选择元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#改变元素内容"><span class="nav-number">4.2.2.</span> <span class="nav-text">改变元素内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加元素"><span class="nav-number">4.2.3.</span> <span class="nav-text">添加元素</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#js-实例"><span class="nav-number">4.3.</span> <span class="nav-text">js 实例</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">涂睿</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"uruir"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

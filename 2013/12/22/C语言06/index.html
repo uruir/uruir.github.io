@@ -1,0 +1,751 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="C语言,字符串," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="这个跟文本打交道的，使用起来常出错！！！汗！！！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言－第六章－字符串">
+<meta property="og:url" content="http://www.turuir.cn/2013/12/22/C语言06/index.html">
+<meta property="og:site_name" content="uRuier's Blog">
+<meta property="og:description" content="这个跟文本打交道的，使用起来常出错！！！汗！！！">
+<meta property="og:updated_time" content="2015-08-19T08:06:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C语言－第六章－字符串">
+<meta name="twitter:description" content="这个跟文本打交道的，使用起来常出错！！！汗！！！">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> C语言－第六章－字符串 | uRuier's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">uRuier's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">涂睿的博客</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于我
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                C语言－第六章－字符串
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2013-12-22T14:18:24+08:00" content="2013-12-22">
+              2013-12-22
+            </time>
+          </span>
+          <span class="post-time">
+            | 修改于
+            <time itemprop="dateCreated" datetime="2015-08-19T16:06:22+08:00" content="2015-08-19">
+              2015-08-19
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/语言/" itemprop="url" rel="index">
+                    <span itemprop="name">语言</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/12/22/C语言06/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/12/22/C语言06/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p>字符串和文本的应用  </p>
+<p>C语言使用char类型的数组元素存储字符串。</p>
+<h3 id="1-什么是字符串"><a href="#1-什么是字符串" class="headerlink" title="1 什么是字符串"></a>1 什么是字符串</h3><p>双引号之间的任何字符，包括转义后的符号，空格，回车等字符。字符串以”\0”结束。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"The character \0 is used for terminate a string."</span>); <span class="comment">//显示"The character "</span></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="2-处理字符串和文本的方法"><a href="#2-处理字符串和文本的方法" class="headerlink" title="2 处理字符串和文本的方法"></a>2 处理字符串和文本的方法</h3><figure class="highlight scss"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">char saying<span class="selector-attr">[20]</span>;</div></pre></td></tr></table></figure>
+<p>这条语句可以存储一个至多包含19个字符的字符串。  </p>
+<p>用const将字符串声明为常量：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">char</span> message[]=<span class="string">"The end of the world is nigh."</span>;</div></pre></td></tr></table></figure></p>
+<h4 id="2-1-确定字符串长度"><a href="#2-1-确定字符串长度" class="headerlink" title="2.1 确定字符串长度"></a>2.1 确定字符串长度</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">const</span> <span class="keyword">char</span> message[]=<span class="string">"uruir."</span>;</div><div class="line">    <span class="keyword">int</span> i=<span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span>(message[i])   <span class="comment">//"\0" 的ASCII码就是 0</span></div><div class="line">        i++;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, i);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2-2-用strlen确定长度"><a href="#2-2-用strlen确定长度" class="headerlink" title="2.2 用strlen确定长度"></a>2.2 用strlen确定长度</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">const</span> <span class="keyword">char</span> message[]=<span class="string">"uruir."</span>;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, <span class="built_in">strlen</span>(message));</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-字符串操作"><a href="#3-字符串操作" class="headerlink" title="3 字符串操作"></a>3 字符串操作</h3><p>将字符串赋值给另一字符串，不能像int那样用”=”，而要用专门函数来将字符一个个传入。</p>
+<h4 id="3-1-连接字符串"><a href="#3-1-连接字符串" class="headerlink" title="3.1 连接字符串"></a>3.1 连接字符串</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> s1[<span class="number">50</span>]=<span class="string">"to be or not to be"</span>;</div><div class="line">    <span class="keyword">char</span> s2[]=<span class="string">", that is the question."</span>;</div><div class="line">    <span class="keyword">int</span> i=<span class="built_in">strlen</span>(s1), j=<span class="built_in">strlen</span>(s2);</div><div class="line">    <span class="keyword">if</span>(i+j+<span class="number">1</span>&gt;<span class="keyword">sizeof</span> s1)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"can't put a quart into a prin pot."</span>);</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        j=<span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span>(s2[j])</div><div class="line">            s1[i++] = s2[j++];  <span class="comment">//i的原来位置是"\0"，正好用s2[]的第一个字符覆盖。</span></div><div class="line">        s1[i]=<span class="string">'\0'</span>; <span class="comment">//末尾加上结束符。</span></div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%s"</span>, s1);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>第12、13行可用下列一行代替：    </p>
+<pre><code>while(s1[i++] = s2[j++]);  
+</code></pre><p>因为括号内是一个赋值语句，如果s1[i++]不是”\0”，那条件就为真，继续复制，直到s2将”\0”传过来。</p>
+<h4 id="3-2-字符串数组"><a href="#3-2-字符串数组" class="headerlink" title="3.2 字符串数组"></a>3.2 字符串数组</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> sayings[<span class="number">2</span>][<span class="number">32</span>] = &#123;</div><div class="line">        <span class="string">"My name is uruir."</span>,</div><div class="line">        <span class="string">"What's your name?"</span></div><div class="line">        &#125;;</div><div class="line">    <span class="keyword">int</span> i=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(; i&lt;<span class="number">2</span>; i++)</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>, sayings[i]);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    char <span class="built_in">say</span>[][<span class="number">50</span>] = &#123;</div><div class="line">                      <span class="string">"to be or not to be"</span>,</div><div class="line">                      <span class="string">", that is the question."</span></div><div class="line">    &#125;;</div><div class="line">    int i=<span class="number">0</span>,<span class="built_in">count</span>[] = &#123;<span class="number">0</span>, <span class="number">0</span>&#125;;</div><div class="line">    <span class="keyword">for</span>(; i&lt;<span class="number">2</span>; i++)</div><div class="line">        <span class="keyword">while</span>(<span class="built_in">say</span>[i][<span class="built_in">count</span>[i]])</div><div class="line">            <span class="built_in">count</span>[i]++;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">count</span>[<span class="number">0</span>]+<span class="built_in">count</span>[<span class="number">1</span>]+<span class="number">1</span>&gt;<span class="built_in">sizeof</span> <span class="built_in">say</span>[<span class="number">0</span>])</div><div class="line">        printf(<span class="string">"can't put a quart into a prin pot."</span>);</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        <span class="built_in">count</span>[<span class="number">1</span>]=<span class="number">0</span>;</div><div class="line">        <span class="keyword">while</span>((<span class="built_in">say</span>[<span class="number">0</span>][<span class="built_in">count</span>[<span class="number">0</span>]++] = <span class="built_in">say</span>[<span class="number">1</span>][<span class="built_in">count</span>[<span class="number">1</span>]++]));</div><div class="line">        <span class="built_in">say</span>[<span class="number">0</span>][<span class="built_in">count</span>[<span class="number">0</span>]]=<span class="string">'\0'</span>;</div><div class="line">        printf(<span class="string">"%s"</span>, <span class="built_in">say</span>[<span class="number">0</span>]);</div><div class="line">    &#125;</div><div class="line">    return <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4-字符串库函数"><a href="#4-字符串库函数" class="headerlink" title="4 字符串库函数"></a>4 字符串库函数</h3><p>字符串函数在<string.h>头文件中  </string.h></p>
+<h4 id="4-1-使用库函数复制字符串"><a href="#4-1-使用库函数复制字符串" class="headerlink" title="4.1 使用库函数复制字符串"></a>4.1 使用库函数复制字符串</h4><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">if(<span class="name">sizeof</span>(<span class="name">string2</span>) &lt;= sizeof(<span class="name">string1</span>))</div><div class="line">    strcpy(<span class="name">string1</span>, string2)<span class="comment">;   //2 -&gt; 1</span></div></pre></td></tr></table></figure>
+<p>复制前n个字符：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> destination[] = <span class="string">"This string will be replaced"</span>;</div><div class="line">    <span class="keyword">char</span> source[] = <span class="string">"This string will be copied in part"</span>;</div><div class="line">    <span class="keyword">size_t</span> n = <span class="number">26</span>;</div><div class="line">    <span class="built_in">strncpy</span>(destination, source, n);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %s"</span>, <span class="keyword">sizeof</span>(destination), destination);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>由于string是从source直接copy到destination中，所以如果sizeof(source) &gt; sizeof(destination)，那destination中就没有’\0’了，所以上例中的n也不要大于sizeof(destination)。  </p>
+<h4 id="4-2-使用库函数确定字符串的长度"><a href="#4-2-使用库函数确定字符串的长度" class="headerlink" title="4.2 使用库函数确定字符串的长度"></a>4.2 使用库函数确定字符串的长度</h4><pre><code>#include &lt;stddef.h&gt;
+
+size_t count = 0;
+count = strlen(string);
+</code></pre><p>这个计数不包括’\0’，而sizeof(string)包括。  </p>
+<h4 id="4-3-使用库函数连接字符串"><a href="#4-3-使用库函数连接字符串" class="headerlink" title="4.3 使用库函数连接字符串"></a>4.3 使用库函数连接字符串</h4><pre><code>strcat(str1, str2); //copy str2 to the end of str1
+</code></pre><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stddef.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> destination[] = <span class="string">"This string will be replaced, "</span>;</div><div class="line">    <span class="keyword">char</span> source[] = <span class="string">"This string will be copied."</span>;</div><div class="line">    <span class="built_in">strcat</span>(destination, source);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d, %s"</span>, <span class="built_in">strlen</span>(destination), destination); <span class="comment">//57, balabala</span></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果用sizeof代替strlen，则57 -&gt; 31。  </p>
+<h4 id="4-4-比较字符串"><a href="#4-4-比较字符串" class="headerlink" title="4.4 比较字符串"></a>4.4 比较字符串</h4><pre><code>strcmp(string1, string2);   //以ASCII码确定大小
+</code></pre><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stddef.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> destination[<span class="number">20</span>];</div><div class="line">    <span class="keyword">char</span> source[<span class="number">20</span>];</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"输入第一个字符串:\n"</span>);</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%19s"</span>, destination); <span class="comment">//因为destination本来就是数组，所以不用"&amp;"。</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"第二个\n"</span>);</div><div class="line">    <span class="built_in">scanf</span>(<span class="string">"%19s"</span>, source);  <span class="comment">//因为变量是一个地址，所以用"&amp;"来让scanf写入到变量指向的空间。</span></div><div class="line">    <span class="keyword">if</span>(<span class="built_in">strcmp</span>(destination, source) == <span class="number">0</span>)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"两串一样。"</span>);</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%s 比 %s 小。"</span>, (<span class="built_in">strcmp</span>(destination, source) &lt; <span class="number">0</span>) ? destination : source, (<span class="built_in">strcmp</span>(destination, source) &gt; <span class="number">0</span>) ? destination : source);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="4-5-搜索字符串"><a href="#4-5-搜索字符串" class="headerlink" title="4.5 搜索字符串"></a>4.5 搜索字符串</h4><h5 id="4-5-1-指针的概念"><a href="#4-5-1-指针的概念" class="headerlink" title="4.5.1 指针的概念"></a>4.5.1 指针的概念</h5><p>指针是变量类型，它是含有地址的变量。<br><figure class="highlight autoit"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">int</span> <span class="built_in">number</span> = <span class="number">99</span><span class="comment">;</span></div><div class="line"><span class="built_in">int</span> *pnumber = &amp;<span class="built_in">number</span><span class="comment">;</span></div></pre></td></tr></table></figure></p>
+<p>number里含有的是地址，该地址里的内存含有99这个常量。&amp;number现在是指向99的地址，是一个地址！pnumber是一个指针变量，用”int *”定义，所以pnumber这个变量存的是number这个常量所在的地址！<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">int</span> i = <span class="number">333</span>;</div><div class="line">    <span class="keyword">int</span> *p = &amp;i;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%p\n"</span>, i);  <span class="comment">//%p用于显示地址，这里显示8个16进制组成的地址，该地址里存放333这个常量。本机32位。</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%p"</span>, *p);   <span class="comment">//和上面一行显示相同的地址，也就是p这个变量存放的地址。指针变量p指向变量i，变量i里存放333。</span></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>比如，假设我的内存是4GB，那就有约4,000,000,000个byte。那么”0000,0000”就指向第一个byte，”ffff,ffff”指向最后一byte。再假设”int i”时，系统给”i”分配的是第15号空间，即”0000,000f”，因为int占4个字节，所以”0000,000f”,”0000,0010”,”0000,0011”和”0000,0012”这4个字节里存放的就是333这个int常量。因为p指向i，所以p里存放”0000,000f”这么一个地址。当系统通过p来使用333时，先看p，即”0000,000f”，就转向地址为”0000,000f”的内存空间。*是取消引用运算符，其作用是访问指针指定的地址中存储的数据。  </p>
+<h5 id="4-5-2-在字符串中查找子字符串"><a href="#4-5-2-在字符串中查找子字符串" class="headerlink" title="4.5.2 在字符串中查找子字符串"></a>4.5.2 在字符串中查找子字符串</h5><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">char</span> text[] = <span class="string">"Every dog has his day"</span>;</div><div class="line">    <span class="keyword">char</span> str1[] = <span class="string">"dog"</span>;</div><div class="line">    <span class="keyword">char</span> str2[] = <span class="string">"Dog"</span>;</div><div class="line">    <span class="keyword">char</span> *p1 = <span class="literal">NULL</span>;</div><div class="line">    <span class="keyword">char</span> *p2 = <span class="literal">NULL</span>;</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(<span class="built_in">strstr</span>(text,str1) == <span class="literal">NULL</span>)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%s was not found.\n"</span>, str1);</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%s was found in \"%s.\", %p, %p\n"</span>, str1, text, text, <span class="built_in">strstr</span>(text,str1));    <span class="comment">//text的地址和str1的地址</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span>(<span class="built_in">strstr</span>(text,str2) == <span class="literal">NULL</span>)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%s was not found.\n"</span>, str2);</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%s was found in \"%s.\", %p, %p\n"</span>, str2, text, text, <span class="built_in">strstr</span>(text,str2));</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="5-分析和转换字符串"><a href="#5-分析和转换字符串" class="headerlink" title="5 分析和转换字符串"></a>5 分析和转换字符串</h3><h4 id="5-1-用gets读入字符串"><a href="#5-1-用gets读入字符串" class="headerlink" title="5.1 用gets读入字符串"></a>5.1 用gets读入字符串</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctype.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">char</span> buffer[<span class="number">80</span>];               <span class="comment">/* Input buffer               */</span></div><div class="line">  <span class="keyword">int</span> i = <span class="number">0</span>;                     <span class="comment">/* Buffer index               */</span></div><div class="line">  <span class="keyword">int</span> num_letters = <span class="number">0</span>;           <span class="comment">/* Number of letters in input */</span></div><div class="line">  <span class="keyword">int</span> num_digits = <span class="number">0</span>;            <span class="comment">/* Number of digits in input  */</span></div><div class="line"></div><div class="line">  <span class="built_in">printf</span>(<span class="string">"\nEnter an interesting string of less than 80 characters:\n"</span>);</div><div class="line">  gets(buffer); <span class="comment">//scanf以空格或回车结束，gets能读入空格直到回车</span></div><div class="line"></div><div class="line"></div><div class="line">  <span class="keyword">while</span>(buffer[i] != <span class="string">'\0'</span>)</div><div class="line">  &#123;</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">isalpha</span>(buffer[i]))</div><div class="line">      num_letters++;             <span class="comment">/* Increment letter count     */</span></div><div class="line">    <span class="keyword">if</span>(<span class="built_in">isdigit</span>(buffer[i++]))</div><div class="line">      num_digits++;              <span class="comment">/* Increment digit count      */</span></div><div class="line">  &#125;</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"\nYour string contained %d letters and %d digits.\n"</span>,</div><div class="line">                                              num_letters, num_digits);</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>使用fgets函数可以确保写入安全。fgets(buffer, sizeof(text), stdin)是从stdin获取大小为text串大小的串，然后只要buffer[strlen(text)-1]=’\0’，读入就安全了。  </p>
+<h4 id="5-2-将字符串转换成数值"><a href="#5-2-将字符串转换成数值" class="headerlink" title="5.2 将字符串转换成数值"></a>5.2 将字符串转换成数值</h4><pre><code>atof()  //字符串参数转换成double类型的值
+atoi()  //int
+atol()  //long
+atoll() //long long
+</code></pre><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="keyword">char</span> value_str[] = <span class="string">"98.4"</span>;</div><div class="line"><span class="keyword">double</span> value = <span class="number">0</span>;</div><div class="line">value = atof(value_str);</div></pre></td></tr></table></figure>
+<h3 id="6-小程序"><a href="#6-小程序" class="headerlink" title="6 小程序"></a>6 小程序</h3><h4 id="6-1-问题"><a href="#6-1-问题" class="headerlink" title="6.1 问题"></a>6.1 问题</h4><p>从键盘读入任意长度的一段文本，确定该文本中每个单词出现的频率（忽略大小写）。</p>
+<h4 id="6-2-分析"><a href="#6-2-分析" class="headerlink" title="6.2 分析"></a>6.2 分析</h4><ul>
+<li>使用fgets()</li>
+<li>文本包含标点，删除之</li>
+<li>用空格来区分单词，将单词存入另一个数组中，小写保存  </li>
+</ul>
+<h4 id="6-3-解决方案"><a href="#6-3-解决方案" class="headerlink" title="6.3 解决方案"></a>6.3 解决方案</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdbool.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctype.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> TEXTLEN  10000      <span class="comment">/* Maximum length of text            */</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> BUFFERSIZE 100      <span class="comment">/* Input buffer size                 */</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXWORDS   500      <span class="comment">/* Maximum number of different words */</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> WORDLEN     15      <span class="comment">/* Maximum word length               */</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">char</span> text[TEXTLEN+<span class="number">1</span>];</div><div class="line">  <span class="keyword">char</span> buffer[BUFFERSIZE];</div><div class="line">  <span class="keyword">char</span> endstr[] = <span class="string">"*\n"</span>;          <span class="comment">/* Signals end of input       */</span></div><div class="line"></div><div class="line">  <span class="keyword">const</span> <span class="keyword">char</span> space = <span class="string">' '</span>;</div><div class="line">  <span class="keyword">const</span> <span class="keyword">char</span> quote = <span class="string">'\''</span>;</div><div class="line"></div><div class="line">  <span class="keyword">char</span> words[MAXWORDS][WORDLEN+<span class="number">1</span>];</div><div class="line">  <span class="keyword">int</span> nword[MAXWORDS];            <span class="comment">/* Number of word occurrences */</span></div><div class="line">  <span class="keyword">char</span> word[WORDLEN+<span class="number">1</span>];           <span class="comment">/* Stores a single word       */</span></div><div class="line">  <span class="keyword">int</span> wordlen = <span class="number">0</span>;                <span class="comment">/* Length of a word           */</span></div><div class="line">  <span class="keyword">int</span> wordcount = <span class="number">0</span>;              <span class="comment">/* Number of words stored     */</span></div><div class="line"></div><div class="line"></div><div class="line">  <span class="built_in">printf</span>(<span class="string">"Enter text on an arbitrary number of lines."</span>);</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"\nEnter a line containing just an asterisk to end input:\n\n"</span>);</div><div class="line"></div><div class="line">  <span class="comment">/* Read an arbitrary number of lines of text */</span></div><div class="line">  <span class="keyword">while</span>(<span class="literal">true</span>)</div><div class="line">  &#123;</div><div class="line">    <span class="comment">/* A string containing an asterisk followed by newline */</span></div><div class="line">    <span class="comment">/* signals end of input                                */</span></div><div class="line">    <span class="keyword">if</span>(!<span class="built_in">strcmp</span>(fgets(buffer, BUFFERSIZE, <span class="built_in">stdin</span>), endstr))</div><div class="line">      <span class="keyword">break</span>;</div><div class="line"></div><div class="line">    <span class="comment">/* Check if we have space for latest input */</span></div><div class="line">    <span class="keyword">if</span>(<span class="built_in">strlen</span>(text)+<span class="built_in">strlen</span>(buffer)+<span class="number">1</span> &gt; TEXTLEN)</div><div class="line">      &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"Maximum capacity for text exceeded. Terminating program."</span>);</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">      &#125;</div><div class="line">    <span class="built_in">strcat</span>(text, buffer);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">/* Replace everything except alpha and single quote characters by spaces */</span></div><div class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; <span class="built_in">strlen</span>(text) ; i++)</div><div class="line">  &#123;</div><div class="line">    <span class="keyword">if</span>(text[i] == quote || <span class="built_in">isalnum</span>(text[i]))</div><div class="line">      <span class="keyword">continue</span>;</div><div class="line">    text[i] = space;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">/* Find unique words and store in words array */</span></div><div class="line">  <span class="keyword">int</span> index = <span class="number">0</span>;</div><div class="line">  <span class="keyword">while</span>(<span class="literal">true</span>)</div><div class="line">  &#123;</div><div class="line">    <span class="comment">/* Ignore any leading spaces before a word */</span></div><div class="line">    <span class="keyword">while</span>(text[index] == space)</div><div class="line">      ++index;</div><div class="line"></div><div class="line">    <span class="comment">/* If we are at the end of text, we are done */</span></div><div class="line">    <span class="keyword">if</span>(text[index] == <span class="string">'\0'</span>)</div><div class="line">      <span class="keyword">break</span>;</div><div class="line"></div><div class="line">    <span class="comment">/* Extract a word */</span></div><div class="line">    wordlen = <span class="number">0</span>;          <span class="comment">/* Reset word length */</span></div><div class="line">    <span class="keyword">while</span>(text[index] == quote || <span class="built_in">isalpha</span>(text[index]))</div><div class="line">    &#123;</div><div class="line">      <span class="comment">/* Check if word is too long */</span></div><div class="line">      <span class="keyword">if</span>(wordlen == WORDLEN)</div><div class="line">      &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"Maximum word length exceeded. Terminating program."</span>);</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">      &#125;</div><div class="line">      word[wordlen++] = <span class="built_in">tolower</span>(text[index++]);  <span class="comment">/* Copy as lowercase     */</span></div><div class="line">    &#125;</div><div class="line">    word[wordlen] = <span class="string">'\0'</span>;                        <span class="comment">/* Add string terminator */</span></div><div class="line"></div><div class="line">    <span class="comment">/* Check for word already stored */</span></div><div class="line">    <span class="keyword">bool</span> isnew = <span class="literal">true</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i&lt; wordcount ; i++)</div><div class="line">      <span class="keyword">if</span>(<span class="built_in">strcmp</span>(word, words[i]) == <span class="number">0</span>)</div><div class="line">      &#123;</div><div class="line">        ++nword[i];</div><div class="line">        isnew = <span class="literal">false</span>;</div><div class="line">        <span class="keyword">break</span>;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span>(isnew)</div><div class="line">    &#123;</div><div class="line">      <span class="comment">/* Check if we have space for another word */</span></div><div class="line">      <span class="keyword">if</span>(wordcount &gt;= MAXWORDS)</div><div class="line">      &#123;</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"\n Maximum word count exceeded. Terminating program."</span>);</div><div class="line">        <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">      &#125;</div><div class="line"></div><div class="line">      <span class="built_in">strcpy</span>(words[wordcount], word);   <span class="comment">/* Store the new word  */</span></div><div class="line">      nword[wordcount++] = <span class="number">1</span>;           <span class="comment">/* Set its count to 1  */</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">/* Output the words and frequencies */</span></div><div class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i&lt;wordcount ; i++)</div><div class="line">  &#123;</div><div class="line">    <span class="keyword">if</span>( !(i%<span class="number">3</span>) )                       <span class="comment">/* Three words to a line */</span></div><div class="line">      <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"  %-15s%5d"</span>, words[i], nword[i]);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="7-练习"><a href="#7-练习" class="headerlink" title="7 练习"></a>7 练习</h3><h4 id="7-1-数值以英文显示"><a href="#7-1-数值以英文显示" class="headerlink" title="7.1 数值以英文显示"></a>7.1 数值以英文显示</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">char</span> *unit_words[] = &#123;<span class="string">"zero"</span>, <span class="string">"one"</span>,<span class="string">"two"</span>,<span class="string">"three"</span>,<span class="string">"four"</span>,<span class="string">"five"</span>,<span class="string">"six"</span>,<span class="string">"seven"</span>,<span class="string">"eight"</span>,<span class="string">"nine"</span>&#125;;</div><div class="line">  <span class="keyword">char</span> *teen_words[] = &#123;<span class="string">"ten"</span>, <span class="string">"eleven"</span>,<span class="string">"twelve"</span>,<span class="string">"thirteen"</span>,<span class="string">"fourteen"</span>,<span class="string">"fifteen"</span>,<span class="string">"sixteen"</span>,<span class="string">"seventeen"</span>,<span class="string">"eighteen"</span>,<span class="string">"nineteen"</span>&#125;;</div><div class="line">  <span class="keyword">char</span> *ten_words[] = &#123;<span class="string">"error"</span>, <span class="string">"error"</span>,<span class="string">"twenty"</span>,<span class="string">"thirty"</span>,<span class="string">"forty"</span>,<span class="string">"fifty"</span>,<span class="string">"sixty"</span>,<span class="string">"seventy"</span>,<span class="string">"eighty"</span>,<span class="string">"ninety"</span>&#125;;</div><div class="line">  <span class="keyword">char</span> hundred[] = <span class="string">" hundred"</span>;</div><div class="line">  <span class="keyword">char</span> and[] = <span class="string">" and "</span>;</div><div class="line">  <span class="keyword">char</span> value_str[<span class="number">50</span>] = <span class="string">""</span>;</div><div class="line">  <span class="keyword">int</span> value = <span class="number">0</span>;                     <span class="comment">/* Integer to be converted        */</span></div><div class="line">  <span class="keyword">int</span> digits[] = &#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>&#125;;            <span class="comment">/* Stores digits of value entered */</span></div><div class="line">  <span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line"></div><div class="line">  <span class="built_in">printf</span>(<span class="string">"Enter a positive integer less than 1000: "</span>);</div><div class="line">  <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;value);</div><div class="line">  <span class="keyword">if</span>(value &gt;= <span class="number">1000</span>)</div><div class="line">    value = <span class="number">999</span>;</div><div class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(value &lt; <span class="number">1</span>)</div><div class="line">    value = <span class="number">1</span>;</div><div class="line"></div><div class="line">  <span class="keyword">while</span>(value &gt; <span class="number">0</span>)</div><div class="line">  &#123;</div><div class="line">    digits[i++] = value%<span class="number">10</span>;</div><div class="line">    value /= <span class="number">10</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">if</span>(digits[<span class="number">2</span>] &gt; <span class="number">0</span>)</div><div class="line">  &#123;</div><div class="line">    <span class="built_in">strcat</span>(<span class="built_in">strcat</span>(value_str,unit_words[digits[<span class="number">2</span>]]), hundred);</div><div class="line">    <span class="keyword">if</span>(digits[<span class="number">1</span>]&gt;<span class="number">0</span> || digits[<span class="number">0</span>]&gt;<span class="number">0</span>)</div><div class="line">      <span class="built_in">strcat</span>(value_str, and);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">if</span>(digits[<span class="number">1</span>] &gt; <span class="number">0</span>)</div><div class="line">  &#123;</div><div class="line">    <span class="keyword">if</span>(digits[<span class="number">1</span>] == <span class="number">1</span>)</div><div class="line">      <span class="built_in">strcat</span>(value_str,teen_words[digits[<span class="number">0</span>]]);</div><div class="line">    <span class="keyword">else</span></div><div class="line">    &#123;</div><div class="line">      <span class="built_in">strcat</span>(value_str,ten_words[digits[<span class="number">1</span>]]);</div><div class="line">      <span class="keyword">if</span>(digits[<span class="number">0</span>] &gt; <span class="number">0</span>)</div><div class="line">        <span class="built_in">strcat</span>(<span class="built_in">strcat</span>(value_str, <span class="string">" "</span>), unit_words[digits[<span class="number">0</span>]]);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">else</span></div><div class="line">    <span class="keyword">if</span>(digits[<span class="number">0</span>] &gt; <span class="number">0</span>)</div><div class="line">      <span class="built_in">strcat</span>(value_str, unit_words[digits[<span class="number">0</span>]]);</div><div class="line">  <span class="built_in">printf</span>(<span class="string">"\n%s\n"</span>, value_str);</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="7-2-一行显示一个单词"><a href="#7-2-一行显示一个单词" class="headerlink" title="7.2 一行显示一个单词"></a>7.2 一行显示一个单词</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">char</span> <span class="built_in">list</span>[<span class="number">5000</span>];         <span class="comment">/* Stores the list of comma separated words   */</span></div><div class="line">  <span class="keyword">char</span> words[<span class="number">500</span>][<span class="number">20</span>];     <span class="comment">/* Array for 500 words of up to 20 characters */</span></div><div class="line">  <span class="keyword">const</span> <span class="keyword">char</span> comma = <span class="string">','</span>;</div><div class="line">  <span class="keyword">const</span> <span class="keyword">char</span> space = <span class="string">' '</span>;</div><div class="line">  <span class="keyword">int</span> word_count = <span class="number">0</span>;      <span class="comment">/* Number of words found */</span></div><div class="line">  <span class="keyword">int</span> word_length = <span class="number">0</span>;     <span class="comment">/* Current word length   */</span></div><div class="line">  <span class="keyword">int</span> index = <span class="number">0</span>;           <span class="comment">/* Character position    */</span></div><div class="line"></div><div class="line">  <span class="built_in">printf</span>(<span class="string">"Enter a comma separated list of words:\n"</span>);</div><div class="line">  gets(<span class="built_in">list</span>);              <span class="comment">/* Read the list of words */</span></div><div class="line"></div><div class="line">  <span class="comment">/* Find words in list */</span></div><div class="line">  <span class="keyword">while</span>(<span class="built_in">list</span>[index] != <span class="string">'\0'</span>)</div><div class="line">  &#123;</div><div class="line">    <span class="comment">/* Skip over spaces and commas */</span></div><div class="line">    <span class="keyword">while</span>(<span class="built_in">list</span>[index] == space || <span class="built_in">list</span>[index] == comma)</div><div class="line">      ++index;</div><div class="line"></div><div class="line">    <span class="comment">/* Copy characters that are not space, comma or \0 as part of a word */</span></div><div class="line">    <span class="keyword">while</span>(<span class="built_in">list</span>[index] != space &amp;&amp; <span class="built_in">list</span>[index] != comma &amp;&amp; <span class="built_in">list</span>[index] != <span class="string">'\0'</span>)</div><div class="line">     words[word_count][word_length++] = <span class="built_in">list</span>[index++];</div><div class="line"></div><div class="line">    words[word_count++][word_length] = <span class="string">'\0'</span>;    <span class="comment">/* Append terminator         */</span></div><div class="line">    word_length = <span class="number">0</span>;                            <span class="comment">/* Reset ready for next word */</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">/* List the words that were found */</span></div><div class="line">  <span class="built_in">printf</span>(<span class="string">"\nThe words in the list are:\n"</span>);</div><div class="line">  <span class="keyword">for</span>(index = <span class="number">0</span> ; index&lt;word_count ; index++)</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%s\n"</span>,words[index]);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="7-3-随机显示一段文本"><a href="#7-3-随机显示一段文本" class="headerlink" title="7.3 随机显示一段文本"></a>7.3 随机显示一段文本</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">char</span> thoughts[][<span class="number">50</span>] = &#123;<span class="string">"Wherever you go, there you are!"</span>,</div><div class="line">                         <span class="string">"A nod is as good as a wink to a blind horse."</span>,</div><div class="line">                         <span class="string">"Many hands make light work."</span>,</div><div class="line">                         <span class="string">"Too many cooks spoil the broth."</span>,</div><div class="line">                         <span class="string">"A rolling stone gathers no moss."</span>,</div><div class="line">                         <span class="string">"A wise man will cover the hole in his carpet."</span>&#125;;</div><div class="line"></div><div class="line">  srand((<span class="keyword">unsigned</span> <span class="keyword">int</span>)time(<span class="literal">NULL</span>));</div><div class="line"></div><div class="line">  <span class="built_in">printf</span>(<span class="string">"Today's thought is:\n%s\n"</span>, thoughts[rand()%(<span class="keyword">sizeof</span> thoughts/<span class="keyword">sizeof</span> thoughts[<span class="number">0</span>])]);</div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="7-4-回文"><a href="#7-4-回文" class="headerlink" title="7.4 回文"></a>7.4 回文</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ctype.h&gt;</span></span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">char</span> sentence[<span class="number">500</span>];             <span class="comment">/* Stores the sentence to be tested                   */</span></div><div class="line">  <span class="keyword">char</span> sentence_chars[<span class="number">500</span>];       <span class="comment">/* Stores the sentence without punctuation and spaces */</span></div><div class="line">  <span class="keyword">size_t</span> j = <span class="number">0</span>;                   <span class="comment">/* Index to character position */</span></div><div class="line">  <span class="keyword">size_t</span> length = <span class="number">0</span>;              <span class="comment">/* Length of a string          */</span></div><div class="line"></div><div class="line">  <span class="built_in">printf</span>(<span class="string">"Enter a sentence to be tested:\n"</span>);</div><div class="line">  gets(sentence);</div><div class="line"></div><div class="line">  <span class="comment">/* Copy only letters as lowercase */</span></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span> ; i&lt; <span class="built_in">strlen</span>(sentence) ; i++)</div><div class="line">    <span class="keyword">if</span>(<span class="built_in">isalpha</span>(sentence[i]))</div><div class="line">      sentence_chars[j++] = <span class="built_in">tolower</span>(sentence[i]);</div><div class="line">  sentence_chars[j] = <span class="string">'\0'</span>;        <span class="comment">/* Append string terminator */</span></div><div class="line"></div><div class="line">  length = <span class="built_in">strlen</span>(sentence_chars); <span class="comment">/* Get the satring length   */</span></div><div class="line"></div><div class="line">  <span class="comment">/* Compare matching characters in the string                */</span></div><div class="line">  <span class="comment">/* If any pair are not the same, then it's not a palindrome */</span></div><div class="line">  <span class="keyword">for</span>(<span class="keyword">size_t</span> i = <span class="number">0</span> ; i&lt;length/<span class="number">2</span> ; i++)</div><div class="line">    <span class="keyword">if</span>(sentence_chars[i] != sentence_chars[length<span class="number">-1</span>-i])</div><div class="line">    &#123;</div><div class="line">      <span class="built_in">printf</span>(<span class="string">"\n The sentence you entered is not a palindrome.\n"</span>);</div><div class="line">      <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/* If we arrive here all matching pairs of characters are equal */</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\n The sentence you entered is a palindrome.\n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C语言/" rel="tag">#C语言</a>
+          
+            <a href="/tags/字符串/" rel="tag">#字符串</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/12/20/C语言05/" rel="next" title="C语言－第五章－数组">
+                <i class="fa fa-chevron-left"></i> C语言－第五章－数组
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/12/25/C语言07/" rel="prev" title="C语言－第七章－指针">
+                C语言－第七章－指针 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2013/12/22/C语言06/"
+           data-title="C语言－第六章－字符串" data-url="http://www.turuir.cn/2013/12/22/C语言06/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.jpg" alt="涂睿" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">涂睿</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">人生苦短莫蹉跎</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">15</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/uruir" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/t9228" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> 微博
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-什么是字符串"><span class="nav-number">1.</span> <span class="nav-text">1 什么是字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-处理字符串和文本的方法"><span class="nav-number">2.</span> <span class="nav-text">2 处理字符串和文本的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-确定字符串长度"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 确定字符串长度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-用strlen确定长度"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 用strlen确定长度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-字符串操作"><span class="nav-number">3.</span> <span class="nav-text">3 字符串操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-连接字符串"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 连接字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-字符串数组"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 字符串数组</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-字符串库函数"><span class="nav-number">4.</span> <span class="nav-text">4 字符串库函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-使用库函数复制字符串"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 使用库函数复制字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-使用库函数确定字符串的长度"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 使用库函数确定字符串的长度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-使用库函数连接字符串"><span class="nav-number">4.3.</span> <span class="nav-text">4.3 使用库函数连接字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-4-比较字符串"><span class="nav-number">4.4.</span> <span class="nav-text">4.4 比较字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-5-搜索字符串"><span class="nav-number">4.5.</span> <span class="nav-text">4.5 搜索字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#4-5-1-指针的概念"><span class="nav-number">4.5.1.</span> <span class="nav-text">4.5.1 指针的概念</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-5-2-在字符串中查找子字符串"><span class="nav-number">4.5.2.</span> <span class="nav-text">4.5.2 在字符串中查找子字符串</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-分析和转换字符串"><span class="nav-number">5.</span> <span class="nav-text">5 分析和转换字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-用gets读入字符串"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 用gets读入字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-将字符串转换成数值"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 将字符串转换成数值</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-小程序"><span class="nav-number">6.</span> <span class="nav-text">6 小程序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-问题"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-分析"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-解决方案"><span class="nav-number">6.3.</span> <span class="nav-text">6.3 解决方案</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-练习"><span class="nav-number">7.</span> <span class="nav-text">7 练习</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-数值以英文显示"><span class="nav-number">7.1.</span> <span class="nav-text">7.1 数值以英文显示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-2-一行显示一个单词"><span class="nav-number">7.2.</span> <span class="nav-text">7.2 一行显示一个单词</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-3-随机显示一段文本"><span class="nav-number">7.3.</span> <span class="nav-text">7.3 随机显示一段文本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-4-回文"><span class="nav-number">7.4.</span> <span class="nav-text">7.4 回文</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">涂睿</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"uruir"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>
