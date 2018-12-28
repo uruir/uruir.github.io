@@ -329,16 +329,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/12/28/认真做技术笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/12/28/认真做技术笔记/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -367,12 +357,12 @@
       
 
       
-        <h1 id="JS-的原型与继承"><a href="#JS-的原型与继承" class="headerlink" title="JS 的原型与继承"></a>JS 的原型与继承</h1><h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name <span class="comment">// this 代表创建的实例对象</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> Person(<span class="string">'iron'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(person.name) <span class="comment">// iron</span></span><br></pre></td></tr></table></figure>
+        <h1 id="JS-的原型与继承"><a href="#JS-的原型与继承" class="headerlink" title="JS 的原型与继承"></a>JS 的原型与继承</h1><h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name <span class="comment">// this 代表创建的实例对象</span></span><br><span class="line">  <span class="keyword">this</span>.action = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Think different'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> person = <span class="keyword">new</span> Person(<span class="string">'iron'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(person.name) <span class="comment">// iron</span></span><br><span class="line">person.action() <span class="comment">// Think different</span></span><br></pre></td></tr></table></figure>
 <p>缺点，每个实例有自己的属性和方法，无法共享。因此给构造函数设置 prototype 属性，存储需要共享的属性和方法。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name = name <span class="comment">// this 代表创建的实例对象</span></span><br><span class="line">&#125;</span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">  action() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Think different'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> person1 = <span class="keyword">new</span> Person(<span class="string">'iron'</span>)</span><br><span class="line"><span class="keyword">let</span> person2 = <span class="keyword">new</span> Person(<span class="string">'stark'</span>)</span><br><span class="line">person1.action() <span class="comment">// Think different</span></span><br><span class="line">person2.action() <span class="comment">// Think different</span></span><br></pre></td></tr></table></figure>
 <h2 id="class"><a href="#class" class="headerlink" title="class"></a>class</h2><p>ES6 引入 class 来定义类，是语法糖。</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Person &#123;</span><br><span class="line">    <span class="keyword">constructor</span>(<span class="params">name</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name</span><br><span class="line">    &#125;</span><br><span class="line">    action() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;this.name&#125;</span>, think different`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">get</span> getName() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span> setName(v) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = v</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> person1 = <span class="keyword">new</span> Person(<span class="string">'iron'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(person1.hasOwnProperty(<span class="string">'name'</span>)) <span class="comment">// true，person1 就是构造函数中的 this</span></span><br><span class="line"><span class="built_in">console</span>.log(person1.hasOwnProperty(<span class="string">'action'</span>)) <span class="comment">// false，action 定义在类上而非构造函数上</span></span><br><span class="line">person1.action() <span class="comment">// iron, think different，类的所有方法都定义在 prototype 上，在实例上调用等同于在原型上调用</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> Person) <span class="comment">// function</span></span><br><span class="line"><span class="comment">// Person.action() // 报错，必须通过 new 调用</span></span><br><span class="line"><span class="built_in">console</span>.log(Person === Person.prototype.constructor) <span class="comment">// true，类指向构造函数</span></span><br><span class="line"><span class="built_in">console</span>.log(person1.constructor === Person.prototype.constructor) <span class="comment">// true</span></span><br><span class="line">person1.setName = <span class="string">'stark'</span></span><br><span class="line"><span class="built_in">console</span>.log(person1.getName) <span class="comment">// stark</span></span><br><span class="line"><span class="built_in">console</span>.log(person1.name) <span class="comment">// stark</span></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Person &#123;</span><br><span class="line">    <span class="keyword">constructor</span>(<span class="params">name</span>) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name</span><br><span class="line">    &#125;</span><br><span class="line">    action() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;this.name&#125;</span>, think different`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">get</span> getName() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.name</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">set</span> setName(v) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = v</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> say() &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">`I'm person`</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> person1 = <span class="keyword">new</span> Person(<span class="string">'iron'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(person1.hasOwnProperty(<span class="string">'name'</span>)) <span class="comment">// true，person1 就是构造函数中的 this</span></span><br><span class="line"><span class="built_in">console</span>.log(person1.hasOwnProperty(<span class="string">'action'</span>)) <span class="comment">// false，action 定义在类上而非构造函数上</span></span><br><span class="line">person1.action() <span class="comment">// iron, think different，类的所有方法都定义在 prototype 上，在实例上调用等同于在原型上调用</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> Person) <span class="comment">// function</span></span><br><span class="line"><span class="built_in">console</span>.log(Person === Person.prototype.constructor) <span class="comment">// true，类指向构造函数</span></span><br><span class="line"><span class="built_in">console</span>.log(person1.constructor === Person.prototype.constructor) <span class="comment">// true</span></span><br><span class="line">person1.setName = <span class="string">'stark'</span></span><br><span class="line"><span class="built_in">console</span>.log(person1.getName) <span class="comment">// stark</span></span><br><span class="line"><span class="built_in">console</span>.log(person1.name) <span class="comment">// stark</span></span><br><span class="line">Person.say() <span class="comment">// 直接在类上调用实例方法，若方法体内含 this，则 this 指向类而非实例。目前 ES6 只支持静态方法不支持静态属性</span></span><br></pre></td></tr></table></figure>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name, age) &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name</span><br><span class="line">        <span class="keyword">this</span>.age = age</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> say() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`I'm static Person`</span></span><br><span class="line">    &#125;</span><br><span class="line">    say() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`I'm Person`</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Man</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(name, age) &#123;</span><br><span class="line">        <span class="keyword">super</span>(name, age) <span class="comment">// 调用父类的构造函数</span></span><br><span class="line">        <span class="keyword">this</span>.gender = <span class="string">'male'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> say() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.say() <span class="comment">// 调用父类的静态方法</span></span><br><span class="line">    &#125;</span><br><span class="line">    sayGender() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;<span class="keyword">super</span>.say()&#125;</span>, and I'm a <span class="subst">$&#123;<span class="keyword">this</span>.gender&#125;</span>`</span> <span class="comment">// super 调用父类的原型对象</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> c = <span class="keyword">new</span> Man(<span class="string">'tr'</span>, <span class="number">30</span>)</span><br><span class="line"><span class="built_in">console</span>.log(Man.say()) <span class="comment">// I'm static Person</span></span><br><span class="line"><span class="built_in">console</span>.log(c.say()) <span class="comment">// I'm Person，可以使用父类的方法</span></span><br><span class="line"><span class="built_in">console</span>.log(c.sayGender()) <span class="comment">// I'm Person, and I'm male</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.__proto__ === <span class="built_in">Function</span>.prototype) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.__proto__ === <span class="built_in">Object</span>.prototype) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Man.__proto__ === Person) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(Man.prototype.__proto__ === Person.prototype) <span class="comment">// true，子类的原型对象是父类的原型对象的实例</span></span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -438,12 +428,6 @@
 
 
           
-
-  
-    <div class="comments" id="comments">
-      <div class="ds-thread" data-thread-key="2018/12/28/认真做技术笔记/" data-title="认真做技术笔记" data-url="http://turuir.cn/2018/12/28/认真做技术笔记/">
-      </div>
-    </div>
 
   
 
@@ -566,7 +550,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JS-的原型与继承"><span class="nav-number">1.</span> <span class="nav-text">JS 的原型与继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原型链"><span class="nav-number">1.1.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#class"><span class="nav-number">1.2.</span> <span class="nav-text">class</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JS-的原型与继承"><span class="nav-number">1.</span> <span class="nav-text">JS 的原型与继承</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原型链"><span class="nav-number">1.1.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#class"><span class="nav-number">1.2.</span> <span class="nav-text">class</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承"><span class="nav-number">1.3.</span> <span class="nav-text">继承</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -719,35 +703,25 @@
 
   
 
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"uruir"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
 
   
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+
+
+
+
+	
+
+
+
+
+
   
 
 
 
 
 
-
+  
 
 
 
