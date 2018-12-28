@@ -1,9 +1,22 @@
-<!doctype html>
-<html class="theme-next   use-motion ">
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
 
 
 
@@ -21,13 +34,38 @@
 
 
 
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css">
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
 
 
   <meta name="keywords" content="Hexo, NexT">
@@ -35,11 +73,6 @@
 
 
 
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2">
 
 
 
@@ -59,119 +92,144 @@
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
   var CONFIG = {
+    root: '/',
     scheme: 'Mist',
-    sidebar: 'hide',
-    motion: true
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
   };
 </script>
 
-  <title> uRuier's Blog </title>
+
+
+  <link rel="canonical" href="http://turuir.cn/">
+
+
+
+
+
+  <title>uRuier's Blog</title>
+  
+
+
+
+
+
+
+
+
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
+  
+  
+    
   
 
-
-
-
-
-  <div class="container one-column 
-   page-home 
-">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-meta ">
-  
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
 
-  <div class="custom-logo-site-title">
-    <a href="/" class="brand" rel="start">
-      <span class="logo-line-before"><i></i></span>
-      <span class="site-title">uRuier's Blog</span>
-      <span class="logo-line-after"><i></i></span>
-    </a>
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">uRuier's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">涂睿的博客</p>
+      
   </div>
-  <p class="site-subtitle">涂睿的博客</p>
-</div>
 
-<div class="site-nav-toggle">
-  <button>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-    <span class="btn-bar"></span>
-  </button>
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
 <nav class="site-nav">
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
-            分类
+            关于
           </a>
         </li>
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
-            时间轴
+            分类
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-user fa-fw"></i> <br>
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
-            关于我
+            归档
           </a>
         </li>
       
 
-      
       
     </ul>
   
@@ -179,31 +237,42 @@
   
 </nav>
 
+
+
  </div>
     </header>
 
     <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content">
-          
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
-
-    
-
-    
-    
-
     
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://turuir.cn/2018/12/28/认真做技术笔记/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="涂睿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="uRuier's Blog">
+    </span>
 
     
       <header class="post-header">
@@ -211,37 +280,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2018/12/28/认真做技术笔记/" itemprop="url">
-                  认真做技术笔记
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/12/28/认真做技术笔记/" itemprop="url">认真做技术笔记</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2018-12-28T16:52:13+08:00" content="12/28/2018">
-              12/28/2018
-            </time>
-          </span>
-          <span class="post-time">
-            | 修改于
-            <time itemprop="dateCreated" datetime="2018-12-28T16:52:13+08:00" content="12/28/2018">
-              12/28/2018
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-28T16:52:13+08:00">
+                12/28/2018
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp; 分类于
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/笔记/" itemprop="url" rel="index">
                     <span itemprop="name">笔记</span>
                   </a>
@@ -249,7 +323,6 @@
 
                 
                 
-
               
             </span>
           
@@ -257,12 +330,22 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2018/12/28/认真做技术笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/12/28/认真做技术笔记/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/12/28/认真做技术笔记/" itemprop="commentCount"></span>
                 </a>
               </span>
             
+          
+
+          
+          
+
+          
+
           
 
           
@@ -271,27 +354,40 @@
       </header>
     
 
-
-    <div class="post-body">
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="description">凡是记不住的内容，都应该做笔记，不管大小，特别是在前端技术几个月一小换几年大变样的时代。</span>
-          <!--
-          <div class="post-more-link text-center">
+          凡是记不住的内容，都应该做笔记，不管大小，特别是在前端技术几个月一小换几年大变样的时代。
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2018/12/28/认真做技术笔记/">
               阅读全文 &raquo;
             </a>
           </div>
-          -->
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -301,6 +397,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -308,13 +408,27 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://turuir.cn/2018/12/28/面试/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="涂睿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="uRuier's Blog">
+    </span>
 
     
       <header class="post-header">
@@ -322,37 +436,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2018/12/28/面试/" itemprop="url">
-                  面试
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2018/12/28/面试/" itemprop="url">面试</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2018-12-28T16:30:54+08:00" content="12/28/2018">
-              12/28/2018
-            </time>
-          </span>
-          <span class="post-time">
-            | 修改于
-            <time itemprop="dateCreated" datetime="2018-12-28T16:30:54+08:00" content="12/28/2018">
-              12/28/2018
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-28T16:30:54+08:00">
+                12/28/2018
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp; 分类于
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/日记/" itemprop="url" rel="index">
                     <span itemprop="name">日记</span>
                   </a>
@@ -360,7 +479,6 @@
 
                 
                 
-
               
             </span>
           
@@ -368,12 +486,22 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2018/12/28/面试/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/12/28/面试/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/12/28/面试/" itemprop="commentCount"></span>
                 </a>
               </span>
             
+          
+
+          
+          
+
+          
+
           
 
           
@@ -382,27 +510,40 @@
       </header>
     
 
-
-    <div class="post-body">
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="description">越畏惧越偏离。</span>
-          <!--
-          <div class="post-more-link text-center">
+          越畏惧越偏离。
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2018/12/28/面试/">
               阅读全文 &raquo;
             </a>
           </div>
-          -->
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -412,6 +553,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -419,13 +564,27 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://turuir.cn/2015/12/09/鸡汤/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="涂睿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="uRuier's Blog">
+    </span>
 
     
       <header class="post-header">
@@ -433,37 +592,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2015/12/09/鸡汤/" itemprop="url">
-                  鸡汤
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2015/12/09/鸡汤/" itemprop="url">鸡汤</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-12-09T14:32:29+08:00" content="12/09/2015">
-              12/09/2015
-            </time>
-          </span>
-          <span class="post-time">
-            | 修改于
-            <time itemprop="dateCreated" datetime="2015-12-09T14:32:29+08:00" content="12/09/2015">
-              12/09/2015
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-09T14:32:29+08:00">
+                12/09/2015
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp; 分类于
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/鸡汤/" itemprop="url" rel="index">
                     <span itemprop="name">鸡汤</span>
                   </a>
@@ -471,7 +635,6 @@
 
                 
                 
-
               
             </span>
           
@@ -479,12 +642,22 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2015/12/09/鸡汤/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/09/鸡汤/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/09/鸡汤/" itemprop="commentCount"></span>
                 </a>
               </span>
             
+          
+
+          
+          
+
+          
+
           
 
           
@@ -493,26 +666,37 @@
       </header>
     
 
-
-    <div class="post-body">
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <p>为什么有些人看起来明明友善，却喜欢独来独往。待人友善是修养，独来独往是性格。</p>
+          
+            <p>为什么有些人看起来明明友善，却喜欢独来独往。待人友善是修养，独来独往是性格。</p>
 <p>待改善。</p>
 
-            
-          </span>
+          
         
       
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -522,6 +706,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -529,13 +717,27 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://turuir.cn/2015/11/06/图解 CSS3 核心技术与案例实战/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="涂睿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="uRuier's Blog">
+    </span>
 
     
       <header class="post-header">
@@ -543,37 +745,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2015/11/06/图解 CSS3 核心技术与案例实战/" itemprop="url">
-                  大漠的图解CSS3
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2015/11/06/图解 CSS3 核心技术与案例实战/" itemprop="url">大漠的图解CSS3</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-11-06T18:51:32+08:00" content="11/06/2015">
-              11/06/2015
-            </time>
-          </span>
-          <span class="post-time">
-            | 修改于
-            <time itemprop="dateCreated" datetime="2015-12-07T14:34:27+08:00" content="12/07/2015">
-              12/07/2015
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-06T18:51:32+08:00">
+                11/06/2015
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp; 分类于
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/前端/" itemprop="url" rel="index">
                     <span itemprop="name">前端</span>
                   </a>
@@ -581,7 +788,6 @@
 
                 
                 
-
               
             </span>
           
@@ -589,12 +795,22 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2015/11/06/图解 CSS3 核心技术与案例实战/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/06/图解 CSS3 核心技术与案例实战/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/06/图解 CSS3 核心技术与案例实战/" itemprop="commentCount"></span>
                 </a>
               </span>
             
+          
+
+          
+          
+
+          
+
           
 
           
@@ -603,27 +819,40 @@
       </header>
     
 
-
-    <div class="post-body">
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="description">大致把书过了一遍，记下笔记若干，算是为以后参考与丰富。内容很多是基础 CSS，最后几章介绍`transform`、`animation`、响应式布局，内容偏少，且写的不详细，深感失望。总归，这本书让我对 CSS3 有个整体层面上的认识，摆脱之前对 CSS 的局部（错误）认识。但缺点相当明显，质量不高，只适合借阅一读，不适合购买与对 CSS3 的深入理解的前端人员阅读。</span>
-          <!--
-          <div class="post-more-link text-center">
+          大致把书过了一遍，记下笔记若干，算是为以后参考与丰富。内容很多是基础 CSS，最后几章介绍`transform`、`animation`、响应式布局，内容偏少，且写的不详细，深感失望。总归，这本书让我对 CSS3 有个整体层面上的认识，摆脱之前对 CSS 的局部（错误）认识。但缺点相当明显，质量不高，只适合借阅一读，不适合购买与对 CSS3 的深入理解的前端人员阅读。
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2015/11/06/图解 CSS3 核心技术与案例实战/">
               阅读全文 &raquo;
             </a>
           </div>
-          -->
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -633,6 +862,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -640,13 +873,27 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://turuir.cn/2015/10/11/Electron 入门实例/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="涂睿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="uRuier's Blog">
+    </span>
 
     
       <header class="post-header">
@@ -654,37 +901,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2015/10/11/Electron 入门实例/" itemprop="url">
-                  Electron 入门实例
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2015/10/11/Electron 入门实例/" itemprop="url">Electron 入门实例</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-10-11T13:30:35+08:00" content="10/11/2015">
-              10/11/2015
-            </time>
-          </span>
-          <span class="post-time">
-            | 修改于
-            <time itemprop="dateCreated" datetime="2015-12-06T17:06:27+08:00" content="12/06/2015">
-              12/06/2015
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-11T13:30:35+08:00">
+                10/11/2015
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp; 分类于
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/应用程序/" itemprop="url" rel="index">
                     <span itemprop="name">应用程序</span>
                   </a>
@@ -692,7 +944,6 @@
 
                 
                 
-
               
             </span>
           
@@ -700,12 +951,22 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2015/10/11/Electron 入门实例/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/11/Electron 入门实例/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/11/Electron 入门实例/" itemprop="commentCount"></span>
                 </a>
               </span>
             
+          
+
+          
+          
+
+          
+
           
 
           
@@ -714,27 +975,40 @@
       </header>
     
 
-
-    <div class="post-body">
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="description">Electron 可以让你使用纯 JavaScript 调用丰富的原生 APIs 来创造桌面应用，可以看做是专注于桌面应用而不是 Web 服务器的 io.js 的变体。</span>
-          <!--
-          <div class="post-more-link text-center">
+          Electron 可以让你使用纯 JavaScript 调用丰富的原生 APIs 来创造桌面应用，可以看做是专注于桌面应用而不是 Web 服务器的 io.js 的变体。
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2015/10/11/Electron 入门实例/">
               阅读全文 &raquo;
             </a>
           </div>
-          -->
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -744,6 +1018,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -751,13 +1029,27 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://turuir.cn/2015/10/10/HTML 笔记/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="涂睿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="uRuier's Blog">
+    </span>
 
     
       <header class="post-header">
@@ -765,37 +1057,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2015/10/10/HTML 笔记/" itemprop="url">
-                  HTML 笔记
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2015/10/10/HTML 笔记/" itemprop="url">HTML 笔记</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-10-10T23:39:50+08:00" content="10/10/2015">
-              10/10/2015
-            </time>
-          </span>
-          <span class="post-time">
-            | 修改于
-            <time itemprop="dateCreated" datetime="2015-12-06T17:08:27+08:00" content="12/06/2015">
-              12/06/2015
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-10T23:39:50+08:00">
+                10/10/2015
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp; 分类于
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/笔记/" itemprop="url" rel="index">
                     <span itemprop="name">笔记</span>
                   </a>
@@ -803,7 +1100,6 @@
 
                 
                 
-
               
             </span>
           
@@ -811,12 +1107,22 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2015/10/10/HTML 笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/10/HTML 笔记/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/10/HTML 笔记/" itemprop="commentCount"></span>
                 </a>
               </span>
             
+          
+
+          
+          
+
+          
+
           
 
           
@@ -825,27 +1131,40 @@
       </header>
     
 
-
-    <div class="post-body">
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="description">以前整理的 HTML4.01 内容，不多，待补全。</span>
-          <!--
-          <div class="post-more-link text-center">
+          以前整理的 HTML4.01 内容，不多，待补全。
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2015/10/10/HTML 笔记/">
               阅读全文 &raquo;
             </a>
           </div>
-          -->
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -855,6 +1174,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -862,13 +1185,27 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://turuir.cn/2015/10/10/Ubuntu笔记/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="涂睿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="uRuier's Blog">
+    </span>
 
     
       <header class="post-header">
@@ -876,37 +1213,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2015/10/10/Ubuntu笔记/" itemprop="url">
-                  Ubuntu笔记
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2015/10/10/Ubuntu笔记/" itemprop="url">Ubuntu笔记</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-10-10T18:18:00+08:00" content="10/10/2015">
-              10/10/2015
-            </time>
-          </span>
-          <span class="post-time">
-            | 修改于
-            <time itemprop="dateCreated" datetime="2015-12-06T19:46:27+08:00" content="12/06/2015">
-              12/06/2015
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-10T18:18:00+08:00">
+                10/10/2015
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp; 分类于
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/笔记/" itemprop="url" rel="index">
                     <span itemprop="name">笔记</span>
                   </a>
@@ -914,7 +1256,6 @@
 
                 
                 
-
               
             </span>
           
@@ -922,12 +1263,22 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2015/10/10/Ubuntu笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/10/Ubuntu笔记/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/10/Ubuntu笔记/" itemprop="commentCount"></span>
                 </a>
               </span>
             
+          
+
+          
+          
+
+          
+
           
 
           
@@ -936,27 +1287,40 @@
       </header>
     
 
-
-    <div class="post-body">
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="description">Ubuntu 日常操作。最开始入门 Linux 看的书，是鸟哥的私房菜，放在现在来看，感觉也很经典，运维及日常操作必备啊。</span>
-          <!--
-          <div class="post-more-link text-center">
+          Ubuntu 日常操作。最开始入门 Linux 看的书，是鸟哥的私房菜，放在现在来看，感觉也很经典，运维及日常操作必备啊。
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2015/10/10/Ubuntu笔记/">
               阅读全文 &raquo;
             </a>
           </div>
-          -->
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -966,6 +1330,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -973,13 +1341,27 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://turuir.cn/2015/10/09/JavaScript 入门指南/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="涂睿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="uRuier's Blog">
+    </span>
 
     
       <header class="post-header">
@@ -987,37 +1369,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2015/10/09/JavaScript 入门指南/" itemprop="url">
-                  JavaScript 入门指南
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2015/10/09/JavaScript 入门指南/" itemprop="url">JavaScript 入门指南</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-10-09T00:26:40+08:00" content="10/09/2015">
-              10/09/2015
-            </time>
-          </span>
-          <span class="post-time">
-            | 修改于
-            <time itemprop="dateCreated" datetime="2015-11-22T00:00:01+08:00" content="11/22/2015">
-              11/22/2015
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-09T00:26:40+08:00">
+                10/09/2015
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp; 分类于
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/编程语言/" itemprop="url" rel="index">
                     <span itemprop="name">编程语言</span>
                   </a>
@@ -1025,7 +1412,6 @@
 
                 
                 
-
               
             </span>
           
@@ -1033,12 +1419,22 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2015/10/09/JavaScript 入门指南/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/09/JavaScript 入门指南/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/09/JavaScript 入门指南/" itemprop="commentCount"></span>
                 </a>
               </span>
             
+          
+
+          
+          
+
+          
+
           
 
           
@@ -1047,27 +1443,40 @@
       </header>
     
 
-
-    <div class="post-body">
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="description">读书笔记，有不少代码片段，已提取出部分代码封装在自己的常用工具集中。前后修改了多遍，要吐血了-_-!</span>
-          <!--
-          <div class="post-more-link text-center">
+          读书笔记，有不少代码片段，已提取出部分代码封装在自己的常用工具集中。前后修改了多遍，要吐血了-_-!
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2015/10/09/JavaScript 入门指南/">
               阅读全文 &raquo;
             </a>
           </div>
-          -->
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1077,6 +1486,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1084,13 +1497,27 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://turuir.cn/2015/09/20/JavaScript 闭包/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="涂睿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="uRuier's Blog">
+    </span>
 
     
       <header class="post-header">
@@ -1098,37 +1525,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2015/09/20/JavaScript 闭包/" itemprop="url">
-                  JavaScript 闭包
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2015/09/20/JavaScript 闭包/" itemprop="url">JavaScript 闭包</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-09-20T13:28:15+08:00" content="09/20/2015">
-              09/20/2015
-            </time>
-          </span>
-          <span class="post-time">
-            | 修改于
-            <time itemprop="dateCreated" datetime="2015-09-20T13:28:15+08:00" content="09/20/2015">
-              09/20/2015
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-09-20T13:28:15+08:00">
+                09/20/2015
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp; 分类于
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/语言/" itemprop="url" rel="index">
                     <span itemprop="name">语言</span>
                   </a>
@@ -1136,7 +1568,6 @@
 
                 
                 
-
               
             </span>
           
@@ -1144,12 +1575,22 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2015/09/20/JavaScript 闭包/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/20/JavaScript 闭包/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/20/JavaScript 闭包/" itemprop="commentCount"></span>
                 </a>
               </span>
             
+          
+
+          
+          
+
+          
+
           
 
           
@@ -1158,27 +1599,40 @@
       </header>
     
 
-
-    <div class="post-body">
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="description">一般可理解为函数内的函数，由于作用域链的关系，所以当前函数作用域可以访问外部作用域。JavaScript 没有块级作用域，只有函数作用域，所以闭包的使用与函数紧密相关。</span>
-          <!--
-          <div class="post-more-link text-center">
+          一般可理解为函数内的函数，由于作用域链的关系，所以当前函数作用域可以访问外部作用域。JavaScript 没有块级作用域，只有函数作用域，所以闭包的使用与函数紧密相关。
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2015/09/20/JavaScript 闭包/">
               阅读全文 &raquo;
             </a>
           </div>
-          -->
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1188,6 +1642,10 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -1195,13 +1653,27 @@
       
 
   
-  
 
   
   
   
 
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://turuir.cn/2015/08/29/李想创业故事/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="涂睿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="uRuier's Blog">
+    </span>
 
     
       <header class="post-header">
@@ -1209,37 +1681,42 @@
         
         
           <h1 class="post-title" itemprop="name headline">
-            
-            
-              
                 
-                <a class="post-title-link" href="/2015/08/29/李想创业故事/" itemprop="url">
-                  李想创业故事
-                </a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2015/08/29/李想创业故事/" itemprop="url">李想创业故事</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2015-08-29T12:55:38+08:00" content="08/29/2015">
-              08/29/2015
-            </time>
-          </span>
-          <span class="post-time">
-            | 修改于
-            <time itemprop="dateCreated" datetime="2015-08-29T12:55:38+08:00" content="08/29/2015">
-              08/29/2015
-            </time>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-29T12:55:38+08:00">
+                08/29/2015
+              </time>
+            
+
+            
+
+            
           </span>
 
           
             <span class="post-category">
-              &nbsp; | &nbsp; 分类于
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/文化/" itemprop="url" rel="index">
                     <span itemprop="name">文化</span>
                   </a>
@@ -1247,7 +1724,6 @@
 
                 
                 
-
               
             </span>
           
@@ -1255,12 +1731,22 @@
           
             
               <span class="post-comments-count">
-                &nbsp; | &nbsp;
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
                 <a href="/2015/08/29/李想创业故事/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/29/李想创业故事/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/29/李想创业故事/" itemprop="commentCount"></span>
                 </a>
               </span>
             
+          
+
+          
+          
+
+          
+
           
 
           
@@ -1269,27 +1755,40 @@
       </header>
     
 
-
-    <div class="post-body">
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="description">李想和创建康盛创想的戴志康都是80后互联网的代表创业者，先后创办了泡泡网和汽车之家。本文是其创业的自白，值得一看。</span>
-          <!--
-          <div class="post-more-link text-center">
+          李想和创建康盛创想的戴志康都是80后互联网的代表创业者，先后创办了泡泡网和汽车之家。本文是其创业的自白，值得一看。
+          <!--noindex-->
+          <div class="post-button text-center">
             <a class="btn" href="/2015/08/29/李想创业故事/">
               阅读全文 &raquo;
             </a>
           </div>
-          -->
+          <!--/noindex-->
         
       
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
 
     <footer class="post-footer">
+      
+
       
 
       
@@ -1299,11 +1798,14 @@
         <div class="post-eof"></div>
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
     
-
   </section>
 
   
@@ -1313,17 +1815,15 @@
 
 
 
+          </div>
+          
+
+
+          
+
         </div>
-
         
-
-
-        
-
-      </div>
-
-      
-        
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -1334,74 +1834,92 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/avatar.jpg" alt="涂睿" itemprop="image">
-          <p class="site-author-name" itemprop="name">涂睿</p>
-        </div>
-        <p class="site-description motion-element" itemprop="description">人生苦短莫蹉跎</p>
-        <nav class="site-state motion-element">
-          <div class="site-state-item site-state-posts">
-            <a href="/archives">
-              <span class="site-state-item-count">41</span>
-              <span class="site-state-item-name">日志</span>
-            </a>
-          </div>
-
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">15</span>
-              <span class="site-state-item-name">分类</span>
-              </a>
-          </div>
-
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">40</span>
-              <span class="site-state-item-name">标签</span>
-              </a>
-          </div>
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <span class="links-of-author-item">
-                <a href="https://github.com/uruir" target="_blank">
-                  
-                    <i class="fa fa-globe"></i> github
-                  
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="涂睿">
+            
+              <p class="site-author-name" itemprop="name">涂睿</p>
+              <p class="site-description motion-element" itemprop="description">人生苦短莫蹉跎</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
-              </span>
+              </div>
             
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/t9228" target="_blank">
-                  
-                    <i class="fa fa-globe"></i> 微博
-                  
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">分类</span>
                 </a>
-              </span>
+              </div>
             
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
           
-        </div>
 
-        
-        
-
-        <div class="links-of-author motion-element">
           
-        </div>
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/uruir" target="_blank" title="github">
+                      
+                        <i class="fa fa-fw fa-globe"></i>github</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/t9228" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-globe"></i>微博</a>
+                  </span>
+                
+            </div>
+          
 
+          
+          
+
+          
+          
+
+          
+
+        </div>
       </section>
+
+      
 
       
 
@@ -1409,47 +1927,140 @@
   </aside>
 
 
-      
+        
+      </div>
     </main>
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">涂睿</span>
-</div>
 
-<div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
+  
 </div>
 
 
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
       </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
   </div>
 
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
 
   
   
 
   
-    
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
 
   
     
@@ -1467,36 +2078,50 @@
       || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
   </script>
+
+  
     
-     
-
-
     
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
   
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
-
-
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-
-  <script type="text/javascript" src="/js/bootstrap.js"></script>
 
   
   
 
   
+
+  
+
   
 
 </body>
