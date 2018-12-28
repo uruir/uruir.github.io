@@ -1,18 +1,14 @@
 <!doctype html>
 <html class="theme-next   use-motion ">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -21,25 +17,29 @@
 
 
 
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
-
-
-
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Electron 桌面," />
 
 
 
 
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Electron 桌面,">
 
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2">
 
 
 
@@ -47,11 +47,13 @@
 
 
 <meta name="description" content="Electron 可以让你使用纯 JavaScript 调用丰富的原生 APIs 来创造桌面应用，可以看做是专注于桌面应用而不是 Web 服务器的 io.js 的变体。">
+<meta name="keywords" content="Electron 桌面">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Electron 入门实例">
 <meta property="og:url" content="http://turuir.cn/2015/10/11/Electron 入门实例/index.html">
-<meta property="og:site_name" content="uRuier's Blog">
+<meta property="og:site_name" content="uRuier&#39;s Blog">
 <meta property="og:description" content="Electron 可以让你使用纯 JavaScript 调用丰富的原生 APIs 来创造桌面应用，可以看做是专注于桌面应用而不是 Web 服务器的 io.js 的变体。">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2015-12-06T09:06:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Electron 入门实例">
@@ -70,7 +72,7 @@
   <title> Electron 入门实例 | uRuier's Blog </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   <!--[if lte IE 8]>
   <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
@@ -90,12 +92,12 @@
   <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">uRuier's Blog</span>
       <span class="logo-line-after"><i></i></span>
@@ -122,7 +124,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br>
             
             首页
           </a>
@@ -132,7 +134,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br>
             
             分类
           </a>
@@ -142,7 +144,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br>
             
             标签
           </a>
@@ -152,7 +154,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br>
             
             时间轴
           </a>
@@ -162,7 +164,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
             
-              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br>
             
             关于我
           </a>
@@ -195,7 +197,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -227,10 +229,10 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
               &nbsp; | &nbsp; 分类于
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
                   <a href="/categories/应用程序/" itemprop="url" rel="index">
                     <span itemprop="name">应用程序</span>
                   </a>
@@ -269,9 +271,9 @@
       
         <span itemprop="articleBody"><h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Electron 可以让你使用纯 JavaScript 调用丰富的原生 APIs 来创造桌面应用，可以看做是专注于桌面应用而不是 Web 服务器的 io.js 的变体。</p>
 <p>Electron 使用 Web 页面作为它的 GUI，所以可以看成是一个被 JavaScript 控制的、精简版 Chromium 浏览器。</p>
-<p><a href="https://atom.io" target="_blank" rel="external">Atom</a>文本编辑器即是用该工具开发。</p>
-<p>在该项目之前，有个类似的工具<a href="http://nwjs.io" target="_blank" rel="external">NW.js</a>，其实 Github 高层当时考查过 NW.js，希望基于它来开发 Atom，但由于下面的原因放弃了。然后把 NW.js 的第二作者挖过去开发了 Electron。</p>
-<p><a href="https://github.com/atom/electron/blob/master/docs-translations/zh-CN/development/atom-shell-vs-node-webkit.md" target="_blank" rel="external">Atom &amp; NW.js的区别</a></p>
+<p><a href="https://atom.io" target="_blank" rel="noopener">Atom</a>文本编辑器即是用该工具开发。</p>
+<p>在该项目之前，有个类似的工具<a href="http://nwjs.io" target="_blank" rel="noopener">NW.js</a>，其实 Github 高层当时考查过 NW.js，希望基于它来开发 Atom，但由于下面的原因放弃了。然后把 NW.js 的第二作者挖过去开发了 Electron。</p>
+<p><a href="https://github.com/atom/electron/blob/master/docs-translations/zh-CN/development/atom-shell-vs-node-webkit.md" target="_blank" rel="noopener">Atom &amp; NW.js的区别</a></p>
 <h3 id="主进程"><a href="#主进程" class="headerlink" title="主进程"></a>主进程</h3><p>主进程是运行<code>package.json</code>里的<code>main</code>脚本的进程，在主进程运行的脚本可以以创建 Web 页面的形式展示 GUI。</p>
 <h3 id="渲染进程"><a href="#渲染进程" class="headerlink" title="渲染进程"></a>渲染进程</h3><p>由于 Electron 使用 Chromium 来展示页面，每个页面运行自己的进程，这些进程称为<strong>渲染进程</strong>。</p>
 <p>一般浏览器运行在沙盒环境下，即不允许访问原生资源，比如对硬盘的写入操作。然而，通过内置的 io.js 这个后端语言可以访问操作系统，实现桌面应用应有的操作。</p>
@@ -285,12 +287,12 @@
 <li>index.html</li>
 </ul>
 <p>Electron 的入口文件是 JavaScript，即上面的<code>main.js</code>；而 NW.js 则是以 HTML 文件为入口。</p>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//package.json</span></div><div class="line">&#123;</div><div class="line">  <span class="string">"name"</span>: <span class="string">"myApp"</span>,</div><div class="line">  <span class="string">"version"</span>: <span class="string">"0.0.1"</span>,</div><div class="line">  <span class="string">"main"</span>: <span class="string">"main.js"</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//package.json</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"myApp"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"0.0.1"</span>,</span><br><span class="line">  <span class="string">"main"</span>: <span class="string">"main.js"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>若<code>main</code>字段没有<code>package.json</code>中声明，则 Electron 会优先加载根目录下的<code>index.js</code>。</p>
 <p><code>main.js</code>用于创建窗口和处理系统时间，示例如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = <span class="built_in">require</span>(<span class="string">'app'</span>); <span class="comment">// 控制应用生命周期的模块</span></div><div class="line"><span class="keyword">var</span> BrowserWindow = <span class="built_in">require</span>(<span class="string">'browser-window'</span>); <span class="comment">// 创建原生浏览器窗口的模块</span></div><div class="line"></div><div class="line"><span class="comment">// 给服务器发送异常报告</span></div><div class="line"><span class="built_in">require</span>(<span class="string">'crash-reporter'</span>).start();</div><div class="line"></div><div class="line"><span class="comment">// 保持一个对于window对象的全局引用</span></div><div class="line"><span class="keyword">var</span> mainWindow = <span class="literal">null</span>;</div><div class="line"></div><div class="line"><span class="comment">// 当所有窗口被关闭了，退出</span></div><div class="line">app.on(<span class="string">'window-all-closed'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">if</span> (process.platform != <span class="string">'darwin'</span>) &#123;</div><div class="line">    app.quit();</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 当Electron完成了初始化且准备创建浏览器窗口的时候调用该方法</span></div><div class="line">app.on(<span class="string">'ready'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  mainWindow = <span class="keyword">new</span> BrowserWindow(&#123;</div><div class="line">    <span class="attr">width</span>: <span class="number">1024</span>,</div><div class="line">    <span class="attr">height</span>: <span class="number">720</span></div><div class="line">  &#125;);</div><div class="line">  mainWindow.loadUrl(<span class="string">'file://'</span> + __dirname + <span class="string">'/index.html'</span>);</div><div class="line">  mainWindow.openDevTools(); <span class="comment">// 打开开发者模式</span></div><div class="line">  mainWindow.on(<span class="string">'closed'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    mainWindow = <span class="literal">null</span>;</div><div class="line">  &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> app = <span class="built_in">require</span>(<span class="string">'app'</span>); <span class="comment">// 控制应用生命周期的模块</span></span><br><span class="line"><span class="keyword">var</span> BrowserWindow = <span class="built_in">require</span>(<span class="string">'browser-window'</span>); <span class="comment">// 创建原生浏览器窗口的模块</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 给服务器发送异常报告</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">'crash-reporter'</span>).start();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 保持一个对于window对象的全局引用</span></span><br><span class="line"><span class="keyword">var</span> mainWindow = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当所有窗口被关闭了，退出</span></span><br><span class="line">app.on(<span class="string">'window-all-closed'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (process.platform != <span class="string">'darwin'</span>) &#123;</span><br><span class="line">    app.quit();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当Electron完成了初始化且准备创建浏览器窗口的时候调用该方法</span></span><br><span class="line">app.on(<span class="string">'ready'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  mainWindow = <span class="keyword">new</span> BrowserWindow(&#123;</span><br><span class="line">    width: <span class="number">1024</span>,</span><br><span class="line">    height: <span class="number">720</span></span><br><span class="line">  &#125;);</span><br><span class="line">  mainWindow.loadUrl(<span class="string">'file://'</span> + __dirname + <span class="string">'/index.html'</span>);</span><br><span class="line">  mainWindow.openDevTools(); <span class="comment">// 打开开发者模式</span></span><br><span class="line">  mainWindow.on(<span class="string">'closed'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    mainWindow = <span class="literal">null</span>;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p><code>index.html</code>如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">'utf-8'</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello Electron<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Electron Example<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>We are using io.js <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(process.version)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> and Electron <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(process.versions[<span class="string">'electron'</span>])</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>.</div><div class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">'utf-8'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello Electron<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Electron Example<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>We are using io.js <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(process.version)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> and Electron <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"><span class="built_in">document</span>.write(process.versions[<span class="string">'electron'</span>])</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>.</span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <h3 id="运行应用"><a href="#运行应用" class="headerlink" title="运行应用"></a>运行应用</h3><p>全局安装<code>electron-prebuild</code>: <code>npm install -g electron-prebuilt</code>，然后运行<code>electron .</code></p>
 </span>
       
@@ -346,8 +348,7 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/10/11/Electron 入门实例/"
-           data-title="Electron 入门实例" data-url="http://turuir.cn/2015/10/11/Electron 入门实例/">
+      <div class="ds-thread" data-thread-key="2015/10/11/Electron 入门实例/" data-title="Electron 入门实例" data-url="http://turuir.cn/2015/10/11/Electron 入门实例/">
       </div>
     
   </div>
@@ -373,7 +374,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -383,15 +384,15 @@
       
 
       <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/avatar.jpg" alt="涂睿" itemprop="image"/>
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/avatar.jpg" alt="涂睿" itemprop="image">
           <p class="site-author-name" itemprop="name">涂睿</p>
         </div>
         <p class="site-description motion-element" itemprop="description">人生苦短莫蹉跎</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-count">40</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -473,10 +474,10 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>
